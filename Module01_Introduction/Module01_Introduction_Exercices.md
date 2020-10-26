@@ -10,7 +10,7 @@
 - L'adresse du site web
 - La date des prochaines élections
 
-Une fois ces données extraites, vous devez les insérer ou les mettre à jour dans une base de données MySQL ou Microsoft SQL Server.
+Une fois ces données extraites, vous devez les insérer ou les mettre à jour dans une base de données MySQL ou Microsoft SQL Server ou Oracle.
 
 ### Étape 1 - Visualisation du fichier
 
@@ -55,11 +55,13 @@ dotnet tool install --global dotnet-ef
 - Ajoutez le projet "M01_DAL_Municipalite_MySQL" ou "M01_DAL_Municipalite_SQLServer" de type "bibliothèque de classes". Ce projet va implanter l'interface "DepotMunicipalites"
 - Dans le projet "M01_DAL_Municipalite_XYZ", installez les packages NuGet :
   - "MySql.Data.EntityFrameworkCore" si vous décidez d'utiliser MySql
+  - "Oracle.EntityFrameworkCore"
   - "Microsoft.EntityFrameworkCore.SqlServer" si vous décidez d'utiliser SqlServer
   - "Microsoft.EntityFrameworkCore.Designer" quelque soit votre cas
 - Créez une classe de contexte qui peut se connecter à votre base de données (MySQL ou SQLServer)
   - Pour la surcharge de la méthode "OnConfiguring", inspirez vous des liens suivants :
     - [MySQL](https://dev.mysql.com/doc/connector-net/en/connector-net-entityframework-core.html)
+    - [Oracle](https://github.com/oracle/dotnet-db-samples/blob/master/samples/dotnet-core/ef-core/get-started/create-model-save-query-scaffold.cs)
     - [SQL Server](https://docs.microsoft.com/en-us/ef/core)
   - Pour l'exercice, la chaine de connexion peut être codée. Dans un contexte réel, elle serait renseignée dans un fichier de configuration (Ex. appsettings.json : [voir module 08 - Architecture des applications du cours de POOII](https://github.com/PiFou86/420-W30-SF/blob/master/Module08_ArchitectureDesApplications/Module08_ArchitectureDesApplications_Exercices.md)
 - Créez la base de données avec les commandes suivantes :
