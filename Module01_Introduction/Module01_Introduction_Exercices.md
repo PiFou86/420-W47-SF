@@ -37,7 +37,7 @@ Afin de respecter les bonnes pratiques vous devez implanter le patron "depot" qu
 ---
 
 - Créez une solution Visual Studio du type "console" avec le cadriciel .Net core. Le projet doit être nommé "DSED_M01_Fichiers_Texte"
-- Ajoutez le projet "M01_Srv_Municipalite". Ce projet va contenir la classe "Municipalite" qui contient les informations pertinentes sur les municipalitées plus une propriété nommée "Actif" de type booléen ainsi que les interfaces "DepotMunicipalites" et "DepotImportationMunicipalites" :
+- Ajoutez le projet "M01_Srv_Municipalite" de type "bibliothèque de classes". Ce projet va contenir la classe "Municipalite" qui contient les informations pertinentes sur les municipalitées plus une propriété nommée "Actif" de type booléen ainsi que les interfaces "DepotMunicipalites" et "DepotImportationMunicipalites" :
   - DepotMunicipalites :
     - ChercherMunicipaliteParCodeGeographique : int -> Municipalite (Renvoie la municipalité active ou non par son code géographique)
     - ListerMunicipalitesActives : () -> IEnumerable\<Municipalite> (Renvoie seulement les municipalités actives)
@@ -46,7 +46,7 @@ Afin de respecter les bonnes pratiques vous devez implanter le patron "depot" qu
     - MAJMunicipalite : Municipalite -> ()
   - DepotImportationMunicipalite:
     - LireMunicipalite : () ->  IEnumerable\<Municipalite>
-- Ajoutez le projet "M01_DAL_Municipalite_MySQL" ou "M01_DAL_Municipalite_SQLServer". Ce projet va implanter l'interface "DepotMunicipalites"
+- Ajoutez le projet "M01_DAL_Municipalite_MySQL" ou "M01_DAL_Municipalite_SQLServer" de type "bibliothèque de classes". Ce projet va implanter l'interface "DepotMunicipalites"
 - Dans le projet "M01_DAL_Municipalite_XYZ", installez le package NuGet "MySql.Data.EntityFrameworkCore" ou "Microsoft.EntityFrameworkCore.SqlServer"
 - Créez une classe de contexte qui peut se connecter à votre base de données (MySQL ou SQLServer)
   - Pour la surcharge de la méthode "OnConfiguring", inspirez vous des liens suivants :
@@ -60,7 +60,7 @@ Afin de respecter les bonnes pratiques vous devez implanter le patron "depot" qu
 
 ### Étape 3 - Lecture C# du fichier CSV
 
-- Ajoutez le projet "DSED_M01_DAL_Import_Munic_CSV" 
+- Ajoutez le projet "DSED_M01_DAL_Import_Munic_CSV" de type "bibliothèque de classes"
 - Ajoutez-y une classe qui implante l'interface "DepotImportationMunicipalite"
 - Codez la méthode "LireMunicipalite" :
   - Ouvrez le fichier en mode lecture
