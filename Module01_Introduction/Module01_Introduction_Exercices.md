@@ -34,6 +34,12 @@ De manière grossière :
 
 Afin de respecter les bonnes pratiques vous devez implanter le patron "depot" que vous avez vu dans le [module 06 en POOII](https://github.com/PiFou86/420-W30-SF/blob/master/Module06_Formats_Echanges/Module06_Formats_Echanges_Exercices.md) dans le module sur les formats d'échanges de données.
 
+Si c'est votre première utilisation d'entityFramework, il faut installer les outils. Pour cela, ouvrez une ligne de commande et tapez :
+
+```powershell
+dotnet tool install --global dotnet-ef
+```
+
 ---
 
 - Créez une solution Visual Studio du type "console" avec le cadriciel .Net core. Le projet doit être nommé "DSED_M01_Fichiers_Texte"
@@ -54,8 +60,8 @@ Afin de respecter les bonnes pratiques vous devez implanter le patron "depot" qu
     - [SQL Server](https://docs.microsoft.com/en-us/ef/core)
   - Pour l'exercice, la chaine de connexion peut être codée. Dans un contexte réel, elle serait renseignée dans un fichier de configuration (Ex. appsettings.json : [voir module 08 - Architecture des applications du cours de POOII](https://github.com/PiFou86/420-W30-SF/blob/master/Module08_ArchitectureDesApplications/Module08_ArchitectureDesApplications_Exercices.md)
 - Créez la base de données avec les commandes suivantes :
-  - dotnet ef migration add "initial" : la commande va parcourir votre code à la recherche de modification de structure de base de données afin de créer une méthode de migration nommée ici "initial". Le nom de chaque migration doit être différent d'une migration à l'autre
-  - dotnet ef database update : applique la/les migrations
+  - ```dotnet ef migrations add "initial"``` : la commande va parcourir votre code à la recherche de modification de structure de base de données afin de créer une méthode de migration nommée ici "initial". Le nom de chaque migration doit être différent d'une migration à l'autre
+  - ```dotnet ef database update``` : applique la/les migrations
 - Validez que votre base de données à la bonne structure.
 
 ### Étape 3 - Lecture C# du fichier CSV
