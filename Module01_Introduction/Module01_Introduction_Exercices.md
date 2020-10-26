@@ -40,12 +40,12 @@ Afin de respecter les bonnes pratiques vous devez implanter le patron "depot" qu
 - Ajoutez le projet "M01_Srv_Municipalite". Ce projet va contenir la classe "Municipalite" qui contient les informations pertinentes sur les municipalitées plus une propriété nommée "Actif" de type booléen ainsi que les interfaces "DepotMunicipalites" et "DepotImportationMunicipalites" :
   - DepotMunicipalites :
     - ChercherMunicipaliteParCodeGeographique : int -> Municipalite (Renvoie la municipalité active ou non par son code géographique)
-    - ListerMunicipalitesActives : () -> IEnumerable<Municipalite> (Renvoie seulement les municipalités actives)
+    - ListerMunicipalitesActives : () -> IEnumerable\<Municipalite> (Renvoie seulement les municipalités actives)
     - DesactiverMunicipalite : (Municipalite) -> ()
     - AjouterMunicipalite : Municipalite -> ()
     - MAJMunicipalite : Municipalite -> ()
   - DepotImportationMunicipalite:
-    - LireMunicipalite : () ->  IEnumerable<Municipalite>
+    - LireMunicipalite : () ->  IEnumerable\<Municipalite>
 - Ajoutez le projet "M01_DAL_Municipalite_MySQL" ou "M01_DAL_Municipalite_SQLServer". Ce projet va implanter l'interface "DepotMunicipalites"
 - Dans le projet "M01_DAL_Municipalite_XYZ", installez le package NuGet "MySql.Data.EntityFrameworkCore" ou "Microsoft.EntityFrameworkCore.SqlServer"
 - Créez une classe de contexte qui peut se connecter à votre base de données (MySQL ou SQLServer)
