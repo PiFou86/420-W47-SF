@@ -53,7 +53,10 @@ dotnet tool install --global dotnet-ef
   - DepotImportationMunicipalite:
     - LireMunicipalite : () ->  IEnumerable\<Municipalite>
 - Ajoutez le projet "M01_DAL_Municipalite_MySQL" ou "M01_DAL_Municipalite_SQLServer" de type "bibliothèque de classes". Ce projet va implanter l'interface "DepotMunicipalites"
-- Dans le projet "M01_DAL_Municipalite_XYZ", installez le package NuGet "MySql.Data.EntityFrameworkCore" ou "Microsoft.EntityFrameworkCore.SqlServer"
+- Dans le projet "M01_DAL_Municipalite_XYZ", installez les packages NuGet :
+  - "MySql.Data.EntityFrameworkCore" si vous décidez d'utiliser MySql
+  - "Microsoft.EntityFrameworkCore.SqlServer" si vous décidez d'utiliser SqlServer
+  - "Microsoft.EntityFrameworkCore.Designer" quelque soit votre cas
 - Créez une classe de contexte qui peut se connecter à votre base de données (MySQL ou SQLServer)
   - Pour la surcharge de la méthode "OnConfiguring", inspirez vous des liens suivants :
     - [MySQL](https://dev.mysql.com/doc/connector-net/en/connector-net-entityframework-core.html)
@@ -62,6 +65,7 @@ dotnet tool install --global dotnet-ef
 - Créez la base de données avec les commandes suivantes :
   - ```dotnet ef migrations add "initial"``` : la commande va parcourir votre code à la recherche de modification de structure de base de données afin de créer une méthode de migration nommée ici "initial". Le nom de chaque migration doit être différent d'une migration à l'autre
   - ```dotnet ef database update``` : applique la/les migrations
+  - ***Les commandes doivent être tapées à partir de la racine du projet "M01_DAL_Municipalite_XYZ". L'utilitaire dotnet-ef doit être installé***
 - Validez que votre base de données à la bonne structure.
 
 ### Étape 3 - Lecture C# du fichier CSV
