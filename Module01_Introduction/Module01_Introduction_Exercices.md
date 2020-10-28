@@ -43,19 +43,19 @@ dotnet tool install --global dotnet-ef
 ---
 
 - Créez une solution Visual Studio du type "console" avec le cadriciel .Net core. Le projet doit être nommé "DSED_M01_Fichiers_Texte"
-- Ajoutez le projet "M01_Srv_Municipalite" de type "bibliothèque de classes". Ce projet va contenir la classe "Municipalite" qui contient les informations pertinentes sur les municipalitées plus une propriété nommée "Actif" de type booléen ainsi que les interfaces "DepotMunicipalites" et "DepotImportationMunicipalites" :
-  - DepotMunicipalites :
+- Ajoutez le projet "M01_Srv_Municipalite" de type "bibliothèque de classes". Ce projet va contenir la classe "Municipalite" qui contient les informations pertinentes sur les municipalitées plus une propriété nommée "Actif" de type booléen ainsi que les interfaces "IDepotMunicipalites" et "IDepotImportationMunicipalites" :
+  - IDepotMunicipalites :
     - ChercherMunicipaliteParCodeGeographique : int -> Municipalite (Renvoie la municipalité active ou non par son code géographique)
     - ListerMunicipalitesActives : () -> IEnumerable\<Municipalite> (Renvoie seulement les municipalités actives)
     - DesactiverMunicipalite : (Municipalite) -> ()
     - AjouterMunicipalite : Municipalite -> ()
     - MAJMunicipalite : Municipalite -> ()
-  - DepotImportationMunicipalite:
+  - IDepotImportationMunicipalite:
     - LireMunicipalite : () ->  IEnumerable\<Municipalite>
-- Ajoutez le projet "M01_DAL_Municipalite_MySQL" ou "M01_DAL_Municipalite_SQLServer" de type "bibliothèque de classes". Ce projet va implanter l'interface "DepotMunicipalites"
+- Ajoutez le projet "M01_DAL_Municipalite_MySQL" ou "M01_DAL_Municipalite_SQLServer" de type "bibliothèque de classes". Ce projet va implanter l'interface "IDepotMunicipalites"
 - Dans le projet "M01_DAL_Municipalite_XYZ", installez les packages NuGet :
   - "MySql.Data.EntityFrameworkCore" si vous décidez d'utiliser MySql
-  - "Oracle.EntityFrameworkCore"
+  - "Oracle.EntityFrameworkCore" si vous décidez d'utiliser Oracle
   - "Microsoft.EntityFrameworkCore.SqlServer" si vous décidez d'utiliser SqlServer
   - "Microsoft.EntityFrameworkCore.Designer" quelque soit votre cas
 - Créez une classe de contexte qui peut se connecter à votre base de données (MySQL ou SQLServer)
@@ -81,7 +81,7 @@ dotnet tool install --global dotnet-ef
 
 ### Étape 4 - Traitement du fichier
 
-- Ajoutez la classe "StatistiquesImportationDonnees" avec les propriétés suivantes :
+- À partir du projet "M01_Srv_Municipalite", ajoutez la classe "StatistiquesImportationDonnees" avec les propriétés suivantes :
   - NombreEnregistrementsAjoutes : int
   - NombreEnregistrementsModifies : int
   - NombreEnregistrementsDesactives : int
