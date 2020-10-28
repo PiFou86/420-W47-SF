@@ -87,7 +87,7 @@ dotnet tool install --global dotnet-ef
   - NombreEnregistrementsDesactives : int
 - Implantez la méthode "ToString" de cette dernière.
 - Ajoutez la classe "TraitementImporterDonneesMunicipalite"
-- Créez un constructeur d'initialisation qui reçoit deux objets, un objet de type "DepotImportationMunicipalite" et l'autre de type "DepotMunicipalites".
+- Créez un constructeur d'initialisation qui reçoit deux objets, un objet de type "IDepotImportationMunicipalite" et l'autre de type "IDepotMunicipalites".
 - Ajoutez la méthode "Executer" : () -> StatistiquesImportationDonnees
   - Si la municipalité est manquante, l'ajouter
   - Si la municipalité est existante, la mettre à jour seulement si nécessaire (ex. si inactive, l'activer)
