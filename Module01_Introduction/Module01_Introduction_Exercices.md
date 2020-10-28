@@ -73,7 +73,7 @@ dotnet tool install --global dotnet-ef
 ### Étape 3 - Lecture C# du fichier CSV
 
 - Ajoutez le projet "DSED_M01_DAL_Import_Munic_CSV" de type "bibliothèque de classes"
-- Ajoutez-y une classe qui implante l'interface "DepotImportationMunicipalite"
+- Ajoutez-y une classe qui implante l'interface "IDepotImportationMunicipalite"
 - Codez la méthode "LireMunicipalite" :
   - Ouvrez le fichier en mode lecture
   - Lisez le fichier ligne par ligne (ReadLine)
