@@ -88,7 +88,7 @@ protected override void OnConfiguring(DbContextOptionsBuilder options) {
 ### Étape 3 - Lecture C# du fichier CSV
 
 - Ajoutez le projet "M01_DAL_Import_Munic_CSV" de type "bibliothèque de classes"
-- Ajoutez-y une classe qui implante l'interface "DepotImportationMunicipalite"
+- Ajoutez-y une classe qui implante l'interface "IDepotImportationMunicipalite"
 - Codez la méthode "LireMunicipalite" :
   - Ouvrez le fichier en mode lecture
   - Lisez le fichier ligne par ligne (ReadLine)
@@ -102,7 +102,7 @@ protected override void OnConfiguring(DbContextOptionsBuilder options) {
   - NombreEnregistrementsDesactives : int
 - Implantez la méthode "ToString" de cette dernière.
 - Ajoutez la classe "TraitementImporterDonneesMunicipalite"
-- Créez un constructeur d'initialisation qui reçoit deux objets, un objet de type "DepotImportationMunicipalite" et l'autre de type "DepotMunicipalites".
+- Créez un constructeur d'initialisation qui reçoit deux objets, un objet de type "IDepotImportationMunicipalite" et l'autre de type "IDepotMunicipalites".
 - Ajoutez la méthode "Executer" : () -> StatistiquesImportationDonnees
   - Si la municipalité est manquante, l'ajouter
   - Si la municipalité est existante, la mettre à jour seulement si nécessaire (ex. si inactive, l'activer)
