@@ -12,6 +12,12 @@
 
 Une fois ces données extraites, vous devez les insérer ou les mettre à jour dans une base de données MySQL ou Microsoft SQL Server ou Oracle.
 
+<details>
+    <summary>Diagramme de classe global</summary>
+
+![Diagramme UML](../images/Module01_Introduction/uml_exercice1/uml_exercice1.png)
+</details>
+
 ### Étape 1 - Visualisation du fichier
 
 - Téléchargez les données des municipalités à partir de [la page du MAMH du site des données libres du québec](https://www.donneesquebec.ca/recherche/fr/dataset/repertoire-des-municipalites-du-quebec/resource/19385b4e-5503-4330-9e59-f998f5918363).
@@ -63,6 +69,15 @@ dotnet tool install --global dotnet-ef
     - [MySQL](https://dev.mysql.com/doc/connector-net/en/connector-net-entityframework-core.html)
     - [Oracle](https://github.com/oracle/dotnet-db-samples/blob/master/samples/dotnet-core/ef-core/get-started/create-model-save-query-scaffold.cs)
     - [SQL Server](https://docs.microsoft.com/en-us/ef/core)
+  - À la suite de l'appel à "UseMySQL / UseSQLServer / UseOracle", ajoutez l'appel à la méthode U le tout devrait ressembler à cela :
+
+```csharp
+protected override void OnConfiguring(DbContextOptionsBuilder options) {
+  options.UseMySQL("server=localhost;database=municipalites;user=root;password=Passw0rd")
+         .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
+}
+```
+
   - Pour l'exercice, la chaine de connexion peut être codée. Dans un contexte réel, elle serait renseignée dans un fichier de configuration (Ex. appsettings.json : [voir module 08 - Architecture des applications du cours de POOII](https://github.com/PiFou86/420-W30-SF/blob/master/Module08_ArchitectureDesApplications/Module08_ArchitectureDesApplications_Exercices.md)
 - Créez la base de données avec les commandes suivantes :
   - ```dotnet ef migrations add "initial"``` : la commande va parcourir votre code à la recherche de modification de structure de base de données afin de créer une méthode de migration nommée ici "initial". Le nom de chaque migration doit être différent d'une migration à l'autre
@@ -72,7 +87,7 @@ dotnet tool install --global dotnet-ef
 
 ### Étape 3 - Lecture C# du fichier CSV
 
-- Ajoutez le projet "DSED_M01_DAL_Import_Munic_CSV" de type "bibliothèque de classes"
+- Ajoutez le projet "M01_DAL_Import_Munic_CSV" de type "bibliothèque de classes"
 - Ajoutez-y une classe qui implante l'interface "DepotImportationMunicipalite"
 - Codez la méthode "LireMunicipalite" :
   - Ouvrez le fichier en mode lecture
