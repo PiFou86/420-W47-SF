@@ -1,7 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 using MySql.Data.EntityFrameworkCore.Metadata;
 
-namespace M01_DAL_Municipalite_MySQL.Migrations
+namespace DSED_M01_Fichiers_Texte.Migrations
 {
     public partial class initial : Migration
     {
@@ -12,7 +13,12 @@ namespace M01_DAL_Municipalite_MySQL.Migrations
                 columns: table => new
                 {
                     MunicipaliteId = table.Column<int>(nullable: false)
-                        .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn)
+                        .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
+                    NomMunicipalite = table.Column<string>(nullable: true),
+                    AdresseCourriel = table.Column<string>(nullable: true),
+                    AdresseWeb = table.Column<string>(nullable: true),
+                    DateProchaineElection = table.Column<DateTime>(nullable: false),
+                    Actif = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {
