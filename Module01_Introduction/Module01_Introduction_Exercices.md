@@ -49,7 +49,8 @@ dotnet tool install --global dotnet-ef
 ---
 
 - Créez une solution Visual Studio du type "console" avec le cadriciel .Net core. Le projet doit être nommé "DSED_M01_Fichiers_Texte"
-- Ajoutez le projet "M01_Srv_Municipalite" de type "bibliothèque de classes". Ce projet va contenir la classe "Municipalite" qui contient les informations pertinentes sur les municipalitées plus une propriété nommée "Actif" de type booléen ainsi que les interfaces "IDepotMunicipalites" et "IDepotImportationMunicipalites" :
+- Ajoutez le projet "M01_Srv_Municipalite" de type "bibliothèque de classes". Ce projet va contenir la classe "Municipalite" qui contient les informations pertinentes sur les municipalitées plus une propriété nommée "Actif" de type booléen. Le booléen "Actif" permet simuler la suppression d'un enregistrement (suppression logique à la place de physique)
+- Ajoutez les interfaces "IDepotMunicipalites" et "IDepotImportationMunicipalites" :
   - IDepotMunicipalites :
     - ChercherMunicipaliteParCodeGeographique : int -> Municipalite (Renvoie la municipalité active ou non par son code géographique)
     - ListerMunicipalitesActives : () -> IEnumerable\<Municipalite> (Renvoie seulement les municipalités actives)
@@ -119,7 +120,7 @@ protected override void OnConfiguring(DbContextOptionsBuilder options) {
 
 - Faîtes vos tests unitaires de la classe de traitement en utilisant les packages "XUnit" et "Moq".
 
-## Exercice 2 - Lecture des municipalités - XML
+## Exercice 2 - Lecture des municipalités - JSON
 
-- Refaites les étapes 1 (Affichage texte seulement sans Excel) et 3 de l'exercice 1 mais avec le format XML ("DSED_M01_DAL_Import_Munic_XML").
-- Modifiez votre programme principal afin qu'il utilise maintenant le dépôt de type XML pour faire vos exécutions.
+- Refaites les étapes 1 (Affichage texte seulement sans Excel) et 3 de l'exercice 1 mais avec le format JSON disponible à l'adresse suivante : https://www.donneesquebec.ca/recherche/api/action/datastore_search?resource_id=19385b4e-5503-4330-9e59-f998f5918363&limit=3000.
+- Modifiez votre programme principal afin qu'il utilise maintenant le dépôt de type JSON pour faire vos exécutions.
