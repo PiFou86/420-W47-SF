@@ -70,7 +70,7 @@ public class Livre
   - Spécifiez la bonne adresse de base : "https://www.donneesquebec.ca"
   - Effacez l'entête des fichiers acceptés de votre objet de requêtes
   - Ajoutez l'entête de fichiers acceptés "application/json"
-  - Utilisez la méthode "GET" pour obtenir les données présentes à l'adresse : https://www.donneesquebec.ca/recherche/api/action/datastore_search?resource_id=19385b4e-5503-4330-9e59-f998f5918363
+  - Utilisez la méthode "GET" pour obtenir les données présentes à l'adresse :  https://www.donneesquebec.ca/recherche/api/action/datastore_search?resource_id=19385b4e-5503-4330-9e59-f998f5918363&limit=3000
   - Pour réaliser cette requête, inspirez-vous du code du préambule
   - Utilisez la bibliothèque Newtonsoft.Json de Newtonsoft
 - Modifiez votre programme principal afin qu'il utilise maintenant le dépôt de type JSON pour faire vos exécutions.
