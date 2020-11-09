@@ -1,0 +1,16 @@
+{
+  "nom": "Marie",
+  "prenom": "Vière",
+  "adresses": [
+    {
+      "numeroCivique": 123,
+      "odonyme": "Nicephore Niepce",
+      "typeVoie": "rue",
+      "ville": "Québec",
+      "province": "Québec",
+      "pays": "Canada"
+    }
+  ],
+  "estClient": true,
+  "magasinPrefere": null
+}
