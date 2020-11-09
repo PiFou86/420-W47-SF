@@ -12,8 +12,8 @@ L'objectif de l'exercice est de créer une API REST permettant de fournir les op
   - Choisissez le modèle général "Appication web (Model-View-Controller)"
   - Choisissez le type d'authentification "Comptes d'utilisateurs individuels"
 - Par défaut, le projet va créer la chaine de connexion "DefaultConnection" qui utilise une base de données de type "localdb". Allez modifier cette chaîne de connexion pour la faire correspondre à votre base de données locale qui contient vos données de municipalités.
-- Modifiez vos options de démarrage de projet pour que ce ne soit pas "IIS Express" qui héberge votre site web, mais que ce soir le programme lui-même en sélectionnant "DSED_M03_REST02"
-- Ajoutez le support de Swagger en ajoutant le package Nuget "NSwagger.AspNetCore" et en modifiant la classe "Startup" comme indiqué dans le cours et la démo
+- Modifiez vos options de démarrage de projet pour que ce ne soit pas "IIS Express" qui héberge votre site web, mais que ce soir le programme lui-même en sélectionnant "DSED_M03_REST01"
+- Ajoutez le support de Swagger en ajoutant le package Nuget "NSwag.AspNetCore" et en modifiant la classe "Startup" comme indiqué dans le cours et la démo
 - Dans votre projet, créez les classes qui permettent de manipuler des ressources de types "Municipalite" en utilisant une abstraction de dépot de municipalités dans un répertoire "services" :
   - Les municipalités sont définies comme dans les modules précédents
   - Vos services doivent permettre :
