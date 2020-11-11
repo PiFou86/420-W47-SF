@@ -6,7 +6,7 @@ L'objectif de l'exercice est de créer une API REST permettant de fournir les op
 
 ### Exercice 1.1 - Création de l'API REST
 
-***Afin de simplifier le code, je vous demande de ne faire qu'une solution avec un projet de type Application web et de créer vos différentes couches dans des répertoires qui simulent vos projets services et accès aux données. Ce type de projet utilise le moteur d'injection de dépendances : pour avoir un contexte, il vous suffit de créer un constructeur avec en paramètre le type d'objet voulu. ***
+***Afin de simplifier le code, je vous demande de ne faire qu'une solution avec un projet de type Application web et de créer vos différentes couches dans des répertoires qui simulent vos projets services et accès aux données. Ce type de projet utilise le moteur d'injection de dépendances : pour avoir un contexte, il vous suffit de créer un constructeur avec en paramètre le type d'objet voulu.***
 
 - Créez la solution "DSED_M03_REST01" de type "Application Web ASP.NET Core" :
   - Choisissez le modèle général "Appication web (Model-View-Controller)"
@@ -29,7 +29,7 @@ L'objectif de l'exercice est de créer une API REST permettant de fournir les op
   - Ajustez chaque action pour qu'elles renvoient des "ActionResult" comme présenté dans la démonstration
 - Testez votre API à travers les pages d'exploration d'API de Swagger
 
-### Exercice 1.1 - Client console
+### Exercice 1.2 - Client console
 
 - Créez une nouvelle solution à partir d'une nouvelle instance de Visual Studio (ie, votre solution précédente est toujours disponible)
 - Créez le code C# client à partir de NSwag Studio
