@@ -34,7 +34,7 @@ L'objectif de l'exercice est de créer une API REST permettant de fournir les op
 - Créez une nouvelle solution à partir d'une nouvelle instance de Visual Studio (ie, votre solution précédente est toujours disponible)
 - Créez le code C# client à partir de NSwag Studio
 - Écrivez un programme qui :
-  - Liste les municipalités et les affiche sur la console
+  - Liste les municipalités et affiche leurs noms sur la console
   - Modifie le nom de la municipalité de Québec pour "Quebecq" ([retour aux sources de 1601](https://fr.wikipedia.org/wiki/Québec_(ville)#Toponymie))
 ***Avant de tester votre programme et de générer le code client, n'oubliez pas de valider que votre API est bien en cours d'exécution dans l'autre instance de Visual Studio***
 
