@@ -46,4 +46,3 @@ L'objectif de l'exercice est de créer une API REST permettant de fournir les op
   - Il doit y avoir un service spécifique aux municipalités et un pour les élections (ie deux classes dans le même projet)
   - La couche d'accès aux données utilise le même contexte applicatif
 - Validez que le tout fonctionne avec Swagger UI.
-- 
