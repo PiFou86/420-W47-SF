@@ -13,7 +13,7 @@ Objectifs :
 - Compilez votre programme : la restauration des packages npm (node) va prendre un peu de temps. En attendant la fin, allez observer les attributs de la classe "WeatherForecastController"
 - Une fois compilée, lancez l'exécution de votre projet principal.
 - Si Firefox n'est pas installé, l'installer sur votre poste de développement
-- Lancez votre site web local dans Firefox (Chrome ne garde pas les réponses !) et ouvrez le mode développeur
+- Lancez votre site web local dans Firefox (Chrome ne garde pas les réponses !) et ouvrez le mode développeur (F12)
 - Enregistrez un utilisateur avec le mot de passe "Passw0rd.". N'oubliez pas de confirmer l'adresse courriel en cliquant simplement sur le lien de la page.
 - Cliquez sur "Login"
 - Ouvrez les outils de développement et l'onglet réseau. Validez qu'aucun filtre n'est actif ("Tout")
