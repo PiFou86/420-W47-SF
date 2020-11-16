@@ -5,17 +5,27 @@ Objectifs :
 - Observer le mécanisme d'authentification OpenID
 - Mettre en place un contrôle de type clef API
 
-## Exercice 1 - Observation des mécanismes d'authentification dans une API ASP.Net MVC
+## Exercice 1 - Observation des mécanismes d'authentification dans une API ASP.Net MVC avec OpenID
 
+### Exercice 1.1 - Mise en place de la solution
+
+- Si Firefox n'est pas installé, l'installer sur votre poste de développement
 - Créez la solution Visual Studio "DSED_Module04_React" de type "ASP.NET Core Wep Application" :
   - Choisissez le gabarit "React.js"
   - Choisissez le type d'authentification "Comptes d'utilisateurs individuels"
 - Compilez votre programme : la restauration des packages npm (node) va prendre un peu de temps. En attendant la fin, allez observer les attributs de la classe "WeatherForecastController"
 - Une fois compilée, lancez l'exécution de votre projet principal.
-- Si Firefox n'est pas installé, l'installer sur votre poste de développement
+
+### Exercice 1.2 - Création d'un premier compte
+
 - Lancez votre site web local dans Firefox (Chrome ne garde pas les réponses !) et ouvrez le mode développeur (F12)
 - Enregistrez un utilisateur avec le mot de passe "Passw0rd.". N'oubliez pas de confirmer l'adresse courriel en cliquant simplement sur le lien de la page.
 - Cliquez sur "Login"
+- Validez que votre compte fonctionne
+- Quittez votre session en cliquant sur "Logout"
+
+### Exercice 1.3 - Exploitation de la trace réseau pour valider le fonctionnement d'OpenID Connect
+
 - Ouvrez les outils de développement et l'onglet réseau. Validez qu'aucun filtre n'est actif ("Tout")
 - Dans les options, cochez l'option "Conserver les journaux" si ce n'est pas fait
 - Effacez le journal réseau
@@ -31,10 +41,34 @@ Objectifs :
 
 ## Exercice 2 - Protégez votre API de municipalités
 
+### Exercice 2.1 - Reproduire le mécanisme d'authentification par clef d'API
+
 - Reprenez votre solution qui contient l'API de manipulation des municipalités
-- Implantez le filtre qui valide la sécurité avec une clef API
+- Implantez le filtre qui valide la sécurité avec une clef API. Pour cela inspirez vous du cours.
+- Ajoutez l'attribut que vous venez de créer à votre contrôleur "MunicipalitesController" 
 - Validez que tout fonctionne avec "Postman"
-- Créez la classe "ClefsAPI" qui permet de stocker des clefs API de type "Guid"
-- À partir de la classe "ApplicationDbContext", ajoutez la table "ClefsAPI"
-- Modifiez votre dépot afin de pouvoir valider une clef API
-- Modifiez le filtre d'authentification afin de valider la clef, non pas à partir de votre constante mais à partir du dépot.
+
+### Exercice 2.2 - Améliorer la validation des clefs API en les stockant dans un dépôt de données
+
+- Dans votre base de données, créez la table "ClefAPI" avec la clef primaire "ClefAPIId" de type Guid ou VARCHAR(140) si le type Guid n'existe pas
+- De retour dans votre projet, créez la classe "ClefAPI" qui permet de stocker des clefs API de type "Guid"
+- À partir de la classe "ApplicationDbContext", ajoutez la propriété table "ClefsAPIs" de type "DbSet\<ClefAPI>"
+- Modifiez votre dépot afin de pouvoir valider l'existance d'une clef API dans la table éponyme clef API
+- Modifiez le filtre d'authentification afin de valider la clef, non pas à partir de votre constante mais à partir du dépot. Inspirez-vous du code qui suit pour obtenir le dépôt
+- Validez que le tout fonctionne
+
+Si vous avez besoin d'un objet, comme un dépot, vous pouvez utiliser la méthode "GetService" de la propriété RequestServices du contexte http :
+
+```csharp
+using Microsoft.Extensions.DependencyInjection;
+// ...
+
+[AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
+public class ApiKeyAttribute : Attribute, IAsyncActionFilter {
+  public async Task OnActionExecutionAsync(ActionExecutingContext p_context, ActionExecutionDelegate p_next) {
+    IDepotXYZ appContext = p_context.HttpContext.RequestServices.GetService<IDepotXYZ>();
+
+    // ...
+  }
+}
+```
