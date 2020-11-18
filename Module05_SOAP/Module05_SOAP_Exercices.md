@@ -4,7 +4,7 @@
 
 - Créez la solution Visual Studio "DSED_M05_Ex01" de type "Application web ASP.Net Core". Vous pouvez prendre le gabarit vide
 - Ajoutez le projet "DSED_M05_Model" de type "Bibliothèque de classes"
-- Créez le service "Operations" qui propose les opérations suivantes :
+- Créez le service "Operations" qui propose les opérations sur des "float" suivantes :
   - Addition
   - Soustraction
   - Multiplication
