@@ -29,5 +29,7 @@
 <details>
     <summary>Diagramme de classe global</summary>
 
+Dans ce diagramme, les packages sont les projets, les sous-packages des dossiers.
+
 ![Diagramme UML](../images/Module05_SOAP/diag/M05_Exercice2/M05_Exercice2_SOAP.png)
 </details>
