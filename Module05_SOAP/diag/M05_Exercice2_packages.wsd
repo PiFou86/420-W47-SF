@@ -1,0 +1,56 @@
+@startuml M05_Exercice2_SOAP_package
+
+package System {
+  package ServiceModel {
+    package Http { }
+    package Primitives { }
+  }
+}
+package SoapCore { }
+package XYZ.Data.EntityFrameworkCore { }
+
+package DSED_M05_SOAP_Web {
+    package Entite {
+    }
+
+    package CasUtilisation {
+    }
+
+    CasUtilisation ..> Entite
+
+    package PresentationServiceSOAP {
+    }
+
+    PresentationServiceSOAP ..> SoapCore
+    PresentationServiceSOAP ..> CasUtilisation
+
+    package Persistance {
+
+    }
+
+    class Startup {
+        
+    }
+
+    Startup .down.> CasUtilisation
+    Startup .down.> Persistance
+    Startup .down.> DSED_M05_SOAP_Model
+    Startup .down.> PresentationServiceSOAP
+    Startup .down.> XYZ.Data.EntityFrameworkCore
+    PresentationServiceSOAP ..> DSED_M05_SOAP_Model
+}
+
+package DSED_M05_SOAP_Model {
+
+}
+
+DSED_M05_SOAP_Model ..> Primitives
+
+package DSED_M05_SOAP_ExempleClientConsole {
+}
+
+DSED_M05_SOAP_ExempleClientConsole ..> Http
+DSED_M05_SOAP_ExempleClientConsole ..> Primitives
+DSED_M05_SOAP_ExempleClientConsole ..> DSED_M05_SOAP_Model
+
+@enduml

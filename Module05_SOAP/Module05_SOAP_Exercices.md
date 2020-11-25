@@ -19,3 +19,15 @@
 - Implantez un service qui correspond à toutes les méthodes du dépot
 - Faites un GET de l'adresse de votre service et observez le fichier WSDL généré
 - Créez un client qui permet de tester votre service
+
+<details>
+    <summary>Diagramme de package global</summary>
+
+![Diagramme UML](../images/Module05_SOAP/diag/M05_Exercice2_packages/M05_Exercice2_SOAP_package.png)
+</details>
+
+<details>
+    <summary>Diagramme de classe global</summary>
+
+![Diagramme UML](../images/Module05_SOAP/diag/M05_Exercice2/M05_Exercice2_SOAP.png)
+</details>

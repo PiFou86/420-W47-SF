@@ -1,0 +1,164 @@
+@startuml M05_Exercice2_SOAP
+
+'package System.ServiceModel.Http { }
+'package System.ServiceModel.Primitives { }
+'package SoapCore { }
+'package XYZ.Data.EntityFrameworkCore { }
+
+package DSED_M05_SOAP_Web {
+    package Entite {
+        class Municipalite {
+            + int CodeGeographique << get; private set; >>
+            + string NomMunicipalite << get; private set; >>
+            + string AdresseCourriel << get; private set; >>
+            + string AdresseWeb << get; private set; >>
+            + DateTime DateProchaineElection << get; private set; >>
+            + bool Actif << get; private set; >>
+            + Municipalite(int p_codeGeographique, string p_nomMunicipalite, string p_adresseCourriel, string p_adresseWeb, DateTime p_dateProchaineElection, bool p_actif)
+            + public override bool Equals(object obj)
+            + <<override>> int GetHashCode()
+            + static bool operator ==(Municipalite left, Municipalite right)
+            + static bool operator !=(Municipalite left, Municipalite right)
+        }
+
+        interface IDepotMunicipalites {
+            + Municipalite ChercherMunicipaliteParCodeGeographique(int p_codeGeographique)
+            + IEnumerable<Municipalite> ListerMunicipalitesActives()
+            + void DesactiverMunicipalite(Municipalite p_municipalite)
+            + void AjouterMunicipalite(Municipalite p_municipalite)
+            + void MAJMunicipalite(Municipalite p_municipalite)
+        }
+    }
+
+    package CasUtilisation {
+        class ManipulationMunicipalites {
+            - IDepotMunicipalites m_depotMunicipalites;
+            + ManipulationMunicipalites(IDepotMunicipalites p_depotMunicipalites)
+            + IEnumerable<Municipalite> ObtenirListeMunicipalites()
+            + Municipalite ObtenirListeMunicipalite(int p_codeGeographique)
+            + void CreerMunicipalite(Municipalite p_municipalite)
+            + void ModifierMunicipalite(Municipalite p_municipalite)
+            + void SupprimerMunicipalite(Municipalite p_municipalite)
+        }
+
+        ManipulationMunicipalites --> IDepotMunicipalites
+        ManipulationMunicipalites ..> Municipalite
+    }
+
+    note top of ManipulationMunicipalites: Cette classe permet d'avoir un traitement spécifique par cas d'utilisation (Algorithme). Ici, chaque méthode pourra appeler directement le dépot.
+
+    package PresentationServiceSOAP {
+        class MunicipaliteService {
+            - m_manipulationMunicipalites : ManipulationMunicipalites;
+            + MunicipaliteService(ManipulationMunicipalites p_manipulationMunicipalites)
+            + IEnumerable<MunicipaliteSOAPDTO> ObtenirListeMunicipalites()
+            + MunicipaliteSOAPDTO ObtenirListeMunicipalite(int p_codeGeographique)
+            + void CreerMunicipalite(MunicipaliteSOAPDTO p_municipalite)
+            + void ModifierMunicipalite(MunicipaliteSOAPDTO p_municipalite)
+            + void SupprimerMunicipalite(MunicipaliteSOAPDTO p_municipalite)
+        }
+        note top of MunicipaliteService: Cette classe permet d'exposer ManipulationMunicipalites. Il ne doit pas faire de manipulation algorithmiques autres que des conversions de types et des validations d'entrées. Elle ne fait que présenter les méthodes.
+
+        DSED_M05_SOAP_Model.IMunicipaliteService <|.. MunicipaliteService
+        DSED_M05_SOAP_Model.MunicipaliteSOAPDTO <.. MunicipaliteService
+        ManipulationMunicipalites <-- MunicipaliteService
+    }
+
+'    PresentationServiceSOAP ..> SoapCore
+'    PresentationServiceSOAP ..> CasUtilisation
+
+    package Persistance {
+        class MunicipaliteSQLDTO {
+            + int MunicipaliteSQLDTOId << get; set; >>
+            + string NomMunicipalite << get; set; >>
+            + string AdresseCourriel << get; set; >>
+            + string AdresseWeb << get; set; >>
+            + DateTime DateProchaineElection << get; set; >>
+            + bool Actif << get; set; >>
+            + MunicipaliteSQLDTO(Municipalite p_entite)
+            + Municipalite VersEntite()
+        }
+        note top of MunicipaliteSQLDTO: Propriétés et format adaptés à Entity Framework Core
+
+        class DepotMunicipalitesSQL {
+            - m_contexte : ApplicationDbContext
+            + DepotMunicipalitesSQL(ApplicationDbContext : m_contexte)
+            + Municipalite ChercherMunicipaliteParCodeGeographique(int p_codeGeographique)
+            + IEnumerable<Municipalite> ListerMunicipalitesActives()
+            + void DesactiverMunicipalite(Municipalite p_municipalite)
+            + void AjouterMunicipalite(Municipalite p_municipalite)
+            + void MAJMunicipalite(Municipalite p_municipalite)
+        }
+        class ApplicationDbContext {
+            ...
+            + DbSet<MunicipaliteSQLDTO> Municipalite <<get; set;>>
+        }
+        IDepotMunicipalites <|.. DepotMunicipalitesSQL
+        DepotMunicipalitesSQL ..> MunicipaliteSQLDTO
+        DepotMunicipalitesSQL ..> Municipalite
+        DepotMunicipalitesSQL ..> MunicipaliteSQLDTO
+        DepotMunicipalitesSQL ..> ApplicationDbContext
+    }
+
+    class Startup {
+        
+    }
+
+    class Program {
+        + {static} int main(string[] argv)
+    }
+
+    Program ..> Startup
+
+    Startup .down.> DepotMunicipalitesSQL
+    Startup .down.> IDepotMunicipalites
+    Startup .down.> DSED_M05_SOAP_Model.IMunicipaliteService
+    Startup .down.> MunicipaliteService
+    Startup .down.> ApplicationDbContext
+    Startup .down.> ManipulationMunicipalites
+    'Startup .down.> XYZ.Data.EntityFrameworkCore
+}
+
+package DSED_M05_SOAP_Model {
+    interface IMunicipaliteService {
+        + IEnumerable<MunicipaliteSOAPDTO> ObtenirListeMunicipalites()
+        + MunicipaliteSOAPDTO ObtenirListeMunicipalite(int p_codeGeographique)
+        + void CreerMunicipalite(MunicipaliteSOAPDTO p_municipalite)
+        + void ModifierMunicipalite(MunicipaliteSOAPDTO p_municipalite)
+        + void SupprimerMunicipalite(MunicipaliteSOAPDTO p_municipalite)
+    }
+
+    note top of IMunicipaliteService: Va avoir des attributs ServiceContract et OperationContract
+
+    note top of MunicipaliteSOAPDTO: Propriétés et format adaptés aux clients du service SOAP
+    class MunicipaliteSOAPDTO {
+        + int CodeGeographique << get; set; >>
+        + string NomMunicipalite << get; set; >>
+        + string AdresseCourriel << get; set; >>
+        + string AdresseWeb << get; set; >>
+        + DateTime DateProchaineElection << get; set; >>
+        + bool Actif << get; set; >>
+        + MunicipaliteSOAPDTO(Municipalite p_entite)
+        + Municipalite VersEntite()
+    }
+
+    IMunicipaliteService ..> MunicipaliteSOAPDTO
+}
+
+'DSED_M05_SOAP_Model ..> System.ServiceModel.Primitives
+
+package DSED_M05_SOAP_ExempleClientConsole {
+    class Programm {
+        + {static} int main(string[] argv)
+    }
+
+    Programm ..> DSED_M05_SOAP_Model.IMunicipaliteService
+}
+
+
+
+'DSED_M05_SOAP_ExempleClientConsole ..> System.ServiceModel.Http
+'DSED_M05_SOAP_ExempleClientConsole ..> System.ServiceModel.Primitives
+'DSED_M05_SOAP_ExempleClientConsole ..> DSED_M05_SOAP_Model
+
+@enduml
