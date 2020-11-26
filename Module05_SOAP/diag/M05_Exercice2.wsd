@@ -138,8 +138,6 @@ package DSED_M05_SOAP_Model {
         + string AdresseWeb << get; set; >>
         + DateTime DateProchaineElection << get; set; >>
         + bool Actif << get; set; >>
-        + MunicipaliteSOAPDTO(Municipalite p_entite)
-        + Municipalite VersEntite()
     }
 
     IMunicipaliteService ..> MunicipaliteSOAPDTO
