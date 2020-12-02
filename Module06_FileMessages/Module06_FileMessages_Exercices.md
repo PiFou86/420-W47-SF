@@ -39,6 +39,20 @@ Un client est défini par :
   - "M06_Clients_Consommateur" : écoute la file "m06-clients" et enregistrer les clients dans une base de données
 - Essayez le programme
 
+<details>
+    <summary>Proposition solution - diagramme de packages</summary>
+
+![Proposition de digramme de packages](img/../../images/Module06_FileMessages/diag/uml_exercice2_package/clients_packages.png)
+
+</details>
+
+<details>
+    <summary>Proposition solution - diagramme de classes</summary>
+
+![Proposition de digramme de packages](img/../../images/Module06_FileMessages/diag/uml_exercice2/clients_classes.png)
+
+</details>
+
 ### Exercice 2.2 - Ajoutons une enveloppe
 
 Plutôt que d'envoyer votre client directement, vous devez utiliser une enveloppe qui contient :
@@ -48,6 +62,13 @@ Plutôt que d'envoyer votre client directement, vous devez utiliser une envelopp
 - Le client
 
 Modifiez le programme pour tenir compte de cette dernière contrainte.
+
+<details>
+    <summary>Proposition solution - diagramme de classes</summary>
+
+![Proposition de digramme de packages](img/../../images/Module06_FileMessages/diag/uml_exercice2_enveloppe/clients_classes_enveloppe.png)
+
+</details>
 
 ## Exercice 3 - Gestion d'un compte bancaire
 

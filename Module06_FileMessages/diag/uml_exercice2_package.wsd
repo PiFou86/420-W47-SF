@@ -1,0 +1,38 @@
+@startuml clients_packages
+
+package M06_CasUtilisation_Clients {
+
+}
+
+package M06_DAL_Client_SQLServeur {
+   
+}
+
+M06_DAL_Client_SQLServeur ..> M06_CasUtilisation_Clients
+
+package M06_MessageClient {
+   
+}
+
+package M06_Client_Producteur {
+
+}
+M06_Client_Producteur ..> M06_MessageClient
+
+package M06_Client_Consommateur {
+
+
+}
+M06_Client_Consommateur ..> M06_MessageClient
+M06_Client_Consommateur ..> M06_CasUtilisation_Clients
+M06_Client_Consommateur ..> M06_DAL_Client_SQLServeur
+
+package Rabbitmq.Client {
+
+}
+
+
+M06_Client_Producteur ..> Rabbitmq.Client
+M06_Client_Consommateur ..> Rabbitmq.Client
+
+@enduml

@@ -1,0 +1,86 @@
+@startuml clients_classes_enveloppe
+
+package M06_CasUtilisation_Clients {
+    class ManipulationsClient {
+        - m_depotClients : IDepotClients
+        + ManipulationsClient(p_depotClients : IDepotClients)
+        + CreerClient(p_client : Client)
+    }
+    interface IDepotClients {
+        + CreerClient(p_client : Client)
+    }
+    class Client {
+        + Identifiant : Guid <<get; private set;>>
+        + Prenom : string <<get; private set;>>
+        + Nom : string <<get; private set;>>
+        + Courriel : string <<get; private set;>>
+        + NumeroTelephone : string <<get; private set;>>
+        + Client(p_identificant : Guid, p_prenom : string, p_nom : string, p_courriel : string, p_numeroTelephone : string)
+    }
+    ManipulationsClient --> IDepotClients
+    ManipulationsClient ..> Client
+    IDepotClients ..> Client
+}
+
+package M06_DAL_Client_SQLServeur {
+    class DepotClientSQLServeur {
+        + void CreerClient(p_client : Client)
+    }
+
+    class ClientSQLServeurDTO {
+        + ClientSQLDTOId : Guid <<get; set;>>
+        + Prenom : string <<get; set;>>
+        + Nom : string <<get; set;>>
+        + Courriel : string <<get; set;>>
+        + NumeroTelephone : string <<get; set;>>
+        + ClientSQLDTO(p_client : Client)
+    }
+
+    DepotClientSQLServeur ..|> IDepotClients
+    DepotClientSQLServeur ..> ClientSQLServeurDTO
+}
+
+package M06_MessageClient {
+    class MessageClient {
+        + Prenom : string <<get; set;>>
+        + Nom : string <<get; set;>>
+        + Courriel : string <<get; set;>>
+        + NumeroTelephone : string <<get; set;>>
+    }
+
+    class EnveloppeClient {
+        + Action : string <<get; set;>>
+        + ActionId : string <<get; set;>>
+        + Client : MessageClient <<get; set;>>
+    }
+
+    EnveloppeClient --> MessageClient
+}
+
+package M06_Client_Producteur {
+
+}
+M06_Client_Producteur.Program ..> EnveloppeClient
+
+package M06_Client_Consommateur {
+
+
+}
+M06_Client_Consommateur.Program ..> EnveloppeClient
+M06_Client_Consommateur.Program ..> ManipulationsClient
+M06_Client_Consommateur.Program ..> IDepotClients
+M06_Client_Consommateur.Program ..> DepotClientSQLServeur
+
+
+package Rabbitmq.Client {
+
+}
+
+
+M06_Client_Producteur ..> Rabbitmq.Client
+M06_Client_Producteur ..> M06_MessageClient
+
+M06_Client_Consommateur ..> Rabbitmq.Client
+M06_Client_Consommateur ..> M06_CasUtilisation_Clients
+M06_Client_Consommateur ..> M06_MessageClient
+@enduml
