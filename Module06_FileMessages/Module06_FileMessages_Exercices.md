@@ -76,7 +76,7 @@ Un compte bancaire a numéro de compte, un type qui sera ici égal à "courant" 
 
 Une transaction est soit de type crédit, débit. Elle contient aussi une date et un montant.
 
-Vous devez proposer une API REST qui permet de consulter, créer, modifier un compte. La suppression est interdite.
+Vous devez proposer une API REST qui permet de consulter, créer, modifier un compte. La suppression est interdite. Les données doivent être persistées dans une base de données.
 
 Vous devez aussi proposer une API REST qui permet de consulter, créer une transaction. La modification et la suppression est interdite.
 
