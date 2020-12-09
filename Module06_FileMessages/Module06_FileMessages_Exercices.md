@@ -90,3 +90,23 @@ En effet, les deux API ont deux types d'actions :
 Le programme console "TraitementCreationsModifications" doit lire les messages de la file "m06-comptes" et essayer de les exécuter. Il va se comporter comme un consommateur. Si les messages causes des erreurs, envoyez les messages dans la file "m06-comptes-lettres-mortes". Il va donc aussi agir comme producteur.
 
 Le programme console "TraitementLettresMortes" doit lire les messages de la file "m06-comptes-lettres-mortes" et créer un fichier par message. Chaque fichier doit être enregistré dans le répertoire "TransactionsEnErreurs" avec un nom unique. Le nom doit être constitué de l'année, du mois, du jour, de l'heure, des minutes, des secondes, d'un guid et de l'extension ".json".
+
+<details>
+  <summary>Indices</summary>
+
+| Programme       | Entité       |   Action   |   Dépot de données |
+|-----------------|--------------|------------|--------------------|
+| API             | Compte       | GET        | Base de données    |
+| API             | Compte       | GET(id)    | Base de données    |
+| API             | Compte       | POST       | File de messages   |
+| API             | Compte       | PUT(id)    | File de messages   |
+| API             | Compte       | DELETE     | 403                |
+| API             | Transaction  | GET        | Base de données    |
+| API             | Transaction  | GET(id)    | Base de données    |
+| API             | Transaction  | POST       | File de messages   |
+| API             | Transaction  | PUT(id)    | 403                |
+| API             | Transaction  | DELETE     | 403                |
+
+![Schéma fonctionnel des comptes](img/schema_fonctionnel_compte.png)
+
+</details>
