@@ -40,6 +40,13 @@ Un client est défini par :
 - Essayez le programme
 
 <details>
+  <summary>Indices</summary>
+
+![Schéma fonctionnel des comptes](img/schema_fonctionnel_client.png)
+
+</details>
+
+<details>
     <summary>Proposition solution - diagramme de packages</summary>
 
 ![Proposition de digramme de packages](img/../../images/Module06_FileMessages/diag/uml_exercice2_package/clients_packages.png)
