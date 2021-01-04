@@ -2,6 +2,12 @@
 
 ## Exercice 1 - Traitement d'une commande
 
+Le but de l'exercice est de simuler un système de gestion de commandes. Un message de type commande placée est généré et quatre consommateurs le lis et effectue un traitement différent (journalisation, préparation de la facture, préparation de l'expédition, envoie d'un courriel dans le cas d'une commande premium)
+
+Tout au long de l'exercice, je vous conseille de prendre le schéma suivant et de le compléter en vous inspirant de celui du cours :
+
+![Schéma à compléter](img/exercice1_acompleter.png)
+
 ### Exercice 1.1 - Création du producteur
 
 - Créez la solution "DSED_M07_TraitementCommande". Le premier projet doit s'appeler "DSED_M07_TraitementCommande_producteur" et est de type "console"
