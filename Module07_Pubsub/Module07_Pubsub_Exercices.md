@@ -15,6 +15,8 @@ Tout au long de l'exercice, je vous conseille de prendre le schéma suivant et d
 - Une commande contient un nom de client, une référence de commande (le type est libre, mais la référence doit être unique), une liste d'articles. Un article a une référence, un nom, un prix et une quantité
 - Les messages doivent contenir un objet composé des informations de la commande sérialisé en JSON.
 
+***Pour simplifier votre programme, la commande est générée aléatoirement, c'est à dire qu'on ne demande pas d'interface de saisie, on simule simplement une commande qui pourrait provenir d'un site web ou d'une application mobile. Le choix "normal" ou "premium" et aussi aléatoire et vous indique sur le sujet.***
+
 ### Exercice 1.2 - Création d'un journal
 
 - Créez le projet "DSED_M07_TraitementCommande_journal" de type "console"
