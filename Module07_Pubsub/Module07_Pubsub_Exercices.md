@@ -21,7 +21,7 @@ Tout au long de l'exercice, je vous conseille de prendre le schéma suivant et d
 
 - Créez le projet "DSED_M07_TraitementCommande_journal" de type "console"
 - Ce programme doit lier l'échange "m07-commandes" à la file de messages "m07-journal" et accepter tous les messages de n'importe quel sujet.
-- À la réception d'un message, il enregistre le contenu du message dans un fichier dont le nom débute par l'année, le mois, le jour, l'heure, le nombre de minutes, le nombre de secondes et un numéro unique avec le format suivant : "AAAAMMJJ_HHMMSS_Guid_message_original.json"
+- À la réception d'un message, il enregistre le contenu du message dans un fichier dont le nom débute par l'année, le mois, le jour, l'heure, le nombre de minutes, le nombre de secondes et un numéro unique avec le format suivant : "AAAAMMJJ_HHMMSS_Nouveau_Guid.json"
 
 ### Exercice 1.3 - Création de la facture
 
