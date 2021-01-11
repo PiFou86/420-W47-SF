@@ -1,0 +1,107 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Tableau blanc</h2>
+<canvas height="480" width="640" id="tableauBlanc"></canvas>
+<div>
+    <button id="btEffacerTableau">Effacer</button>
+    <button id="btCouleurNoir">Noir</button>
+    <button id="btCouleurRouge">Rouge</button>
+</div>
+
+@section scripts {
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/microsoft/signalr/dist/browser/signalr.js"></script>
+    <style>
+        #tableauBlanc {
+            border: solid 1px;
+        }
+    </style>
+
+    <script>
+        function obtenirPositionSouris(canvas, evt) {
+            var rect = canvas.getBoundingClientRect();
+            return {
+                x: evt.clientX - rect.left,
+                y: evt.clientY - rect.top
+            };
+        }
+
+        $(function () {
+            function dessinerLigne(ligne) {
+                console.log(ligne);
+                ctx.beginPath();
+                ctx.moveTo(ligne.debut.x, ligne.debut.y);
+                ctx.lineTo(ligne.fin.x, ligne.fin.y);
+                ctx.strokeStyle = ligne.couleur;
+                ctx.stroke();
+            }
+
+            var connexion = new signalR.HubConnectionBuilder().withUrl("/tableauBlancHub").build();
+            var canvas = document.getElementById("tableauBlanc");
+            var ctx = canvas.getContext("2d");
+            var couleur = '#000';
+
+            var ligneEnCours = false;
+            var dernierePosition = {
+                x: undefined, y: undefined
+            };
+
+            connexion.on("DessinerLigne", function (ligne) {
+                dessinerLigne(ligne);
+            });
+
+            connexion.on("EffacerTableau", function () {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+            });
+
+            connexion.on("DemarrageTableau", function (lignes) {
+                console.log(lignes);
+                lignes.forEach(function (ligne) {
+                    dessinerLigne(ligne);
+                });
+            });
+
+            connexion.start().catch(function (err) {
+                return console.error(err.toString());
+            });
+
+            canvas.onmousedown = function (ev) {
+                console.log(ev);
+                ligneEnCours = true;
+                var sourisPosition = obtenirPositionSouris(canvas, ev);
+                dernierePosition = sourisPosition;
+            };
+
+            canvas.onmouseup = function (ev) {
+                ligneEnCours = false;
+            };
+
+            canvas.onmousemove = function (ev) {
+                if (ligneEnCours) {
+                    var sourisPosition = obtenirPositionSouris(canvas, ev);
+                    connexion.invoke(
+                        "DessinerLigne",
+                        {
+                            debut: { x: dernierePosition.x, y: dernierePosition.y },
+                            fin: { x: sourisPosition.x, y: sourisPosition.y },
+                            couleur: couleur
+                        }).catch(function (err) {
+                            console.error(err.toString());
+                        });
+                    dernierePosition = sourisPosition;
+                }
+            };
+
+            document.getElementById("btEffacerTableau")
+                .onclick = function () { connexion.invoke("EffacerTableau"); };
+            document.getElementById("btCouleurNoir")
+                .onclick = function () { couleur = "#000"; };
+            document.getElementById("btCouleurRouge")
+                .onclick = function () { couleur = "#F00"; };
+
+        });
+    </script>
+}
