@@ -64,7 +64,7 @@ dotnet tool install --global dotnet-ef
   - "MySql.Data.EntityFrameworkCore" si vous décidez d'utiliser MySql
   - "Oracle.EntityFrameworkCore" si vous décidez d'utiliser Oracle
   - "Microsoft.EntityFrameworkCore.SqlServer" si vous décidez d'utiliser SqlServer
-  - "Microsoft.EntityFrameworkCore.Designer" quelque soit votre cas
+  - "Microsoft.EntityFrameworkCore.Design" quelque soit votre cas
 - Créez une classe de contexte qui peut se connecter à votre base de données (MySQL ou SQLServer)
   - Pour la surcharge de la méthode "OnConfiguring", inspirez vous des liens suivants :
     - [MySQL](https://dev.mysql.com/doc/connector-net/en/connector-net-entityframework-core.html)
