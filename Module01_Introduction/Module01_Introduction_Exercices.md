@@ -61,7 +61,7 @@ dotnet tool install --global dotnet-ef
     - LireMunicipalite : () ->  IEnumerable\<Municipalite>
 - Ajoutez le projet "M01_DAL_Municipalite_MySQL" ou "M01_DAL_Municipalite_SQLServer" de type "bibliothèque de classes". Ce projet va implanter l'interface "IDepotMunicipalites"
 - Dans le projet "M01_DAL_Municipalite_XYZ", installez les packages NuGet :
-  - "MySql.Data.EntityFrameworkCore" si vous décidez d'utiliser MySql
+  - "MySql.EntityFrameworkCore" si vous décidez d'utiliser MySql
   - "Oracle.EntityFrameworkCore" si vous décidez d'utiliser Oracle
   - "Microsoft.EntityFrameworkCore.SqlServer" si vous décidez d'utiliser SqlServer
   - "Microsoft.EntityFrameworkCore.Design" quelque soit votre cas
