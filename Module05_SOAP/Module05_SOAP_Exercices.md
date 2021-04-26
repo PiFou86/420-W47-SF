@@ -18,7 +18,7 @@
 - Reprenez votre solution qui contient l'API de manipulation des municipalités
 - Implantez un service qui correspond à toutes les méthodes du dépot
 - Faites un GET de l'adresse de votre service et observez le fichier WSDL généré
-- Créez un client qui permet de tester votre service
+- Créez un client qui permet de tester votre service. Attention, si vous allez chercher toutes les municipalités, vous allez avoir un problème de taille de messages. Afin de ne pas l'avoir, il faut modifier la propriété "MaxReceivedMessageSize" avec une valeur de 10Mo (1024 * 1024 * 10) de l'objet "BasicHttpBinding".
 
 <details>
     <summary>Diagramme de package global</summary>
