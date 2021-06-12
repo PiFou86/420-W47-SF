@@ -1,0 +1,56 @@
+@startuml chat
+
+hide footbox
+
+box OrdinateurX
+    participant "Utilisateur x"
+    participant "Navigateur x"
+end box
+
+box OrdinateurN
+    participant Utilisateur
+    participant Navigateur
+end box
+
+box Serveur
+    participant Kestrel
+    participant MVC
+    participant Chat
+    participant Hub
+    participant ChatHub
+end box
+
+Utilisateur -> Navigateur : demande https://localhost:5001/
+Navigateur -> Kestrel : GET /chat
+Kestrel -> MVC : ressource /chat\nverbe GET
+MVC -> Chat : Index
+Chat --> MVC : code HTML de la page
+MVC --> Kestrel : code HTML de la page
+Kestrel --> Navigateur : code HTML de la page
+
+loop Pour toute ressource du document HTML
+    Navigateur -> Kestrel : GET /ressource
+    Kestrel ->? : interroge le bon middleware
+    ?--> Kestrel : contenu fichier
+    Kestrel --> Navigateur : données de la ressource
+end loop
+
+Navigateur -> Kestrel : démarrer connexion /chathub
+Kestrel -> Hub : démarrer connexion /chathub
+Hub -> ChatHub : OnConnectedAsync
+ChatHub -> Navigateur : exécuter "DemarrageChat(messages)"
+
+...
+
+== Envoi d'un message ==
+Utilisateur -> Navigateur : valide un message à envoyer
+Navigateur -> Kestrel : "EnvoyerMessage({"texte":..., "utilisateur":...})"
+Kestrel -> Hub : "EnvoyerMessage({"texte":..., "utilisateur":...})"
+Hub -> TableauBlancHub : "EnvoyerMessage({"texte":..., "utilisateur":...})"
+TableauBlancHub -> Hub : Appeler EnvoyerMessage({"texte":..., "utilisateur":...}) pour tous les utilisateurs
+
+Hub -> "Navigateur" : AfficherMessageMoi({"debut":..., "fin":...})
+loop Pour tous les utilisateurs x sauf l'utilisateur original
+    Hub -> "Navigateur x" : AfficherMessageAutres({"debut":..., "fin":...})
+end loop
+@enduml

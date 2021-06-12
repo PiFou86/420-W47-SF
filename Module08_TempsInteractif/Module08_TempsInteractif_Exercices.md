@@ -10,6 +10,13 @@ Reprenez la solution du cours et ajoutez la possibilité d'avoir plusieurs table
 
 Pour gérer les différents tableaux, vous allez utiliser [la notion de groupe de SignalR](https://docs.microsoft.com/en-us/aspnet/signalr/overview/guide-to-the-api/working-with-groups) (Groups.Add(...) / Groups.Remove(...))
 
+<details>
+    <summary>Diagramme de séquence d'un utilisateur qui se connecte et qui dessine</summary>
+
+![](../out/Module08_TempsInteractif/diag/tableaublanc/tableaublanc.png)
+
+</details>
+
 ## Exercice 2 - Chat
 
 ### Exercice 2.1 - Version mono canal
@@ -25,6 +32,9 @@ Le but est de créer une application client/serveur de chat multi-utilisateur, m
 - Écrivez la méthode "EnvoyerMessage" qui prend un message en paramètres. Le message est envoyé à tous les participants sauf l’emetteur (Others) en appelant la méthode "AfficherMessageAutres" du client. Le message est aussi envoyé à l’émetteur en utilisant la méthode "AfficherMessageMoi" du client.
 - Ajoutez un point de terminaison (endpoint) dans le middleware SignalR qui pointe sur l’URI "/chathub"
 - Remplacez la vue Index par le code suivant :
+
+<details>
+    <summary>Code Razor à utiliser pour la vue du chat</summary>
 
 ```csharp
 @{
@@ -174,6 +184,15 @@ Le but est de créer une application client/serveur de chat multi-utilisateur, m
     </script>
 }
 ```
+
+</details>
+
+<details>
+    <summary>Diagramme de séquence d'un utilisateur qui se connecte et qui envoit un message</summary>
+
+![](../out/Module08_TempsInteractif/diag/chat/chat.png)
+
+</details>
 
 ### Exercice 2.2 - Ajout de canaux
 
