@@ -205,4 +205,5 @@ Le but est de créer une application client/serveur de chat multi-utilisateur, m
 - Créez une solution ASP.Net core MVC
 - Créez une API REST qui permet de garder la trace des dates de début et de fin d'un appel pour un agent identifié par un entier
 - Créez un hub qui envoie en temps réel le nombre d'appels de la journée courante, le temps moyen passé par appel, ainsi que le nombre d'agents présents
+- Ajoutez l'appel au hub qui va forcer la mise à jour des données. Pour cela, à partir du contrôleur de l'API, [appelez les clients à l'aide de ce lien](https://docs.microsoft.com/en-us/aspnet/core/signalr/hubcontext?view=aspnetcore-5.0)
 - Créez une page web qui affiche ces informations en utilisant le hub précédent
