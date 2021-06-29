@@ -1,0 +1,148 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Tableau blanc</h2>
+<div id="rejoindre">
+    <input type="text" id="txtNomNouveauTableau" pattern="[a-zA-Z_-]+" />
+    <button id="btCreerTableau" disabled>Créer un nouveau tableau et rejoindre</button>
+    <select id="lstAutresTableaux"></select>
+    <button id="btRejoindreTableau" disabled>Rejoindre</button>
+</div>
+<div id="dessin" style="display: none;">
+    <canvas height="480" width="640" id="tableauBlanc"></canvas>
+    <button id="btEffacerTableau">Effacer</button>
+    <button id="btCouleurNoir">Noir</button>
+    <button id="btCouleurRouge">Rouge</button>
+</div>
+
+@section scripts {
+@* <script src="~/lib/jquery/dist/jquery.js"></script> *@
+<script src="~/lib/microsoft/signalr/dist/browser/signalr.js"></script>
+<style>
+    #tableauBlanc {
+        border: solid 1px;
+    }
+</style>
+
+<script>
+    window.onload = function () {
+        let connexion = new signalR.HubConnectionBuilder().withUrl("/tableauBlancHub").build();
+        let canvas = document.getElementById("tableauBlanc");
+        let ctx = canvas.getContext("2d");
+        let btCreerTableau = document.getElementById("btCreerTableau");
+        let btRejoindreTableau = document.getElementById("btRejoindreTableau");
+        let btEffacerTableau = document.getElementById("btEffacerTableau");
+        let btCouleurNoir = document.getElementById("btCouleurNoir");
+        let btCouleurRouge = document.getElementById("btCouleurRouge");
+        let txtNomNouveauTableau = document.getElementById("txtNomNouveauTableau");
+        let lstAutresTableaux = document.getElementById("lstAutresTableaux");
+        let panelDessin = document.getElementById("dessin");
+
+        var couleur = '#000';
+        var ligneEnCours = false;
+        var dernierePosition = {
+            x: undefined, y: undefined
+        };
+
+        txtNomNouveauTableau.onkeypress = function () {
+            btCreerTableau.disabled = !txtNomNouveauTableau.checkValidity();
+        };
+
+        btCreerTableau.onclick = function () { connexion.invoke("CreerRejoindre", txtNomNouveauTableau.value); txtNomNouveauTableau.value = ""; };
+        btRejoindreTableau.onclick = function () { connexion.invoke("CreerRejoindre", lstAutresTableaux.value); };
+        btEffacerTableau.onclick = function () { connexion.invoke("EffacerTableau"); };
+        btCouleurNoir.onclick = function () { couleur = "#000"; };
+        btCouleurRouge.onclick = function () { couleur = "#F00"; };
+        lstAutresTableaux.onchange = function () { btRejoindreTableau.disabled = !lstAutresTableaux.value; };
+
+        canvas.onmouseup = function (ev) {
+            ligneEnCours = false;
+        };
+
+        canvas.onmousemove = function (ev) {
+            if (ligneEnCours) {
+                var sourisPosition = obtenirPositionSouris(canvas, ev);
+                connexion.invoke(
+                    "DessinerLigne",
+                    {
+                        debut: { x: dernierePosition.x, y: dernierePosition.y },
+                        fin: { x: sourisPosition.x, y: sourisPosition.y },
+                        couleur: couleur
+                    }).catch(function (err) {
+                        console.error(err.toString());
+                    });
+                dernierePosition = sourisPosition;
+            }
+        };
+
+        canvas.onmousedown = function (ev) {
+            console.log(ev);
+            ligneEnCours = true;
+            var sourisPosition = obtenirPositionSouris(canvas, ev);
+            dernierePosition = sourisPosition;
+        };
+
+        connexion.on("MAJTableauxDisponibles", function (lstTableauxDisponibles) {
+            let nombreOptions = lstAutresTableaux.options.length;
+            for (indexOption = nombreOptions - 1; indexOption >= 0; indexOption--) {
+                lstAutresTableaux.options[indexOption] = null;
+            }
+
+            let option = document.createElement("option");
+            option.text = "";
+            option.value = "";
+            lstAutresTableaux.add(option);
+            lstTableauxDisponibles.forEach(function (nomTableau) {
+                let option = document.createElement("option");
+                option.text = nomTableau;
+                option.value = nomTableau;
+                lstAutresTableaux.add(option);
+            });
+        });
+
+        connexion.on("DessinerLigne", function (ligne) {
+            dessinerLigne(ligne);
+        });
+
+        connexion.on("EffacerTableau", function () {
+            effacerTableau();
+        });
+
+        connexion.on("DemarrageTableau", function (lignes) {
+            //console.log(lignes);
+            effacerTableau();
+            lignes.forEach(function (ligne) {
+                dessinerLigne(ligne);
+            });
+            panelDessin.style = "display: block;";
+        });
+
+        connexion.start().catch(function (err) {
+            return console.error(err.toString());
+        });
+
+        function obtenirPositionSouris(canvas, evt) {
+            var rect = canvas.getBoundingClientRect();
+            return {
+                x: evt.clientX - rect.left,
+                y: evt.clientY - rect.top
+            };
+        }
+
+        function dessinerLigne(ligne) {
+            console.log(ligne);
+            ctx.beginPath();
+            ctx.moveTo(ligne.debut.x, ligne.debut.y);
+            ctx.lineTo(ligne.fin.x, ligne.fin.y);
+            ctx.strokeStyle = ligne.couleur;
+            ctx.stroke();
+        }
+
+        function effacerTableau() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+
+    };
+</script>
+}
