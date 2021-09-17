@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace M01_Srv_Municipalite
+namespace M01_Srv_Municipalite
 {
-    public interface IDepotImportationMunicipalites
-    {
-        IEnumerable<Municipalite> LireMunicipalites();
-    }
+    public interface IDepotImportationMunicipalites
+    {
+        IEnumerable<Municipalite> LireMunicipalites();
+    }
 }

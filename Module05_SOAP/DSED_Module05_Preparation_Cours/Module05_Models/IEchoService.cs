@@ -1,13 +1,13 @@
-﻿using System.ServiceModel;
+﻿using System.ServiceModel;
 
-namespace Module05_Models
+namespace Module05_Models
 {
-    [ServiceContract]
-    public interface IEchoService
-    {
-        [OperationContract]
-        string Echo(string p_message);
-        [OperationContract]
-        decimal CalculInteretAnnuel(decimal p_montant, decimal p_taux);
-    }
+    [ServiceContract]
+    public interface IEchoService
+    {
+        [OperationContract]
+        string Echo(string p_message);
+        [OperationContract]
+        decimal CalculInteretAnnuel(decimal p_montant, decimal p_taux);
+    }
 }

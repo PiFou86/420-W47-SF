@@ -1,11 +1,11 @@
-using System;
+using System;
 
-namespace DSED_Module04_Preparation_cours.Models
+namespace DSED_Module04_Preparation_cours.Models
 {
-    public class ErrorViewModel
-    {
-        public string RequestId { get; set; }
+    public class ErrorViewModel
+    {
+        public string RequestId { get; set; }
 
-        public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
-    }
+        public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
+    }
 }
