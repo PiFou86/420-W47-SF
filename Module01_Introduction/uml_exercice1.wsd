@@ -17,6 +17,7 @@ namespace M01_Srv_Municipalite {
         + NomMunicipalite : string <<get>> <<set>>
         + AdresseCourriel : string <<get>> <<set>>
         + AdresseWeb : string <<get>> <<set>>
+        + DateProchaineElection : datetime? <<get>> <<set>>
         + Actif : bool <<get>> <<set>>
         + <<override>> Equals(obj:object) : bool
         + <<override>> GetHashCode() : int
@@ -78,6 +79,7 @@ namespace M01_DAL_Municipalite_MySQL {
         + NomMunicipalite : string <<get>> <<set>>
         + AdresseCourriel : string <<get>> <<set>>
         + AdresseWeb : string <<get>> <<set>>
+        + DateProchaineElection : datetime? <<get>> <<set>>
         + Actif : bool <<get>> <<set>>
         + Municipalite()
         + Municipalite(p_municipalite:srvm.Municipalite)
