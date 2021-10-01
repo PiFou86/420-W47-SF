@@ -54,7 +54,7 @@ dotnet tool install --global dotnet-ef
   - IDepotMunicipalites :
     - ChercherMunicipaliteParCodeGeographique : int -> Municipalite (Renvoie la municipalité active ou non par son code géographique)
     - ListerMunicipalitesActives : () -> IEnumerable\<Municipalite> (Renvoie seulement les municipalités actives)
-    - DesactiverMunicipalite : (Municipalite) -> ()
+    - DesactiverMunicipalite : Municipalite -> ()
     - AjouterMunicipalite : Municipalite -> ()
     - MAJMunicipalite : Municipalite -> ()
   - IDepotImportationMunicipalite:
