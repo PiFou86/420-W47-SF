@@ -45,7 +45,7 @@
 - Créez une nouvelle solution avec un projet de type console
 - Le projet console (interface utilisateur) doit proposer un menu qui permet :
   - De rechercher les villes disponibles à partir des données de latitude et de longitude
-  - D'afficher la météo d'une ville saisie
+  - D'afficher la météo d'une ville saisie (Le nom de la ville et non son woeid)
   - De quitter le programme
 - Avant d'allez plus loin, essayez de comprendre un peu mieux les données que vous allez manipuler en naviguant les URIs suivantes :
   - https://www.metaweather.com/api/location/search/?lattlong=46.785307,-71.287363
