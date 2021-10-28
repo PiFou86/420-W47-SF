@@ -24,7 +24,7 @@ Une fois ces données extraites, vous devez les insérer ou les mettre à jour d
 - Ouvrez le document avec Visual Studio Code ou NotePad++ et essayez de comprendre comment est fait le fichier.
 - Ouvrez ce même fichier dans Excel et choisissez "Données" puis "Convertir". Débrouillez vous pour que le fichier s'affiche correctement
 
-### Étape 2 - Depot de type EF
+### Étape 2 - Dépôt de type EF
 
 ---
 

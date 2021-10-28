@@ -6,7 +6,7 @@ namespace DSED_M01_Fichiers_Texte {
     }
 }
 
-DSED_M01_Fichiers_Texte ..> M01_DAL_Import_Munic_XML
+DSED_M01_Fichiers_Texte ..> M01_DAL_Import_Munic_JSON
 DSED_M01_Fichiers_Texte ..> M01_DAL_Import_Munic_CSV
 DSED_M01_Fichiers_Texte ..> M01_DAL_Municipalite_MySQL
 DSED_M01_Fichiers_Texte ..> M01_Srv_Municipalite
@@ -54,12 +54,12 @@ namespace M01_DAL_Import_Munic_CSV {
     M01_Srv_Municipalite.IDepotImportationMunicipalites <|-down- DepotImportationMunicipaliteCSV
 }
 
-namespace M01_DAL_Import_Munic_XML {
-    class DepotImportationMunicipaliteXML {
-        + DepotImportationMunicipaliteXML(p_nomFichierAImporter:string)
+namespace M01_DAL_Import_Munic_JSON {
+    class DepotImportationMunicipaliteJSON {
+        + DepotImportationMunicipaliteJSON(p_nomFichierAImporter:string)
         + LireMunicipalites() : IEnumerable<Municipalite>
     }
-    M01_Srv_Municipalite.IDepotImportationMunicipalites <|-down- DepotImportationMunicipaliteXML
+    M01_Srv_Municipalite.IDepotImportationMunicipalites <|-down- DepotImportationMunicipaliteJSON
 }
 
 namespace M01_DAL_Municipalite_MySQL {
@@ -93,7 +93,7 @@ namespace M01_DAL_Municipalite_MySQL {
 }
 
 M01_Srv_Municipalite <.down. M01_DAL_Import_Munic_CSV
-M01_Srv_Municipalite <.down. M01_DAL_Import_Munic_XML
+M01_Srv_Municipalite <.down. M01_DAL_Import_Munic_JSON
 M01_Srv_Municipalite <.down. M01_DAL_Municipalite_MySQL
 
 
