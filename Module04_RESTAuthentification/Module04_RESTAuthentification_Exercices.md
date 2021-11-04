@@ -9,10 +9,42 @@ Objectifs :
 
 ### Exercice 1.1 - Mise en place de la solution
 
-- Si Firefox n'est pas installé, l'installer sur votre poste de développement
-- Créez la solution Visual Studio "DSED_Module04_React" de type "ASP.NET Core Wep Application" :
-  - Choisissez le gabarit "React.js"
+- Assurez-vous que [Firefox](https://www.mozilla.org) et [NodeJs](https://nodejs.org) sont pas installés sur votre poste de développement. Dans une console, entrez `node -v`
+
+- Créez la solution Visual Studio "DSED_Module04_React" de type "ASP.NET Core avec React.js" :
   - Choisissez le type d'authentification "Comptes d'utilisateurs individuels"
+- Comme dans l'exercice précédent, assurez-vous d'avoir le NuGet de MySQL, de changer la configuration du `Startup.cs` pour que votre application utilise bien MySQL.
+- Pour pallier à un conflit possible entre la génération du code d'Entity et les contraintes de MySQL, il est recommander d'ajouter `using Microsoft.AspNetCore.Identity;` au haut de la classe `ApplicationDbContext` et d'y ajouter cette méthode :
+
+```c#
+protected override void OnModelCreating(ModelBuilder builder)
+    {
+        base.OnModelCreating(builder);
+
+        builder.Entity<IdentityRole>(entity => entity.Property(m => m.Id).HasMaxLength(450));
+        builder.Entity<IdentityRole>(entity => entity.Property(m => m.ConcurrencyStamp).HasColumnType("varchar(256)"));
+
+        builder.Entity<IdentityUserLogin<string>>(entity =>
+        {
+            entity.Property(m => m.LoginProvider).HasMaxLength(127);
+            entity.Property(m => m.ProviderKey).HasMaxLength(127);
+        });
+
+        builder.Entity<IdentityUserRole<string>>(entity =>
+        {
+            entity.Property(m => m.UserId).HasMaxLength(127);
+            entity.Property(m => m.RoleId).HasMaxLength(127);
+        });
+
+        builder.Entity<IdentityUserToken<string>>(entity =>
+        {
+            entity.Property(m => m.UserId).HasMaxLength(127);
+            entity.Property(m => m.LoginProvider).HasMaxLength(127);
+            entity.Property(m => m.Name).HasMaxLength(127);
+        });
+    }
+```
+- Assurer vous de mettre à jour la migrations.
 - Compilez votre programme : la restauration des packages npm (node) va prendre un peu de temps. En attendant la fin, allez observer les attributs de la classe "WeatherForecastController"
 - Une fois compilée, lancez l'exécution de votre projet principal.
 
