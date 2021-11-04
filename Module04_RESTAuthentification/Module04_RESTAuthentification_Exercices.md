@@ -9,7 +9,7 @@ Objectifs :
 
 ### Exercice 1.1 - Mise en place de la solution
 
-- Assurez-vous que [Firefox](https://www.mozilla.org) et [NodeJs](https://nodejs.org) sont pas installés sur votre poste de développement. Dans une console, entrez `node -v`
+- Assurez-vous que [Firefox](https://www.mozilla.org) et [NodeJs](https://nodejs.org) sont installés sur votre poste de développement. Dans une console, entrez `node -v`
 
 - Créez la solution Visual Studio "DSED_Module04_React" de type "ASP.NET Core avec React.js" :
   - Choisissez le type d'authentification "Comptes d'utilisateurs individuels"
