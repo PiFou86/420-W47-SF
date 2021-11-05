@@ -61,7 +61,7 @@ namespace M03_Srv_Municipalite << srvm >> {
         + AdresseCourriel : string <<get>> <<private set>>
         + AdresseWeb : string <<get>> <<private set>>
         + DateProchaineElection : datetime? <<get>> <<private set>>
-        + Actif : bool <<get>> <<set>>
+        + Actif : bool <<get>> <<private set>>
         + ctor(p_municipaliteId : int, p_nomMunicipalite : string, p_adresseCourriel : string, p_adresseWeb : string, p_dateProchaineElection : DateTime, p_actif : bool = true)
     }
 
