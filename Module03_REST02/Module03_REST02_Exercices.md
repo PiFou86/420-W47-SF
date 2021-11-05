@@ -4,6 +4,10 @@
 
 L'objectif de l'exercice est de créer une API REST permettant de fournir les opérations CRUD aux entités de type Municipalités.
 
+Voici un diagramme de classes qui peut vous inspirer :
+
+![Diagramme de classes](../images/Module03_REST02/diag/municipalite_api_diag_classes/diag_classes_municipalite_api.png)
+
 ### Exercice 1.1 - Création de l'API REST
 
 ***Afin de simplifier le code, je vous demande de ne faire qu'une solution avec un projet de type Application web et de créer vos différentes couches dans des répertoires qui simulent vos projets services et accès aux données. Ce type de projet utilise le moteur d'injection de dépendances : pour avoir un contexte, il vous suffit de créer un constructeur avec en paramètre le type d'objet voulu.***
@@ -40,9 +44,19 @@ L'objectif de l'exercice est de créer une API REST permettant de fournir les op
 
 ## Exercice 2 - Ajout des élections (Optionnel)
 
+Votre mission est d'ajouter le support des élections : une municipalité doit avoir la liste de ses élections :
+
+- Vous devez donc garder l'information des élections :
+  - un identifiant
+  - un code géographique pour identifier la municipalité
+  - une date d'élections
+
+Pour réaliser l'ajout des élections :
+
+- Ajoutez une table pour sauvegarder les élections (directement en SQL sans passer par les migrations d'entity framework : plus simple à réaliser)
 - Ajoutez le support d'élections :
-  - Ajouter le contrôleur d'API "ElectionsController". Il doit permettre les opérations de type CRUD sur les objets de type "Election"
-  - Les élections contiennent simplement un identifiant, un code géographique pour identifier la municipalité et une date d'élections
+  - Modifiez votre "ApplicationDbContext" et les classes alentours pour ajouter la nouvelle table 
+  - Ajouter le contrôleur d'API "ElectionsController". Il doit permettre les opérations de type CRUD sur les ressources de type "Election" à partir d'une municipalité (l'url doit inclure la municipalité)
   - Il doit y avoir un service spécifique aux municipalités et un pour les élections (ie deux classes dans le même projet)
   - La couche d'accès aux données utilise le même contexte applicatif
 - Validez que le tout fonctionne avec Swagger UI.

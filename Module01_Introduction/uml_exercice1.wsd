@@ -11,14 +11,13 @@ DSED_M01_Fichiers_Texte ..> M01_DAL_Import_Munic_CSV
 DSED_M01_Fichiers_Texte ..> M01_DAL_Municipalite_MySQL
 DSED_M01_Fichiers_Texte ..> M01_Srv_Municipalite
 
-namespace M01_Srv_Municipalite {
+namespace M01_Srv_Municipalite << srvm >> {
     class Municipalite {
         + CodeGeographique : int <<get>> <<set>>
         + NomMunicipalite : string <<get>> <<set>>
         + AdresseCourriel : string <<get>> <<set>>
         + AdresseWeb : string <<get>> <<set>>
         + DateProchaineElection : datetime? <<get>> <<set>>
-        + Actif : bool <<get>> <<set>>
         + <<override>> Equals(obj:object) : bool
         + <<override>> GetHashCode() : int
     }
