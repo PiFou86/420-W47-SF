@@ -9,10 +9,8 @@ Objectifs :
 
 ### Exercice 1.1 - Mise en place de la solution
 
-- Si Firefox n'est pas installé, l'installer sur votre poste de développement
-- Créez la solution Visual Studio "DSED_Module04_React" de type "ASP.NET Core Wep Application" :
-  - Choisissez le gabarit "React.js"
-  - Choisissez le type d'authentification "Comptes d'utilisateurs individuels"
+- Assurez-vous que [Firefox](https://www.mozilla.org) et [NodeJs](https://nodejs.org) sont installés sur votre poste de développement. Dans une console, entrez `node -v`
+- Créez la solution Visual Studio "DSED_Module04_React" de type "ASP.NET Core avec React.js" et choisissez le framework ".NET 5.0" et le type d'authentification "Comptes d'utilisateurs individuels"
 - Compilez votre programme : la restauration des packages npm (node) va prendre un peu de temps. En attendant la fin, allez observer les attributs de la classe "WeatherForecastController"
 - Une fois compilée, lancez l'exécution de votre projet principal.
 
