@@ -1,0 +1,104 @@
+@startuml diag_classes_municipalite_api
+
+
+
+namespace M03_API_Municipalite << apim >> {
+    class Startup {
+        ...
+    }
+
+    class MunicipalitesController {
+        - m_manipulationMunicipalites : ManipulationMunicipalites
+        + ctor(p_manipulationMunicipalites : ManipulationMunicipalites)
+        + Get() : ActionResult<IEnumerable<MunicipaliteModel>>
+        + Get(municipaliteId : int) : ActionResult<MunicipaliteModel>
+        + Post(p_municipalite : MunicipaliteModel) : ActionResult
+        + Put(municipaliteId : int, p_municipalite : MunicipaliteModel) : ActionResult
+        + Delete(municipaliteId : int) : ActionResult
+    }
+
+    class MunicipaliteModel {
+        + MunicipaliteId : int <<get>> <<set>>
+        + NomMunicipalite : string <<get>> <<set>>
+        + AdresseCourriel : string <<get>> <<set>>
+        + AdresseWeb : string <<get>> <<set>>
+        + DateProchaineElection : datetime? <<get>> <<set>>
+        + Actif : bool <<get>> <<set>>
+        + ctor()
+        + ctor(p_municipalite:srvm.Municipalite)
+        + VersEntite() : srvm.Municipalite
+    }
+
+    Startup .left.> M03_Srv_Municipalite.IDepotMunicipalites : configure injection (depot)
+    Startup .right.> M03_DAL_Municipalite.DepotMunicipalitesXYZSQL : configure injection (depot)
+
+    MunicipalitesController --> M03_Srv_Municipalite.ManipulationMunicipalites
+    MunicipalitesController ..> MunicipaliteModel
+}
+
+namespace M03_Srv_Municipalite << srvm >> {
+    class ManipulationMunicipalites {
+        - m_depotMunicipalite : IDepotMunicipalites
+        + ctor(p_depotMunicipalite : IDepotMunicipalites)
+        + ListerMunicipalites() : IEnumerable<Municipalite>
+        + ObtenirMunicipalite(p_codeGeographique:int) : Municipalite
+        + SupprimerMunicipalite(p_codeGeographique:int) : void
+        + AjouterMunicipalite(p_municipalite:Municipalite) : void
+        + MAJMunicipalite(p_municipalite:Municipalite) : void
+    }
+
+    interface IDepotMunicipalites {
+        + ChercherMunicipaliteParCodeGeographique(p_codeGeographique:int) : Municipalite
+        + ListerMunicipalitesActives() : IEnumerable<Municipalite>
+        + DesactiverMunicipalite(p_municipalite:Municipalite) : void
+        + AjouterMunicipalite(p_municipalite:Municipalite) : void
+        + MAJMunicipalite(p_municipalite:Municipalite) : void
+    }
+
+    class Municipalite {
+        + MunicipaliteId : int <<get>> <<private set>>
+        + NomMunicipalite : string <<get>> <<private set>>
+        + AdresseCourriel : string <<get>> <<private set>>
+        + AdresseWeb : string <<get>> <<private set>>
+        + DateProchaineElection : datetime? <<get>> <<private set>>
+        + Actif : bool <<get>> <<private set>>
+        + ctor(p_municipaliteId : int, p_nomMunicipalite : string, p_adresseCourriel : string, p_adresseWeb : string, p_dateProchaineElection : DateTime, p_actif : bool = true)
+    }
+
+    ManipulationMunicipalites -left-> IDepotMunicipalites
+    IDepotMunicipalites ..> Municipalite
+    ManipulationMunicipalites ..> Municipalite
+
+}
+
+namespace M03_DAL_Municipalite << dalm >> {
+    class ApplicationDbContext {
+        ...
+    }
+
+    class DepotMunicipalitesXYZSQL {
+        - m_contexte : ApplicationDbContext
+        + ChercherMunicipaliteParCodeGeographique(p_codeGeographique:int) : srvm.Municipalite
+        + ListerMunicipalitesActives() : IEnumerable<Municipalite>
+        + ctor(p_contexte : ApplicationDbContext)
+        + DesactiverMunicipalite(p_municipalite:srvm.Municipalite) : void
+        + AjouterMunicipalite(p_municipalite:srvm.Municipalite) : void
+        + MAJMunicipalite(p_municipalite:srvm.Municipalite) : void
+    }
+
+    class Municipalite {
+        + MunicipaliteId : int <<get>> <<set>>
+        + NomMunicipalite : string <<get>> <<set>>
+        + AdresseCourriel : string <<get>> <<set>>
+        + AdresseWeb : string <<get>> <<set>>
+        + DateProchaineElection : datetime? <<get>> <<set>>
+        + Actif : bool <<get>> <<set>>
+        + ctor()
+        + ctor(p_municipalite:srvm.Municipalite)
+        + VersEntite() : srvm.Municipalite
+    }
+
+    DepotMunicipalitesXYZSQL --> ApplicationDbContext
+}
+
+@enduml
