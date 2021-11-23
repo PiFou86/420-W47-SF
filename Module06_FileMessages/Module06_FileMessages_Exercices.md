@@ -2,9 +2,11 @@
 
 ## Pré-requis
 
-Nous allons utiliser une file de messages locale appelée RabbitMQ.
+Nous allons utiliser une file de messages locale appelée RabbitMQ. Vous pouvez soit l'installer localement sur votre environnement ou réinvestir les connaissances du cours ITV et utilise un conteneur.
 
-Pour l'installer :
+### Installation locale
+
+Pour l'installer sur votre VM ou machine locale :
 
 - Ouvrez un interpréteur Powershell avec les privilèges administrateur
 - Tapez la commande suivante :
@@ -16,6 +18,30 @@ choco install rabbitmq
 - Acceptez d'exécuter tous les scripts
 - Une fois installé, validez que le service est démarré et fonctionnel en tapant la commande suivante : ```rabbitmqctl.bat status```
 - Si la commande ne fonctionne pas, ajoutez le répertoire "c:\program files\RabbitMQ server\rabbitmq_server-x-y-z\sbin" à votre variable d'environnement "PATH" en adaptant le chemin à votre installation
+
+<details>
+  <summary>Problème durant l'installation ou l'exécution</summary>
+
+Vous trouverez [ici](https://stackoverflow.com/questions/16001047/rabbitmq-fails-to-start) des indices sur la façon de résoudre vos problèmes (Merci à Jonathan Blouin pour le partage !).
+  
+En substance (extrait d'une des réponses) :
+
+- Set Environment variable-
+  - RABBITMQ_BASE c:\RabbitMQ Server
+  - ERLANG_HOME C:\Program Files\erl10.7
+- Config MQ Server
+  - stop RabbitMq : rabbitmq-service.bat stop
+  - Enable management : rabbitmq-plugins.bat enable rabbitmq_management
+  - Reinstall server : rabbitmq-service.bat install
+  - Start Server : rabbitmq-service.bat start
+  - Start App : rabbitmqctl.bat start_app  
+</details>
+
+### Installation avec docker
+
+Il faut que docker fonctionne sur votre environnement de travail.
+
+Utilisez l'image présente sur [docker hub](https://hub.docker.com/_/rabbitmq).
 
 ## Exercice 1 - Mes premiers messages
 
