@@ -34,7 +34,7 @@ Un client est défini par :
 
 ### Exercice 2.1 - Version simple
 
-- Créez la solution "DSEC_M06_Clients" avec deux projets de type "console" :
+- Créez la solution "DSED_M06_Clients" avec deux projets de type "console" :
   - "M06_Clients_Producteur_UI" : permet de saisir un client et de l'envoyer à la file de messages "m06-clients". Le client est envoyé sous forme de document JSON
   - "M06_Clients_Consommateur" : écoute la file "m06-clients" et enregistrer les clients dans une base de données
 - Essayez le programme
