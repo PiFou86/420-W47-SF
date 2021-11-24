@@ -17,7 +17,7 @@ choco install rabbitmq
 
 - Acceptez d'exécuter tous les scripts
 - Une fois installé, validez que le service est démarré et fonctionnel en tapant la commande suivante : ```rabbitmqctl.bat status```
-- Si la commande ne fonctionne pas, ajoutez le répertoire "c:\program files\RabbitMQ server\rabbitmq_server-x-y-z\sbin" à votre variable d'environnement "PATH" en adaptant le chemin à votre installation
+- Si la commande ne fonctionne pas, ajoutez le répertoire "C:\Program Files\RabbitMQ server\rabbitmq_server-x.y.z\sbin" à votre variable d'environnement "PATH" en adaptant le chemin à votre installation
 
 <details>
   <summary>Problème durant l'installation ou l'exécution</summary>
@@ -27,8 +27,8 @@ Vous trouverez [ici](https://stackoverflow.com/questions/16001047/rabbitmq-fails
 En substance (extrait d'une des réponses) :
 
 - Set Environment variable-
-  - RABBITMQ_BASE c:\RabbitMQ Server
-  - ERLANG_HOME C:\Program Files\erl10.7
+  - RABBITMQ_BASE C:\RabbitMQ Server
+  - ERLANG_HOME C:\Program Files\erl-10.7
 - Config MQ Server
   - stop RabbitMq : rabbitmq-service.bat stop
   - Enable management : rabbitmq-plugins.bat enable rabbitmq_management
