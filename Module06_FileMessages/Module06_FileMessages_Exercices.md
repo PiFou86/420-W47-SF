@@ -109,13 +109,11 @@ Un compte bancaire a numéro de compte, un type qui sera ici égal à "courant" 
 
 Une transaction est soit de type crédit, débit. Elle contient aussi une date et un montant.
 
-Vous devez proposer une API REST qui permet de consulter, créer, modifier un compte. La suppression est interdite. Les données doivent être persistées dans une base de données.
+Vous devez proposer une API REST qui permet de consulter, créer, modifier un compte et qui permet de consulter, créer une transaction. La suppression des comptes est interdite. La modification et la suppression de transactions sont interdites. Les données doivent être persistées dans une base de données.
 
-Vous devez aussi proposer une API REST qui permet de consulter, créer une transaction. La modification et la suppression est interdite.
+L'API précédente ne doit pas appliquer les créations et modifications en mode synchrone, vous devez les envoyer dans la file de messages "m06-comptes".
 
-Les API précédentes ne doivent pas appliquer les créations et modifications en synchrone, vous devez les envoyer dans la file de messages "m06-comptes".
-
-En effet, les deux API ont deux types d'actions :
+En effet, l'API a deux types d'actions :
 
 - Consultation qui va être comme vous avez fait jusqu'à maintenant. Donc ici, les deux contrôleurs vont consulter directement le dépot de données.
 - Création / modification qui va être en asynchrone et donc passer par une file de messages. Les deux contrôleurs vont envoyer les créations / modifications dans la file de messages. L'API est donc productrice seulement ici.
