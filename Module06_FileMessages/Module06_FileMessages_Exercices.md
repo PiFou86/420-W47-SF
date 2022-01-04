@@ -144,4 +144,8 @@ Le programme console "TraitementLettresMortes" doit lire les messages de la file
 
 Vous trouverez ci-après une très belle démonstration des programmes demandés proposée par Raoul Hunter-Villeneuve (Session hiver 2020). Il y montre les trois programmes en parallèle avec une interface texte très évoluée. Il a configuré son programme pour avoir une probabilité de 20% d'erreurs. Merci à lui !
 
-[![Résultat attendu](https://img.youtube.com/vi/Z7ohFgi-ukA/0.jpg)](https://www.youtube.com/watch?v=Z7ohFgi-ukA)
+[![Démonstration Raoul Hunter - Hiver 2020](https://img.youtube.com/vi/Z7ohFgi-ukA/0.jpg)](https://www.youtube.com/watch?v=Z7ohFgi-ukA)
+
+Vous trouverez ci-après une autre très belle démonstration des programmes demandés proposée par Sébastien Bédard (Session Automne 2021). Il a su mélanger trois cours de quatrième session pour faire cette démonstration : DSED, AMOC (IoT) et ISS ! La vidéo est séparée en deux partie. La première présente un client embarqué dans un ESP32. La deuxième partie présente un client console très évolué : un jeu vidéo console en couleur ! Merci d'avoir poussé le concept aussi loin !
+
+[![Démonstration Sébastien Bédard - Automne 2021](https://img.youtube.com/vi/JYrr5xtN3p8/1.jpg)](https://youtu.be/JYrr5xtN3p8)
