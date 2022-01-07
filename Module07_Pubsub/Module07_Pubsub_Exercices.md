@@ -27,7 +27,7 @@ Tout au long de l'exercice, je vous conseille de prendre le schéma suivant et d
 
 - Créez le projet "DSED_M07_TraitementCommande_facturation" de type "console"
 - Ce programme doit lier l'échange "m07-commandes" à la file de messages "m07-facturation" et accepter tous les messages dont le sujet débute par "commande.placee"
-- À la réception d'un message, il calcule de montant de la facture. Si la commande est de catégorie premium, il enlève 5%. Il calcule aussi les taxes avec les taux actuels appliqués dans la province du Québec. La liste des articles, ainsi que le total sans et avec taxes sont enregistrés dans un fichier par commande dont le nom débute par par l'année, le mois, le jour, l'heure, le nombre de minutes, le nombre de secondes et la référence de la commande avec le format suivant : "AAAAMMJJ_HHMMSS_ReferenceCommande_Facture.json"
+- À la réception d'un message, il calcule le montant de la facture. Si la commande est de catégorie premium, il enlève 5%. Il calcule aussi les taxes avec les taux actuels appliqués dans la province du Québec. La liste des articles, ainsi que le total sans et avec taxes sont enregistrés dans un fichier par commande dont le nom débute par par l'année, le mois, le jour, l'heure, le nombre de minutes, le nombre de secondes et la référence de la commande avec le format suivant : "AAAAMMJJ_HHMMSS_ReferenceCommande_Facture.json"
 
 ### Exercice 1.4 - Préparation de l'expédition
 
