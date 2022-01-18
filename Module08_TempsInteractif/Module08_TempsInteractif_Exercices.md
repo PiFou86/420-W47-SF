@@ -2,7 +2,7 @@
 
 ## Exercice 1 - Reprise du tableau blanc
 
-Reprenez la solution du cours et ajoutez la possibilité d'avoir plusieurs tableaux blanc :
+Reprenez la solution Visual Studio "DSED_M08_DemoCours" du cours et ajoutez la possibilité d'avoir plusieurs tableaux blanc :
 
 - Au démarrage du code client, listez les tableaux et laissez le client choisir quel tableau il va rejoindre
 - S'il le souhaite, il peut ajouter un tableau grace à un textbox qui contient le nom du futur tableau et un bouton "Créer tableau" qui demande au serveur de le créer. Une fois créé, on rejoint le tableau blanc. Si le tableau existe déjà (déjà listé ou créé entre temps), on ne fait que le rejoindre
