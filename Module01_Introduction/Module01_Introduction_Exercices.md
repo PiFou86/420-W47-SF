@@ -116,7 +116,7 @@ protected override void OnConfiguring(DbContextOptionsBuilder options) {
 - Votre programme principal doit créer une instance de traitement. Pour cela, vous devez préalablement créer les instances des dépôts et les passer au constructeur d'initialisation.
 - Le programme exécute ensuite le traitement et affiche les statistiques sur la sortie standard.
 
-### Étape 5 - Tests unitaires (Optionnel mais fortement recommandé !)
+### Étape 5 - Tests unitaires
 
 - Faîtes vos tests unitaires de la classe de traitement en utilisant les packages "XUnit" et "Moq".
 
