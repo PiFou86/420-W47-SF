@@ -77,7 +77,7 @@ using (var img = Image.Load(image_path))
 }
 ```
 
-Pour tester l'exercice, ma fille s'est donnée à fond pour l'exercice : les visages sont penchés, il y a présence de grimages, etc. mais malgré cela, le système fonctionne.
+Pour tester l'exercice, ma fille s'est donnée à fond : les visages sont penchés, il y a présence de grimages, etc. mais malgré cela, le système fonctionne.
 
 ![DeepStack, détection de visages malgré les grimages](img/deepstack01.png)
 
