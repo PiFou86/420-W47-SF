@@ -48,12 +48,12 @@ Pré-requis :
 - Connexion réseau
 - Des images avec des visages
 
-Dans cet exercice, vous allez utiliser l'API de vision [deepstack](https://www.deepstack.cc) afin de reconnaître les visages dans une image. [Le code du projet se trouve sur un dépôt GitHub](https://github.com/johnolafenwa/DeepStack). Le dépôt contient un fichier README.md très riche.
+Dans cet exercice, vous allez utiliser l'API de vision [deepstack](https://www.deepstack.cc) afin détecter les visages (Face detection) dans une image. [Le code du projet se trouve sur un dépôt GitHub](https://github.com/johnolafenwa/DeepStack). Le dépôt contient un fichier README.md très riche.
 
 Écrivez un programme qui va :
 
 - Prendre une image en paramètre
-- Envoyer cette image à l'API de vision
+- Envoyer cette image à l'API de vision de détection de visages
 - Dessiner un rectangle rouge autour des visages
 - Enregistrer l'image résultante dans le répertoire "output"
 
