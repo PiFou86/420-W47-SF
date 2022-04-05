@@ -27,8 +27,8 @@ namespace DSED_Module05_Preparation_Cours
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            app.UseSoapEndpoint<IEchoService>("/EchoService.svc", new BasicHttpBinding(), SoapSerializer.DataContractSerializer);
-            app.UseSoapEndpoint<IEchoService>("/EchoService.asmx", new BasicHttpBinding(), SoapSerializer.XmlSerializer);
+            app.UseSoapEndpoint<IEchoService>("/EchoService.svc", new SoapEncoderOptions());
+            app.UseSoapEndpoint<IEchoService>("/EchoService.asmx", new SoapEncoderOptions(), SoapSerializer.DataContractSerializer);
 
             if (env.IsDevelopment())
             {
