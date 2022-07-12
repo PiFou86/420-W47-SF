@@ -89,12 +89,12 @@ Pour tester l'exercice, ma fille s'est donnée à fond : les visages sont pench�
   - D'afficher la météo d'une ville saisie (Le nom de la ville et non son woeid)
   - De quitter le programme
 - Avant d'aller plus loin, essayez de comprendre un peu mieux les données que vous allez manipuler en naviguant les URIs suivantes :
-  - https://www.metaweather.com/api/location/search/?lattlong=46.785307,-71.287363
-  - https://www.metaweather.com/api/location/3534/
+  - https://geocoding-api.open-meteo.com/v1/search?name=Québec
+  - https://api.open-meteo.com/v1/forecast?latitude=46.81228&longitude=-71.21454&hourly=temperature_2m&current_weather=true
 - Créez deux autres projets :
   - Un projet contenant la couche de services pour répondre aux différents besoins de l'interface utilisateur
   - Un projet contenant la couche d'accès aux données qui effectue les requêtes à l'API REST
-- La documentation de l'API est disponible à l'adresse suivante : https://www.metaweather.com/api/
+- La documentation de l'API est disponible à l'adresse suivante : https://open-meteo.com/en/docs#api_form
 
 <!-- ## Exercice 3 - Actualité - COVID 19 (Optionnel)
 
