@@ -68,7 +68,7 @@ dotnet tool install --global dotnet-ef
 - Créez une classe de contexte qui peut se connecter à votre base de données (MySQL ou SQLServer)
   - Pour la surcharge de la méthode "OnConfiguring", inspirez vous des liens suivants :
     - [MySQL](https://dev.mysql.com/doc/connector-net/en/connector-net-entityframework-core.html)
-    - [Oracle](https://github.com/oracle/dotnet-db-samples/blob/master/samples/dotnet-core/ef-core/get-started/create-model-save-query-scaffold.cs)
+    - [Oracle](https://docs.oracle.com/en/database/oracle/oracle-data-access-components/19.3/odpnt/EFCoreLogging.html#GUID-965B78C4-8E96-44E8-A3DC-151D38546845)
     - [SQL Server](https://docs.microsoft.com/en-us/ef/core)
   - À la suite de l'appel à "UseMySQL / UseSQLServer / UseOracle", ajoutez l'appel à la méthode U le tout devrait ressembler à cela :
 
