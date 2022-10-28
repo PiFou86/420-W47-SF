@@ -29,7 +29,7 @@
 - Reprenez la proposition de correction du Module 1 ou votre propre code.
 - Ajoutez le projet "M01_DAL_Import_Munic_REST_JSON"
 - Ajoutez les packages Nuget "Microsoft.AspNet.WebApi.Client" (facilite la création de requêtes HTTP) et "Newtonsoft.Json" ((Dé)sérialisation JSON)
-- Ajoutez-y une classe qui implante l'interface "IDepotImportationMunicipalite"
+- Ajoutez-y une classe qui implante l'interface "IDepotImportationMunicipalites"
 - Dans le constructeur, instanciez un HttpClient que vous allez garder dans une donnée membre
 - Codez la méthode "LireMunicipalite" :
   - Spécifiez la bonne adresse de base : "https://www.donneesquebec.ca"
