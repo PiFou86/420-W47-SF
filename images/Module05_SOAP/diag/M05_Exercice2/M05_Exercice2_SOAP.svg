@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="821px" preserveAspectRatio="none" style="width:4415px;height:821px;background:#FFFFFF;" version="1.1" viewBox="0 0 4415 821" width="4415px" zoomAndPan="magnify"><defs/><g><!--MD5=[71696d1bb7a9550b08dfd1c1364414f7]
+cluster DSED_M05_SOAP_Web--><g id="cluster_DSED_M05_SOAP_Web"><path d="M1069.5,6 L1229.5,6 A3.75,3.75 0 0 1 1232,8.5 L1239,28.4883 L4405.5,28.4883 A2.5,2.5 0 0 1 4408,30.9883 L4408,812 A2.5,2.5 0 0 1 4405.5,814.5 L1069.5,814.5 A2.5,2.5 0 0 1 1067,812 L1067,8.5 A2.5,2.5 0 0 1 1069.5,6 " fill="none" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="1067" x2="1239" y1="28.4883" y2="28.4883"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="159" x="1071" y="21.5352">DSED_M05_SOAP_Web</text></g><!--MD5=[a025909632b7f3dd2a4a040dba7f6fb1]
+cluster Entite--><g id="cluster_Entite"><path d="M1991.5,510.5 L2034.5,510.5 A3.75,3.75 0 0 1 2037,513 L2044,532.9883 L3777.5,532.9883 A2.5,2.5 0 0 1 3780,535.4883 L3780,788 A2.5,2.5 0 0 1 3777.5,790.5 L1991.5,790.5 A2.5,2.5 0 0 1 1989,788 L1989,513 A2.5,2.5 0 0 1 1991.5,510.5 " fill="none" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="1989" x2="2044" y1="532.9883" y2="532.9883"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="42" x="1993" y="526.0352">Entite</text></g><!--MD5=[41832abf65a9d988e130af56244b3a13]
+cluster CasUtilisation--><g id="cluster_CasUtilisation"><path d="M2188.5,272.5 L2291.5,272.5 A3.75,3.75 0 0 1 2294,275 L2301,294.9883 L2717.5,294.9883 A2.5,2.5 0 0 1 2720,297.4883 L2720,484 A2.5,2.5 0 0 1 2717.5,486.5 L2188.5,486.5 A2.5,2.5 0 0 1 2186,484 L2186,275 A2.5,2.5 0 0 1 2188.5,272.5 " fill="none" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="2186" x2="2301" y1="294.9883" y2="294.9883"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="102" x="2190" y="288.0352">CasUtilisation</text></g><!--MD5=[17c3f478876f27948be907191d450d60]
+cluster PresentationServiceSOAP--><g id="cluster_PresentationServiceSOAP"><path d="M3806.5,295.5 L3987.5,295.5 A3.75,3.75 0 0 1 3990,298 L3997,317.9883 L4381.5,317.9883 A2.5,2.5 0 0 1 4384,320.4883 L4384,755 A2.5,2.5 0 0 1 4381.5,757.5 L3806.5,757.5 A2.5,2.5 0 0 1 3804,755 L3804,298 A2.5,2.5 0 0 1 3806.5,295.5 " fill="none" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="3804" x2="3997" y1="317.9883" y2="317.9883"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="180" x="3808" y="311.0352">PresentationServiceSOAP</text></g><!--MD5=[c5d177b2fa847c48384a4f399638f91d]
+cluster Persistance--><g id="cluster_Persistance"><path d="M1106.5,272.5 L1189.5,272.5 A3.75,3.75 0 0 1 1192,275 L1199,294.9883 L1962.5,294.9883 A2.5,2.5 0 0 1 1965,297.4883 L1965,763.5 A2.5,2.5 0 0 1 1962.5,766 L1106.5,766 A2.5,2.5 0 0 1 1104,763.5 L1104,275 A2.5,2.5 0 0 1 1106.5,272.5 " fill="none" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="1104" x2="1199" y1="294.9883" y2="294.9883"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="82" x="1108" y="288.0352">Persistance</text></g><!--MD5=[e3b08bd3d17f7f99d7620a6ce0f29303]
+cluster DSED_M05_SOAP_Model--><g id="cluster_DSED_M05_SOAP_Model"><path d="M8.5,145 L182.5,145 A3.75,3.75 0 0 1 185,147.5 L192,167.4883 L710.5,167.4883 A2.5,2.5 0 0 1 713,169.9883 L713,747 A2.5,2.5 0 0 1 710.5,749.5 L8.5,749.5 A2.5,2.5 0 0 1 6,747 L6,147.5 A2.5,2.5 0 0 1 8.5,145 " fill="none" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="6" x2="192" y1="167.4883" y2="167.4883"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="173" x="10" y="160.5352">DSED_M05_SOAP_Model</text></g><!--MD5=[8f3592db4a69f569e78a88fb804499b1]
+cluster DSED_M05_SOAP_ExempleClientConsole--><g id="cluster_DSED_M05_SOAP_ExempleClientConsole"><path d="M739.5,133.5 L1030.5,133.5 A3.75,3.75 0 0 1 1033,136 L1040,155.9883 L1040.5,155.9883 A2.5,2.5 0 0 1 1043,158.4883 L1043,246 A2.5,2.5 0 0 1 1040.5,248.5 L739.5,248.5 A2.5,2.5 0 0 1 737,246 L737,136 A2.5,2.5 0 0 1 739.5,133.5 " fill="none" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="737" x2="1040" y1="155.9883" y2="155.9883"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="290" x="741" y="149.0352">DSED_M05_SOAP_ExempleClientConsole</text></g><g id="elem_GMN10"><path d="M2311.5,165 L2311.5,236.2422 A0,0 0 0 0 2311.5,236.2422 L2449,236.2422 L2453,307.11 L2457,236.2422 L2594.5,236.2422 A0,0 0 0 0 2594.5,236.2422 L2594.5,175 L2584.5,165 L2311.5,165 A0,0 0 0 0 2311.5,165 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M2584.5,165 L2584.5,175 L2594.5,175 L2584.5,165 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="190" x="2317.5" y="182.5684">Cette classe permet d'avoir un</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="262" x="2317.5" y="197.8789">traitement spécifique par cas d'utilisation</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="213" x="2317.5" y="213.1895">(Algorithme). Ici, chaque méthode</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="229" x="2317.5" y="228.5">pourra appeler directement le dépot.</text></g><!--MD5=[73ae1b5d1f064f5220f4cdca2f21ac32]
+class Startup--><g id="elem_Startup"><rect codeLine="102" fill="#F1F1F1" height="48" id="Startup" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="82" x="1860" y="176.5"/><ellipse cx="1875" cy="192.5" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M1877.4731,198.6431 Q1876.8921,198.9419 1876.2529,199.0913 Q1875.6138,199.2407 1874.9082,199.2407 Q1872.4014,199.2407 1871.0815,197.5889 Q1869.7617,195.937 1869.7617,192.8159 Q1869.7617,189.6865 1871.0815,188.0347 Q1872.4014,186.3828 1874.9082,186.3828 Q1875.6138,186.3828 1876.2612,186.5322 Q1876.9087,186.6816 1877.4731,186.9805 L1877.4731,189.7031 Q1876.8423,189.1221 1876.2488,188.8523 Q1875.6553,188.5825 1875.0244,188.5825 Q1873.6797,188.5825 1872.9949,189.6492 Q1872.3101,190.7158 1872.3101,192.8159 Q1872.3101,194.9077 1872.9949,195.9744 Q1873.6797,197.041 1875.0244,197.041 Q1875.6553,197.041 1876.2488,196.7712 Q1876.8423,196.5015 1877.4731,195.9204 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="50" x="1889" y="197.791">Startup</text><line style="stroke:#181818;stroke-width:0.5;" x1="1861" x2="1941" y1="208.5" y2="208.5"/><line style="stroke:#181818;stroke-width:0.5;" x1="1861" x2="1941" y1="216.5" y2="216.5"/></g><!--MD5=[175f95e045c1a44aed0b30df3abe0e5c]
+class Program--><g id="elem_Program"><rect codeLine="106" fill="#F1F1F1" height="64.4883" id="Program" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="176" x="1813" y="41"/><ellipse cx="1867.25" cy="57" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M1869.7231,63.1431 Q1869.1421,63.4419 1868.5029,63.5913 Q1867.8638,63.7407 1867.1582,63.7407 Q1864.6514,63.7407 1863.3315,62.0889 Q1862.0117,60.437 1862.0117,57.3159 Q1862.0117,54.1865 1863.3315,52.5347 Q1864.6514,50.8828 1867.1582,50.8828 Q1867.8638,50.8828 1868.5112,51.0322 Q1869.1587,51.1816 1869.7231,51.4805 L1869.7231,54.2031 Q1869.0923,53.6221 1868.4988,53.3523 Q1867.9053,53.0825 1867.2744,53.0825 Q1865.9297,53.0825 1865.2449,54.1492 Q1864.5601,55.2158 1864.5601,57.3159 Q1864.5601,59.4077 1865.2449,60.4744 Q1865.9297,61.541 1867.2744,61.541 Q1867.9053,61.541 1868.4988,61.2712 Q1869.0923,61.0015 1869.7231,60.4204 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="59" x="1887.75" y="62.291">Program</text><line style="stroke:#181818;stroke-width:0.5;" x1="1814" x2="1988" y1="73" y2="73"/><line style="stroke:#181818;stroke-width:0.5;" x1="1814" x2="1988" y1="81" y2="81"/><ellipse cx="1824" cy="94.7441" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="150" x="1833" y="98.5352">int main(string[] argv)</text></g><!--MD5=[7258e27cd89426d662d5e8256631277e]
+class Municipalite--><g id="elem_Municipalite"><rect codeLine="9" fill="#F1F1F1" height="229.3711" id="Municipalite" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="1130" x="2634" y="545.5"/><ellipse cx="3153.25" cy="561.5" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M3155.7231,567.6431 Q3155.1421,567.9419 3154.5029,568.0913 Q3153.8638,568.2407 3153.1582,568.2407 Q3150.6514,568.2407 3149.3315,566.5889 Q3148.0117,564.937 3148.0117,561.8159 Q3148.0117,558.6865 3149.3315,557.0347 Q3150.6514,555.3828 3153.1582,555.3828 Q3153.8638,555.3828 3154.5112,555.5322 Q3155.1587,555.6816 3155.7231,555.9805 L3155.7231,558.7031 Q3155.0923,558.1221 3154.4988,557.8523 Q3153.9053,557.5825 3153.2744,557.5825 Q3151.9297,557.5825 3151.2449,558.6492 Q3150.5601,559.7158 3150.5601,561.8159 Q3150.5601,563.9077 3151.2449,564.9744 Q3151.9297,566.041 3153.2744,566.041 Q3153.9053,566.041 3154.4988,565.7712 Q3155.0923,565.5015 3155.7231,564.9204 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="83" x="3173.75" y="566.791">Municipalite</text><line style="stroke:#181818;stroke-width:0.5;" x1="2635" x2="3763" y1="577.5" y2="577.5"/><ellipse cx="2645" cy="591.2441" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="279" x="2654" y="595.0352">int CodeGeographique «get; private set;»</text><ellipse cx="2645" cy="607.7324" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="282" x="2654" y="611.5234">string NomMunicipalite «get; private set;»</text><ellipse cx="2645" cy="624.2207" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="278" x="2654" y="628.0117">string AdresseCourriel «get; private set;»</text><ellipse cx="2645" cy="640.709" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="251" x="2654" y="644.5">string AdresseWeb «get; private set;»</text><ellipse cx="2645" cy="657.1973" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="345" x="2654" y="660.9883">DateTime DateProchaineElection «get; private set;»</text><ellipse cx="2645" cy="673.6855" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="189" x="2654" y="677.4766">bool Actif «get; private set;»</text><line style="stroke:#181818;stroke-width:0.5;" x1="2635" x2="3763" y1="684.4297" y2="684.4297"/><ellipse cx="2645" cy="698.1738" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="1104" x="2654" y="701.9648">Municipalite(int p_codeGeographique, string p_nomMunicipalite, string p_adresseCourriel, string p_adresseWeb, DateTime p_dateProchaineElection, bool p_actif)</text><ellipse cx="2645" cy="714.6621" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="265" x="2654" y="718.4531">public override bool Equals(object obj)</text><ellipse cx="2645" cy="731.1504" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="200" x="2654" y="734.9414">«override» int GetHashCode()</text><ellipse cx="2645" cy="747.6387" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="408" x="2654" y="751.4297">static bool operator ==(Municipalite left, Municipalite right)</text><ellipse cx="2645" cy="764.127" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="401" x="2654" y="767.918">static bool operator !=(Municipalite left, Municipalite right)</text></g><!--MD5=[5f9d132bed87254ef6b64143910b2cc3]
+class IDepotMunicipalites--><g id="elem_IDepotMunicipalites"><rect codeLine="23" fill="#F1F1F1" height="130.4414" id="IDepotMunicipalites" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="594" x="2005" y="595"/><ellipse cx="2230.25" cy="611" fill="#B4A7E5" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M2226.6777,607.2651 L2226.6777,605.1069 L2234.0571,605.1069 L2234.0571,607.2651 L2231.5918,607.2651 L2231.5918,615.3418 L2234.0571,615.3418 L2234.0571,617.5 L2226.6777,617.5 L2226.6777,615.3418 L2229.1431,615.3418 L2229.1431,607.2651 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="135" x="2250.75" y="616.291">IDepotMunicipalites</text><line style="stroke:#181818;stroke-width:0.5;" x1="2006" x2="2598" y1="627" y2="627"/><line style="stroke:#181818;stroke-width:0.5;" x1="2006" x2="2598" y1="635" y2="635"/><ellipse cx="2016" cy="648.7441" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="568" x="2025" y="652.5352">Municipalite ChercherMunicipaliteParCodeGeographique(int p_codeGeographique)</text><ellipse cx="2016" cy="665.2324" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="380" x="2025" y="669.0234">IEnumerable&lt;Municipalite&gt; ListerMunicipalitesActives()</text><ellipse cx="2016" cy="681.7207" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="383" x="2025" y="685.5117">void DesactiverMunicipalite(Municipalite p_municipalite)</text><ellipse cx="2016" cy="698.209" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="364" x="2025" y="702">void AjouterMunicipalite(Municipalite p_municipalite)</text><ellipse cx="2016" cy="714.6973" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="339" x="2025" y="718.4883">void MAJMunicipalite(Municipalite p_municipalite)</text></g><!--MD5=[6d7efd59961e508c6bb4f47e38bc95d5]
+class ManipulationMunicipalites--><g id="elem_ManipulationMunicipalites"><rect codeLine="33" fill="#F1F1F1" height="163.418" id="ManipulationMunicipalites" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="501" x="2202.5" y="307.5"/><ellipse cx="2358.75" cy="323.5" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M2361.2231,329.6431 Q2360.6421,329.9419 2360.0029,330.0913 Q2359.3638,330.2407 2358.6582,330.2407 Q2356.1514,330.2407 2354.8315,328.5889 Q2353.5117,326.937 2353.5117,323.8159 Q2353.5117,320.6865 2354.8315,319.0347 Q2356.1514,317.3828 2358.6582,317.3828 Q2359.3638,317.3828 2360.0112,317.5322 Q2360.6587,317.6816 2361.2231,317.9805 L2361.2231,320.7031 Q2360.5923,320.1221 2359.9988,319.8523 Q2359.4053,319.5825 2358.7744,319.5825 Q2357.4297,319.5825 2356.7449,320.6492 Q2356.0601,321.7158 2356.0601,323.8159 Q2356.0601,325.9077 2356.7449,326.9744 Q2357.4297,328.041 2358.7744,328.041 Q2359.4053,328.041 2359.9988,327.7712 Q2360.5923,327.5015 2361.2231,326.9204 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="180" x="2379.25" y="328.791">ManipulationMunicipalites</text><line style="stroke:#181818;stroke-width:0.5;" x1="2203.5" x2="2702.5" y1="339.5" y2="339.5"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="2210.5" y="350.2441"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="293" x="2222.5" y="357.0352">IDepotMunicipalites m_depotMunicipalites;</text><line style="stroke:#181818;stroke-width:0.5;" x1="2203.5" x2="2702.5" y1="363.9883" y2="363.9883"/><ellipse cx="2213.5" cy="377.7324" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="475" x="2222.5" y="381.5234">ManipulationMunicipalites(IDepotMunicipalites p_depotMunicipalites)</text><ellipse cx="2213.5" cy="394.2207" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="378" x="2222.5" y="398.0117">IEnumerable&lt;Municipalite&gt; ObtenirListeMunicipalites()</text><ellipse cx="2213.5" cy="410.709" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="401" x="2222.5" y="414.5">Municipalite ObtenirMunicipalite(int p_codeGeographique)</text><ellipse cx="2213.5" cy="427.1973" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="351" x="2222.5" y="430.9883">void CreerMunicipalite(Municipalite p_municipalite)</text><ellipse cx="2213.5" cy="443.6855" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="370" x="2222.5" y="447.4766">void ModifierMunicipalite(Municipalite p_municipalite)</text><ellipse cx="2213.5" cy="460.1738" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="385" x="2222.5" y="463.9648">void SupprimerMunicipalite(Municipalite p_municipalite)</text></g><!--MD5=[b87296cdbfdf50386007571741b6d39c]
+class MunicipaliteService--><g id="elem_MunicipaliteService"><rect codeLine="50" fill="#F1F1F1" height="163.418" id="MunicipaliteService" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="548" x="3820" y="578.5"/><ellipse cx="4024.25" cy="594.5" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M4026.7231,600.6431 Q4026.1421,600.9419 4025.5029,601.0913 Q4024.8638,601.2407 4024.1582,601.2407 Q4021.6514,601.2407 4020.3315,599.5889 Q4019.0117,597.937 4019.0117,594.8159 Q4019.0117,591.6865 4020.3315,590.0347 Q4021.6514,588.3828 4024.1582,588.3828 Q4024.8638,588.3828 4025.5112,588.5322 Q4026.1587,588.6816 4026.7231,588.9805 L4026.7231,591.7031 Q4026.0923,591.1221 4025.4988,590.8523 Q4024.9053,590.5825 4024.2744,590.5825 Q4022.9297,590.5825 4022.2449,591.6492 Q4021.5601,592.7158 4021.5601,594.8159 Q4021.5601,596.9077 4022.2449,597.9744 Q4022.9297,599.041 4024.2744,599.041 Q4024.9053,599.041 4025.4988,598.7712 Q4026.0923,598.5015 4026.7231,597.9204 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="131" x="4044.75" y="599.791">MunicipaliteService</text><line style="stroke:#181818;stroke-width:0.5;" x1="3821" x2="4367" y1="610.5" y2="610.5"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="3828" y="621.2441"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="397" x="3840" y="628.0352">m_manipulationMunicipalites : ManipulationMunicipalites;</text><line style="stroke:#181818;stroke-width:0.5;" x1="3821" x2="4367" y1="634.9883" y2="634.9883"/><ellipse cx="3831" cy="648.7324" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="522" x="3840" y="652.5234">MunicipaliteService(ManipulationMunicipalites p_manipulationMunicipalites)</text><ellipse cx="3831" cy="665.2207" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="445" x="3840" y="669.0117">IEnumerable&lt;MunicipaliteSOAPDTO&gt; ObtenirListeMunicipalites()</text><ellipse cx="3831" cy="681.709" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="468" x="3840" y="685.5">MunicipaliteSOAPDTO ObtenirMunicipalite(int p_codeGeographique)</text><ellipse cx="3831" cy="698.1973" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="418" x="3840" y="701.9883">void CreerMunicipalite(MunicipaliteSOAPDTO p_municipalite)</text><ellipse cx="3831" cy="714.6855" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="437" x="3840" y="718.4766">void ModifierMunicipalite(MunicipaliteSOAPDTO p_municipalite)</text><ellipse cx="3831" cy="731.1738" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="452" x="3840" y="734.9648">void SupprimerMunicipalite(MunicipaliteSOAPDTO p_municipalite)</text></g><g id="elem_GMN15"><path d="M3972.5,330.5 L3972.5,447.6738 A0,0 0 0 0 3972.5,447.6738 L4090,447.6738 L4094,578.43 L4098,447.6738 L4215.5,447.6738 A0,0 0 0 0 4215.5,447.6738 L4215.5,340.5 L4205.5,330.5 L3972.5,330.5 A0,0 0 0 0 3972.5,330.5 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M4205.5,330.5 L4205.5,340.5 L4215.5,340.5 L4205.5,330.5 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="189" x="3978.5" y="348.0684">Cette classe permet d'exposer</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="201" x="3978.5" y="363.3789">ManipulationMunicipalites. Il ne</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="189" x="3978.5" y="378.6895">doit pas faire de manipulation</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="191" x="3978.5" y="394">algorithmiques autres que des</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="175" x="3978.5" y="409.3105">conversions de types et des</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="160" x="3978.5" y="424.6211">validations d'entrées. Elle</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="222" x="3978.5" y="439.9316">ne fait que présenter les méthodes.</text></g><!--MD5=[b240ec426b9590782abbbd08529773c4]
+class MunicipaliteSQLDTO--><g id="elem_MunicipaliteSQLDTO"><rect codeLine="70" fill="#F1F1F1" height="179.9063" id="MunicipaliteSQLDTO" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="320" x="1541" y="570"/><ellipse cx="1627.25" cy="586" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M1629.7231,592.1431 Q1629.1421,592.4419 1628.5029,592.5913 Q1627.8638,592.7407 1627.1582,592.7407 Q1624.6514,592.7407 1623.3315,591.0889 Q1622.0117,589.437 1622.0117,586.3159 Q1622.0117,583.1865 1623.3315,581.5347 Q1624.6514,579.8828 1627.1582,579.8828 Q1627.8638,579.8828 1628.5112,580.0322 Q1629.1587,580.1816 1629.7231,580.4805 L1629.7231,583.2031 Q1629.0923,582.6221 1628.4988,582.3523 Q1627.9053,582.0825 1627.2744,582.0825 Q1625.9297,582.0825 1625.2449,583.1492 Q1624.5601,584.2158 1624.5601,586.3159 Q1624.5601,588.4077 1625.2449,589.4744 Q1625.9297,590.541 1627.2744,590.541 Q1627.9053,590.541 1628.4988,590.2712 Q1629.0923,590.0015 1629.7231,589.4204 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="139" x="1647.75" y="591.291">MunicipaliteSQLDTO</text><line style="stroke:#181818;stroke-width:0.5;" x1="1542" x2="1860" y1="602" y2="602"/><ellipse cx="1552" cy="615.7441" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="246" x="1561" y="619.5352">int MunicipaliteSQLDTOId «get; set;»</text><ellipse cx="1552" cy="632.2324" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="231" x="1561" y="636.0234">string NomMunicipalite «get; set;»</text><ellipse cx="1552" cy="648.7207" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="227" x="1561" y="652.5117">string AdresseCourriel «get; set;»</text><ellipse cx="1552" cy="665.209" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="200" x="1561" y="669">string AdresseWeb «get; set;»</text><ellipse cx="1552" cy="681.6973" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="294" x="1561" y="685.4883">DateTime DateProchaineElection «get; set;»</text><ellipse cx="1552" cy="698.1855" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="138" x="1561" y="701.9766">bool Actif «get; set;»</text><line style="stroke:#181818;stroke-width:0.5;" x1="1542" x2="1860" y1="708.9297" y2="708.9297"/><ellipse cx="1552" cy="722.6738" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="291" x="1561" y="726.4648">MunicipaliteSQLDTO(Municipalite p_entite)</text><ellipse cx="1552" cy="739.1621" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="166" x="1561" y="742.9531">Municipalite VersEntite()</text></g><g id="elem_GMN26"><path d="M1120.5,368.5 L1120.5,409.1211 L1319.5,409.1211 L1319.5,378.5 L1309.5,368.5 L1120.5,368.5 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M1309.5,368.5 L1309.5,378.5 L1319.5,378.5 L1309.5,368.5 " fill="#FEFFDD" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="178" x="1126.5" y="386.0684">Propriétés et format adaptés</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="153" x="1126.5" y="401.3789">à Entity Framework Core</text></g><!--MD5=[c7c52ea3cb9501c9820512fecf827d84]
+class DepotMunicipalitesSQL--><g id="elem_DepotMunicipalitesSQL"><rect codeLine="82" fill="#F1F1F1" height="163.418" id="DepotMunicipalitesSQL" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="594" x="1355" y="307.5"/><ellipse cx="1569.25" cy="323.5" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M1571.7231,329.6431 Q1571.1421,329.9419 1570.5029,330.0913 Q1569.8638,330.2407 1569.1582,330.2407 Q1566.6514,330.2407 1565.3315,328.5889 Q1564.0117,326.937 1564.0117,323.8159 Q1564.0117,320.6865 1565.3315,319.0347 Q1566.6514,317.3828 1569.1582,317.3828 Q1569.8638,317.3828 1570.5112,317.5322 Q1571.1587,317.6816 1571.7231,317.9805 L1571.7231,320.7031 Q1571.0923,320.1221 1570.4988,319.8523 Q1569.9053,319.5825 1569.2744,319.5825 Q1567.9297,319.5825 1567.2449,320.6492 Q1566.5601,321.7158 1566.5601,323.8159 Q1566.5601,325.9077 1567.2449,326.9744 Q1567.9297,328.041 1569.2744,328.041 Q1569.9053,328.041 1570.4988,327.7712 Q1571.0923,327.5015 1571.7231,326.9204 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="157" x="1589.75" y="328.791">DepotMunicipalitesSQL</text><line style="stroke:#181818;stroke-width:0.5;" x1="1356" x2="1948" y1="339.5" y2="339.5"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="1363" y="350.2441"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="244" x="1375" y="357.0352">m_contexte : ApplicationDbContext</text><line style="stroke:#181818;stroke-width:0.5;" x1="1356" x2="1948" y1="363.9883" y2="363.9883"/><ellipse cx="1366" cy="377.7324" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="411" x="1375" y="381.5234">DepotMunicipalitesSQL(ApplicationDbContext : m_contexte)</text><ellipse cx="1366" cy="394.2207" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="568" x="1375" y="398.0117">Municipalite ChercherMunicipaliteParCodeGeographique(int p_codeGeographique)</text><ellipse cx="1366" cy="410.709" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="380" x="1375" y="414.5">IEnumerable&lt;Municipalite&gt; ListerMunicipalitesActives()</text><ellipse cx="1366" cy="427.1973" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="383" x="1375" y="430.9883">void DesactiverMunicipalite(Municipalite p_municipalite)</text><ellipse cx="1366" cy="443.6855" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="364" x="1375" y="447.4766">void AjouterMunicipalite(Municipalite p_municipalite)</text><ellipse cx="1366" cy="460.1738" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="339" x="1375" y="463.9648">void MAJMunicipalite(Municipalite p_municipalite)</text></g><!--MD5=[3b628ddc8b574355d0336ad98d1f4a80]
+class ApplicationDbContext--><g id="elem_ApplicationDbContext"><rect codeLine="91" fill="#F1F1F1" height="80.9766" id="ApplicationDbContext" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="386" x="1120" y="619.5"/><ellipse cx="1232.75" cy="635.5" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M1235.2231,641.6431 Q1234.6421,641.9419 1234.0029,642.0913 Q1233.3638,642.2407 1232.6582,642.2407 Q1230.1514,642.2407 1228.8315,640.5889 Q1227.5117,638.937 1227.5117,635.8159 Q1227.5117,632.6865 1228.8315,631.0347 Q1230.1514,629.3828 1232.6582,629.3828 Q1233.3638,629.3828 1234.0112,629.5322 Q1234.6587,629.6816 1235.2231,629.9805 L1235.2231,632.7031 Q1234.5923,632.1221 1233.9988,631.8523 Q1233.4053,631.5825 1232.7744,631.5825 Q1231.4297,631.5825 1230.7449,632.6492 Q1230.0601,633.7158 1230.0601,635.8159 Q1230.0601,637.9077 1230.7449,638.9744 Q1231.4297,640.041 1232.7744,640.041 Q1233.4053,640.041 1233.9988,639.7712 Q1234.5923,639.5015 1235.2231,638.9204 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="152" x="1253.25" y="640.791">ApplicationDbContext</text><line style="stroke:#181818;stroke-width:0.5;" x1="1121" x2="1505" y1="651.5" y2="651.5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="12" x="1140" y="669.0352">...</text><ellipse cx="1131" cy="681.7324" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="360" x="1140" y="685.5234">DbSet&lt;MunicipaliteSQLDTO&gt; Municipalite «get; set;»</text><line style="stroke:#181818;stroke-width:0.5;" x1="1121" x2="1505" y1="692.4766" y2="692.4766"/></g><!--MD5=[6b5e627bde105dc2979492550133fdc8]
+class DSED_M05_SOAP_Model.IMunicipaliteService--><g id="elem_DSED_M05_SOAP_Model.IMunicipaliteService"><rect codeLine="122" fill="#F1F1F1" height="130.4414" id="DSED_M05_SOAP_Model.IMunicipaliteService" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="494" x="203" y="324"/><ellipse cx="378.25" cy="340" fill="#B4A7E5" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M374.6777,336.2651 L374.6777,334.1069 L382.0571,334.1069 L382.0571,336.2651 L379.5918,336.2651 L379.5918,344.3418 L382.0571,344.3418 L382.0571,346.5 L374.6777,346.5 L374.6777,344.3418 L377.1431,344.3418 L377.1431,336.2651 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="135" x="398.75" y="345.291">IMunicipaliteService</text><line style="stroke:#181818;stroke-width:0.5;" x1="204" x2="696" y1="356" y2="356"/><line style="stroke:#181818;stroke-width:0.5;" x1="204" x2="696" y1="364" y2="364"/><ellipse cx="214" cy="377.7441" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="445" x="223" y="381.5352">IEnumerable&lt;MunicipaliteSOAPDTO&gt; ObtenirListeMunicipalites()</text><ellipse cx="214" cy="394.2324" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="468" x="223" y="398.0234">MunicipaliteSOAPDTO ObtenirMunicipalite(int p_codeGeographique)</text><ellipse cx="214" cy="410.7207" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="418" x="223" y="414.5117">void CreerMunicipalite(MunicipaliteSOAPDTO p_municipalite)</text><ellipse cx="214" cy="427.209" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="437" x="223" y="431">void ModifierMunicipalite(MunicipaliteSOAPDTO p_municipalite)</text><ellipse cx="214" cy="443.6973" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="452" x="223" y="447.4883">void SupprimerMunicipalite(MunicipaliteSOAPDTO p_municipalite)</text></g><!--MD5=[f1db9e51f6077c6c943e97fdc44f1c0b]
+class DSED_M05_SOAP_Model.MunicipaliteSOAPDTO--><g id="elem_DSED_M05_SOAP_Model.MunicipaliteSOAPDTO"><rect codeLine="133" fill="#F1F1F1" height="146.9297" id="DSED_M05_SOAP_Model.MunicipaliteSOAPDTO" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="320" x="290" y="586.5"/><ellipse cx="370.75" cy="602.5" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M373.2231,608.6431 Q372.6421,608.9419 372.0029,609.0913 Q371.3638,609.2407 370.6582,609.2407 Q368.1514,609.2407 366.8315,607.5889 Q365.5117,605.937 365.5117,602.8159 Q365.5117,599.6865 366.8315,598.0347 Q368.1514,596.3828 370.6582,596.3828 Q371.3638,596.3828 372.0112,596.5322 Q372.6587,596.6816 373.2231,596.9805 L373.2231,599.7031 Q372.5923,599.1221 371.9988,598.8523 Q371.4053,598.5825 370.7744,598.5825 Q369.4297,598.5825 368.7449,599.6492 Q368.0601,600.7158 368.0601,602.8159 Q368.0601,604.9077 368.7449,605.9744 Q369.4297,607.041 370.7744,607.041 Q371.4053,607.041 371.9988,606.7712 Q372.5923,606.5015 373.2231,605.9204 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="150" x="391.25" y="607.791">MunicipaliteSOAPDTO</text><line style="stroke:#181818;stroke-width:0.5;" x1="291" x2="609" y1="618.5" y2="618.5"/><ellipse cx="301" cy="632.2441" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="228" x="310" y="636.0352">int CodeGeographique «get; set;»</text><ellipse cx="301" cy="648.7324" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="231" x="310" y="652.5234">string NomMunicipalite «get; set;»</text><ellipse cx="301" cy="665.2207" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="227" x="310" y="669.0117">string AdresseCourriel «get; set;»</text><ellipse cx="301" cy="681.709" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="200" x="310" y="685.5">string AdresseWeb «get; set;»</text><ellipse cx="301" cy="698.1973" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="294" x="310" y="701.9883">DateTime DateProchaineElection «get; set;»</text><ellipse cx="301" cy="714.6855" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="138" x="310" y="718.4766">bool Actif «get; set;»</text><line style="stroke:#181818;stroke-width:0.5;" x1="291" x2="609" y1="725.4297" y2="725.4297"/></g><g id="elem_DSED_M05_SOAP_Model.GMN45"><path d="M322.5,180 L322.5,220.6211 A0,0 0 0 0 322.5,220.6211 L446,220.6211 L450,323.76 L454,220.6211 L577.5,220.6211 A0,0 0 0 0 577.5,220.6211 L577.5,190 L567.5,180 L322.5,180 A0,0 0 0 0 322.5,180 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M567.5,180 L567.5,190 L577.5,190 L567.5,180 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="134" x="328.5" y="197.5684">Va avoir des attributs</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="234" x="328.5" y="212.8789">ServiceContract et OperationContract</text></g><g id="elem_DSED_M05_SOAP_Model.GMN48"><path d="M22,361 L22,416.9316 L168,416.9316 L168,371 L158,361 L22,361 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M158,361 L158,371 L168,371 L158,361 " fill="#FEFFDD" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="125" x="28" y="378.5684">Propriétés et format</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="122" x="28" y="393.8789">adaptés aux clients</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="101" x="28" y="409.1895">du service SOAP</text></g><!--MD5=[4775d99a5a7e1ad95bdac19202a88ce0]
+class Programm--><g id="elem_Programm"><rect codeLine="148" fill="#F1F1F1" height="64.4883" id="Programm" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="176" x="753" y="168.5"/><ellipse cx="800.75" cy="184.5" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M803.2231,190.6431 Q802.6421,190.9419 802.0029,191.0913 Q801.3638,191.2407 800.6582,191.2407 Q798.1514,191.2407 796.8315,189.5889 Q795.5117,187.937 795.5117,184.8159 Q795.5117,181.6865 796.8315,180.0347 Q798.1514,178.3828 800.6582,178.3828 Q801.3638,178.3828 802.0112,178.5322 Q802.6587,178.6816 803.2231,178.9805 L803.2231,181.7031 Q802.5923,181.1221 801.9988,180.8523 Q801.4053,180.5825 800.7744,180.5825 Q799.4297,180.5825 798.7449,181.6492 Q798.0601,182.7158 798.0601,184.8159 Q798.0601,186.9077 798.7449,187.9744 Q799.4297,189.041 800.7744,189.041 Q801.4053,189.041 801.9988,188.7712 Q802.5923,188.5015 803.2231,187.9204 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="72" x="821.25" y="189.791">Programm</text><line style="stroke:#181818;stroke-width:0.5;" x1="754" x2="928" y1="200.5" y2="200.5"/><line style="stroke:#181818;stroke-width:0.5;" x1="754" x2="928" y1="208.5" y2="208.5"/><ellipse cx="764" cy="222.2441" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="150" x="773" y="226.0352">int main(string[] argv)</text></g><!--MD5=[5821c6b8cb0bb95fea9b0d7120e3d986]
+link ManipulationMunicipalites to IDepotMunicipalites--><g id="link_ManipulationMunicipalites_IDepotMunicipalites"><path codeLine="43" d="M2407.7,470.71 C2386.32,508.78 2361.09,553.73 2340.64,590.17 " fill="none" id="ManipulationMunicipalites-to-IDepotMunicipalites" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="2338.17,594.57,2346.0604,588.6758,2340.6152,590.2087,2339.0823,584.7635,2338.17,594.57" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[8c902dbf723375336e6828a12743fc19]
+link ManipulationMunicipalites to Municipalite--><g id="link_ManipulationMunicipalites_Municipalite"><path codeLine="44" d="M2645.66,470.51 C2666.62,478.81 2687.71,486.95 2708,494.5 C2752.4,511.01 2799.32,527.7 2845.84,543.78 " fill="none" id="ManipulationMunicipalites-to-Municipalite" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="2850.64,545.44,2843.4331,538.7273,2845.9125,543.8118,2840.828,546.2912,2850.64,545.44" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[3957039637a09fd4ac1a41c8d4d7e256]
+reverse link DSED_M05_SOAP_Model.IMunicipaliteService to MunicipaliteService--><g id="link_DSED_M05_SOAP_Model.IMunicipaliteService_MunicipaliteService"><path codeLine="61" d="M717.22,442.33 C835.27,462.94 976.03,484.15 1104,494.5 C1141.05,497.5 3743.83,493.93 3780,502.5 C3844.45,517.77 3910.81,548.31 3965.82,578.39 " fill="none" id="DSED_M05_SOAP_Model.IMunicipaliteService-backto-MunicipaliteService" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="715.83,449.19,697.35,438.82,718.26,435.4,715.83,449.19" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[fb53733b034a9335236b4ff803e120bd]
+reverse link DSED_M05_SOAP_Model.MunicipaliteSOAPDTO to MunicipaliteService--><g id="link_DSED_M05_SOAP_Model.MunicipaliteSOAPDTO_MunicipaliteService"><path codeLine="62" d="M615.31,608.13 C749.99,568.82 945.93,518.31 1121.5,498.5 C1157.95,494.39 3726.05,494.39 3762.5,498.5 C3838.36,507.06 3915.48,542.69 3976.22,578.31 " fill="none" id="DSED_M05_SOAP_Model.MunicipaliteSOAPDTO-backto-MunicipaliteService" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="610.14,609.64,619.9,610.96,614.94,608.24,617.66,603.28,610.14,609.64" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[b6d2e31c24e354035b0451edce0adb62]
+reverse link ManipulationMunicipalites to MunicipaliteService--><g id="link_ManipulationMunicipalites_MunicipaliteService"><path codeLine="63" d="M2629.27,472.25 C2655.19,481.39 2681.95,489.27 2708,494.5 C2766.39,506.23 3722.08,488.64 3780,502.5 C3844.27,517.88 3910.47,548.34 3965.41,578.33 " fill="none" id="ManipulationMunicipalites-backto-MunicipaliteService" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="2624.44,470.53,2631.586,477.3075,2629.1526,472.2008,2634.2593,469.7674,2624.44,470.53" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[4ac8fa391721d4c2c99064b9ffb6488b]
+link GMN26 to MunicipaliteSQLDTO--><g id="link_GMN26_MunicipaliteSQLDTO"><path d="M1234.98,409.81 C1255.2,434.8 1293.85,476.67 1338,494.5 C1376.36,509.99 1485.63,487.02 1524,502.5 C1560.71,517.31 1594.89,543.19 1623.24,569.7 " fill="none" id="GMN26-MunicipaliteSQLDTO" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/></g><!--MD5=[0aa5f1bbff0ee59a132c986eef55bd02]
+reverse link IDepotMunicipalites to DepotMunicipalitesSQL--><g id="link_IDepotMunicipalites_DepotMunicipalitesSQL"><path codeLine="95" d="M2153.04,586.32 C2094.88,558.87 2027.32,528.11 1965,502.5 C1938.83,491.75 1911.21,480.99 1883.65,470.62 " fill="none" id="IDepotMunicipalites-backto-DepotMunicipalitesSQL" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="2156.1,580.02,2171.17,594.91,2150.1,592.67,2156.1,580.02" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[360df0f0c521eb6a4bc004d3b9890c33]
+link DepotMunicipalitesSQL to MunicipaliteSQLDTO--><g id="link_DepotMunicipalitesSQL_MunicipaliteSQLDTO"><path codeLine="96" d="M1654.9,470.71 C1659.2,500.38 1665.23,534.24 1671.65,564.98 " fill="none" id="DepotMunicipalitesSQL-to-MunicipaliteSQLDTO" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="1672.69,569.89,1674.7289,560.2545,1671.6492,564.9995,1666.9041,561.9198,1672.69,569.89" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[360df0f0c521eb6a4bc004d3b9890c33]
+link DepotMunicipalitesSQL to MunicipaliteSQLDTO--><g id="link_DepotMunicipalitesSQL_MunicipaliteSQLDTO"><path codeLine="98" d="M1679.19,470.71 C1685.74,500.26 1692.04,533.96 1696.76,564.6 " fill="none" id="DepotMunicipalitesSQL-to-MunicipaliteSQLDTO-1" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="1697.56,569.89,1700.1512,560.3881,1696.8029,564.9476,1692.2434,561.5994,1697.56,569.89" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[8bc19efe38b7ced37909a852bd0315e2]
+link DepotMunicipalitesSQL to Municipalite--><g id="link_DepotMunicipalitesSQL_Municipalite"><path codeLine="97" d="M1949.28,457.72 C2026,472.56 2108.74,486.29 2186,494.5 C2281.26,504.63 2522.15,489.07 2617,502.5 C2685.16,512.15 2756.73,527.18 2825.46,544.18 " fill="none" id="DepotMunicipalitesSQL-to-Municipalite" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="2830.4,545.41,2822.6221,539.3681,2825.5459,544.2108,2820.7033,547.1346,2830.4,545.41" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[111a343992f04d5a0e39090e97102842]
+link DepotMunicipalitesSQL to ApplicationDbContext--><g id="link_DepotMunicipalitesSQL_ApplicationDbContext"><path codeLine="99" d="M1550.29,470.71 C1490.16,518.43 1416.39,576.96 1367.22,615.97 " fill="none" id="DepotMunicipalitesSQL-to-ApplicationDbContext" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="1363.14,619.22,1372.6788,616.7681,1367.0596,616.1158,1367.712,610.4966,1363.14,619.22" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[e57d955bb61b45f84d5324a1b7a63408]
+link Program to Startup--><g id="link_Program_Startup"><path codeLine="110" d="M1901,105.02 C1901,125.28 1901,151.52 1901,171.21 " fill="none" id="Program-to-Startup" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="1901,176.32,1905,167.32,1901,171.32,1897,167.32,1901,176.32" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[7d997156b80fc8b2c236905dcdca3505]
+link Startup to DepotMunicipalitesSQL--><g id="link_Startup_DepotMunicipalitesSQL"><path codeLine="112" d="M1870.22,224.56 C1843.41,244.63 1802.86,275.01 1763.95,304.15 " fill="none" id="Startup-to-DepotMunicipalitesSQL" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="1759.7,307.33,1769.305,305.152,1763.7069,304.3392,1764.5197,298.741,1759.7,307.33" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[28c637068c04afb5375476aec018448b]
+link Startup to IDepotMunicipalites--><g id="link_Startup_IDepotMunicipalites"><path codeLine="113" d="M1925.5,224.65 C1937.63,236.36 1952.35,250.93 1965,264.5 C2068.16,375.21 2181.05,510.5 2246.48,590.44 " fill="none" id="Startup-to-IDepotMunicipalites" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="2249.94,594.68,2247.331,585.183,2246.7715,590.8121,2241.1424,590.2526,2249.94,594.68" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[e801285b88e7848eed338c6325ffda67]
+link Startup to DSED_M05_SOAP_Model.IMunicipaliteService--><g id="link_Startup_DSED_M05_SOAP_Model.IMunicipaliteService"><path codeLine="114" d="M1859.59,202.84 C1737.65,207.16 1369.45,222.96 1067,264.5 C946.23,281.09 813.51,306.68 702.21,330.27 " fill="none" id="Startup-to-DSED_M05_SOAP_Model.IMunicipaliteService" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="697.26,331.32,706.8955,333.3589,702.1505,330.2792,705.2302,325.5341,697.26,331.32" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[e3598e36f6efe5b733a1528f2bf5e7c3]
+link Startup to MunicipaliteService--><g id="link_Startup_MunicipaliteService"><path codeLine="115" d="M1942.13,208.92 C2013.46,221.41 2164.88,246.29 2294,256.5 C2388.39,263.96 2626,253.18 2720,264.5 C3199.38,322.22 3325.06,340.74 3780,502.5 C3835.85,522.36 3894.61,549.73 3946,576.04 " fill="none" id="Startup-to-MunicipaliteService" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="3950.63,578.42,3944.4569,570.7458,3946.1839,576.1326,3940.7971,577.8596,3950.63,578.42" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[fdb9a2932735f4bc3579ef86c2fc4238]
+link Startup to ApplicationDbContext--><g id="link_Startup_ApplicationDbContext"><path codeLine="116" d="M1859.85,201.56 C1703.8,202.22 1154.73,208.53 1103,264.5 C1033.62,339.57 1058.25,402.59 1103,494.5 C1128.98,547.85 1181.55,589 1227.59,616.8 " fill="none" id="Startup-to-ApplicationDbContext" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="1232.03,619.45,1226.339,611.4118,1227.7325,616.8943,1222.25,618.2878,1232.03,619.45" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[5b6358846b58f77426bbda4af2479ffd]
+link Startup to ManipulationMunicipalites--><g id="link_Startup_ManipulationMunicipalites"><path codeLine="117" d="M1942.34,206.98 C2000.67,215.43 2109.97,233.96 2199,264.5 C2231.71,275.72 2265.68,290.13 2297.73,305.13 " fill="none" id="Startup-to-ManipulationMunicipalites" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="2302.44,307.34,2295.9964,299.8915,2297.9149,305.2131,2292.5933,307.1316,2302.44,307.34" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[16f7fdabdf55901d53c986a95ed093d8]
+link DSED_M05_SOAP_Model.GMN48 to DSED_M05_SOAP_Model.MunicipaliteSOAPDTO--><g id="link_DSED_M05_SOAP_Model.GMN48_DSED_M05_SOAP_Model.MunicipaliteSOAPDTO"><path d="M114.82,417.35 C131.85,439.71 157.89,471.31 185,494.5 C224.6,528.38 271.89,560.04 315.48,586.36 " fill="none" id="DSED_M05_SOAP_Model.GMN48-DSED_M05_SOAP_Model.MunicipaliteSOAPDTO" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/></g><!--MD5=[bf3532a1332378c4f71ae016b2393ea6]
+link DSED_M05_SOAP_Model.IMunicipaliteService to DSED_M05_SOAP_Model.MunicipaliteSOAPDTO--><g id="link_DSED_M05_SOAP_Model.IMunicipaliteService_DSED_M05_SOAP_Model.MunicipaliteSOAPDTO"><path codeLine="142" d="M450,454.09 C450,492.16 450,540.72 450,581.01 " fill="none" id="DSED_M05_SOAP_Model.IMunicipaliteService-to-DSED_M05_SOAP_Model.MunicipaliteSOAPDTO" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="450,586.38,454,577.38,450,581.38,446,577.38,450,586.38" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[9f272ea99286105e0d07e798efcc1ba0]
+link Programm to DSED_M05_SOAP_Model.IMunicipaliteService--><g id="link_Programm_DSED_M05_SOAP_Model.IMunicipaliteService"><path codeLine="152" d="M776,232.51 C725.21,256.73 652.79,291.27 589.11,321.65 " fill="none" id="Programm-to-DSED_M05_SOAP_Model.IMunicipaliteService" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="584.54,323.83,594.3855,323.572,589.0543,321.6803,590.946,316.3492,584.54,323.83" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[c76b685797383b31819b9bb190e21919]
+@startuml M05_Exercice2_SOAP
+
+'package System.ServiceModel.Http { }
+'package System.ServiceModel.Primitives { }
+'package SoapCore { }
+'package XYZ.Data.EntityFrameworkCore { }
+
+package DSED_M05_SOAP_Web {
+    package Entite {
+        class Municipalite {
+            + int CodeGeographique << get; private set; >>
+            + string NomMunicipalite << get; private set; >>
+            + string AdresseCourriel << get; private set; >>
+            + string AdresseWeb << get; private set; >>
+            + DateTime DateProchaineElection << get; private set; >>
+            + bool Actif << get; private set; >>
+            + Municipalite(int p_codeGeographique, string p_nomMunicipalite, string p_adresseCourriel, string p_adresseWeb, DateTime p_dateProchaineElection, bool p_actif)
+            + public override bool Equals(object obj)
+            + <<override>> int GetHashCode()
+            + static bool operator ==(Municipalite left, Municipalite right)
+            + static bool operator !=(Municipalite left, Municipalite right)
+        }
+
+        interface IDepotMunicipalites {
+            + Municipalite ChercherMunicipaliteParCodeGeographique(int p_codeGeographique)
+            + IEnumerable<Municipalite> ListerMunicipalitesActives()
+            + void DesactiverMunicipalite(Municipalite p_municipalite)
+            + void AjouterMunicipalite(Municipalite p_municipalite)
+            + void MAJMunicipalite(Municipalite p_municipalite)
+        }
+    }
+
+    package CasUtilisation {
+        class ManipulationMunicipalites {
+            - IDepotMunicipalites m_depotMunicipalites;
+            + ManipulationMunicipalites(IDepotMunicipalites p_depotMunicipalites)
+            + IEnumerable<Municipalite> ObtenirListeMunicipalites()
+            + Municipalite ObtenirMunicipalite(int p_codeGeographique)
+            + void CreerMunicipalite(Municipalite p_municipalite)
+            + void ModifierMunicipalite(Municipalite p_municipalite)
+            + void SupprimerMunicipalite(Municipalite p_municipalite)
+        }
+
+        ManipulationMunicipalites - -> IDepotMunicipalites
+        ManipulationMunicipalites ..> Municipalite
+    }
+
+    note top of ManipulationMunicipalites: Cette classe permet d'avoir un\ntraitement spécifique par cas d'utilisation\n(Algorithme). Ici, chaque méthode\npourra appeler directement le dépot.
+
+    package PresentationServiceSOAP {
+        class MunicipaliteService {
+            - m_manipulationMunicipalites : ManipulationMunicipalites;
+            + MunicipaliteService(ManipulationMunicipalites p_manipulationMunicipalites)
+            + IEnumerable<MunicipaliteSOAPDTO> ObtenirListeMunicipalites()
+            + MunicipaliteSOAPDTO ObtenirMunicipalite(int p_codeGeographique)
+            + void CreerMunicipalite(MunicipaliteSOAPDTO p_municipalite)
+            + void ModifierMunicipalite(MunicipaliteSOAPDTO p_municipalite)
+            + void SupprimerMunicipalite(MunicipaliteSOAPDTO p_municipalite)
+        }
+        note top of MunicipaliteService: Cette classe permet d'exposer\nManipulationMunicipalites. Il ne\ndoit pas faire de manipulation\nalgorithmiques autres que des\nconversions de types et des\nvalidations d'entrées. Elle\nne fait que présenter les méthodes.
+
+        DSED_M05_SOAP_Model.IMunicipaliteService <|.. MunicipaliteService
+        DSED_M05_SOAP_Model.MunicipaliteSOAPDTO <.. MunicipaliteService
+        ManipulationMunicipalites <- - MunicipaliteService
+    }
+
+'    PresentationServiceSOAP ..> SoapCore
+'    PresentationServiceSOAP ..> CasUtilisation
+
+    package Persistance {
+        class MunicipaliteSQLDTO {
+            + int MunicipaliteSQLDTOId << get; set; >>
+            + string NomMunicipalite << get; set; >>
+            + string AdresseCourriel << get; set; >>
+            + string AdresseWeb << get; set; >>
+            + DateTime DateProchaineElection << get; set; >>
+            + bool Actif << get; set; >>
+            + MunicipaliteSQLDTO(Municipalite p_entite)
+            + Municipalite VersEntite()
+        }
+        note top of MunicipaliteSQLDTO: Propriétés et format adaptés\nà Entity Framework Core
+
+        class DepotMunicipalitesSQL {
+            - m_contexte : ApplicationDbContext
+            + DepotMunicipalitesSQL(ApplicationDbContext : m_contexte)
+            + Municipalite ChercherMunicipaliteParCodeGeographique(int p_codeGeographique)
+            + IEnumerable<Municipalite> ListerMunicipalitesActives()
+            + void DesactiverMunicipalite(Municipalite p_municipalite)
+            + void AjouterMunicipalite(Municipalite p_municipalite)
+            + void MAJMunicipalite(Municipalite p_municipalite)
+        }
+        class ApplicationDbContext {
+            ...
+            + DbSet<MunicipaliteSQLDTO> Municipalite <<get; set;>>
+        }
+        IDepotMunicipalites <|.. DepotMunicipalitesSQL
+        DepotMunicipalitesSQL ..> MunicipaliteSQLDTO
+        DepotMunicipalitesSQL ..> Municipalite
+        DepotMunicipalitesSQL ..> MunicipaliteSQLDTO
+        DepotMunicipalitesSQL ..> ApplicationDbContext
+    }
+
+    class Startup {
+        
+    }
+
+    class Program {
+        + {static} int main(string[] argv)
+    }
+
+    Program ..> Startup
+
+    Startup .down.> DepotMunicipalitesSQL
+    Startup .down.> IDepotMunicipalites
+    Startup .down.> DSED_M05_SOAP_Model.IMunicipaliteService
+    Startup .down.> MunicipaliteService
+    Startup .down.> ApplicationDbContext
+    Startup .down.> ManipulationMunicipalites
+    'Startup .down.> XYZ.Data.EntityFrameworkCore
+}
+
+package DSED_M05_SOAP_Model {
+    interface IMunicipaliteService {
+        + IEnumerable<MunicipaliteSOAPDTO> ObtenirListeMunicipalites()
+        + MunicipaliteSOAPDTO ObtenirMunicipalite(int p_codeGeographique)
+        + void CreerMunicipalite(MunicipaliteSOAPDTO p_municipalite)
+        + void ModifierMunicipalite(MunicipaliteSOAPDTO p_municipalite)
+        + void SupprimerMunicipalite(MunicipaliteSOAPDTO p_municipalite)
+    }
+
+    note top of IMunicipaliteService: Va avoir des attributs\nServiceContract et OperationContract
+
+    note top of MunicipaliteSOAPDTO: Propriétés et format\nadaptés aux clients\ndu service SOAP
+    class MunicipaliteSOAPDTO {
+        + int CodeGeographique << get; set; >>
+        + string NomMunicipalite << get; set; >>
+        + string AdresseCourriel << get; set; >>
+        + string AdresseWeb << get; set; >>
+        + DateTime DateProchaineElection << get; set; >>
+        + bool Actif << get; set; >>
+    }
+
+    IMunicipaliteService ..> MunicipaliteSOAPDTO
+}
+
+'DSED_M05_SOAP_Model ..> System.ServiceModel.Primitives
+
+package DSED_M05_SOAP_ExempleClientConsole {
+    class Programm {
+        + {static} int main(string[] argv)
+    }
+
+    Programm ..> DSED_M05_SOAP_Model.IMunicipaliteService
+}
+
+
+
+'DSED_M05_SOAP_ExempleClientConsole ..> System.ServiceModel.Http
+'DSED_M05_SOAP_ExempleClientConsole ..> System.ServiceModel.Primitives
+'DSED_M05_SOAP_ExempleClientConsole ..> DSED_M05_SOAP_Model
+
+@enduml
+
+@startuml M05_Exercice2_SOAP
+
+
+package DSED_M05_SOAP_Web {
+    package Entite {
+        class Municipalite {
+            + int CodeGeographique << get; private set; >>
+            + string NomMunicipalite << get; private set; >>
+            + string AdresseCourriel << get; private set; >>
+            + string AdresseWeb << get; private set; >>
+            + DateTime DateProchaineElection << get; private set; >>
+            + bool Actif << get; private set; >>
+            + Municipalite(int p_codeGeographique, string p_nomMunicipalite, string p_adresseCourriel, string p_adresseWeb, DateTime p_dateProchaineElection, bool p_actif)
+            + public override bool Equals(object obj)
+            + <<override>> int GetHashCode()
+            + static bool operator ==(Municipalite left, Municipalite right)
+            + static bool operator !=(Municipalite left, Municipalite right)
+        }
+
+        interface IDepotMunicipalites {
+            + Municipalite ChercherMunicipaliteParCodeGeographique(int p_codeGeographique)
+            + IEnumerable<Municipalite> ListerMunicipalitesActives()
+            + void DesactiverMunicipalite(Municipalite p_municipalite)
+            + void AjouterMunicipalite(Municipalite p_municipalite)
+            + void MAJMunicipalite(Municipalite p_municipalite)
+        }
+    }
+
+    package CasUtilisation {
+        class ManipulationMunicipalites {
+            - IDepotMunicipalites m_depotMunicipalites;
+            + ManipulationMunicipalites(IDepotMunicipalites p_depotMunicipalites)
+            + IEnumerable<Municipalite> ObtenirListeMunicipalites()
+            + Municipalite ObtenirMunicipalite(int p_codeGeographique)
+            + void CreerMunicipalite(Municipalite p_municipalite)
+            + void ModifierMunicipalite(Municipalite p_municipalite)
+            + void SupprimerMunicipalite(Municipalite p_municipalite)
+        }
+
+        ManipulationMunicipalites - -> IDepotMunicipalites
+        ManipulationMunicipalites ..> Municipalite
+    }
+
+    note top of ManipulationMunicipalites: Cette classe permet d'avoir un\ntraitement spécifique par cas d'utilisation\n(Algorithme). Ici, chaque méthode\npourra appeler directement le dépot.
+
+    package PresentationServiceSOAP {
+        class MunicipaliteService {
+            - m_manipulationMunicipalites : ManipulationMunicipalites;
+            + MunicipaliteService(ManipulationMunicipalites p_manipulationMunicipalites)
+            + IEnumerable<MunicipaliteSOAPDTO> ObtenirListeMunicipalites()
+            + MunicipaliteSOAPDTO ObtenirMunicipalite(int p_codeGeographique)
+            + void CreerMunicipalite(MunicipaliteSOAPDTO p_municipalite)
+            + void ModifierMunicipalite(MunicipaliteSOAPDTO p_municipalite)
+            + void SupprimerMunicipalite(MunicipaliteSOAPDTO p_municipalite)
+        }
+        note top of MunicipaliteService: Cette classe permet d'exposer\nManipulationMunicipalites. Il ne\ndoit pas faire de manipulation\nalgorithmiques autres que des\nconversions de types et des\nvalidations d'entrées. Elle\nne fait que présenter les méthodes.
+
+        DSED_M05_SOAP_Model.IMunicipaliteService <|.. MunicipaliteService
+        DSED_M05_SOAP_Model.MunicipaliteSOAPDTO <.. MunicipaliteService
+        ManipulationMunicipalites <- - MunicipaliteService
+    }
+
+
+    package Persistance {
+        class MunicipaliteSQLDTO {
+            + int MunicipaliteSQLDTOId << get; set; >>
+            + string NomMunicipalite << get; set; >>
+            + string AdresseCourriel << get; set; >>
+            + string AdresseWeb << get; set; >>
+            + DateTime DateProchaineElection << get; set; >>
+            + bool Actif << get; set; >>
+            + MunicipaliteSQLDTO(Municipalite p_entite)
+            + Municipalite VersEntite()
+        }
+        note top of MunicipaliteSQLDTO: Propriétés et format adaptés\nà Entity Framework Core
+
+        class DepotMunicipalitesSQL {
+            - m_contexte : ApplicationDbContext
+            + DepotMunicipalitesSQL(ApplicationDbContext : m_contexte)
+            + Municipalite ChercherMunicipaliteParCodeGeographique(int p_codeGeographique)
+            + IEnumerable<Municipalite> ListerMunicipalitesActives()
+            + void DesactiverMunicipalite(Municipalite p_municipalite)
+            + void AjouterMunicipalite(Municipalite p_municipalite)
+            + void MAJMunicipalite(Municipalite p_municipalite)
+        }
+        class ApplicationDbContext {
+            ...
+            + DbSet<MunicipaliteSQLDTO> Municipalite <<get; set;>>
+        }
+        IDepotMunicipalites <|.. DepotMunicipalitesSQL
+        DepotMunicipalitesSQL ..> MunicipaliteSQLDTO
+        DepotMunicipalitesSQL ..> Municipalite
+        DepotMunicipalitesSQL ..> MunicipaliteSQLDTO
+        DepotMunicipalitesSQL ..> ApplicationDbContext
+    }
+
+    class Startup {
+        
+    }
+
+    class Program {
+        + {static} int main(string[] argv)
+    }
+
+    Program ..> Startup
+
+    Startup .down.> DepotMunicipalitesSQL
+    Startup .down.> IDepotMunicipalites
+    Startup .down.> DSED_M05_SOAP_Model.IMunicipaliteService
+    Startup .down.> MunicipaliteService
+    Startup .down.> ApplicationDbContext
+    Startup .down.> ManipulationMunicipalites
+}
+
+package DSED_M05_SOAP_Model {
+    interface IMunicipaliteService {
+        + IEnumerable<MunicipaliteSOAPDTO> ObtenirListeMunicipalites()
+        + MunicipaliteSOAPDTO ObtenirMunicipalite(int p_codeGeographique)
+        + void CreerMunicipalite(MunicipaliteSOAPDTO p_municipalite)
+        + void ModifierMunicipalite(MunicipaliteSOAPDTO p_municipalite)
+        + void SupprimerMunicipalite(MunicipaliteSOAPDTO p_municipalite)
+    }
+
+    note top of IMunicipaliteService: Va avoir des attributs\nServiceContract et OperationContract
+
+    note top of MunicipaliteSOAPDTO: Propriétés et format\nadaptés aux clients\ndu service SOAP
+    class MunicipaliteSOAPDTO {
+        + int CodeGeographique << get; set; >>
+        + string NomMunicipalite << get; set; >>
+        + string AdresseCourriel << get; set; >>
+        + string AdresseWeb << get; set; >>
+        + DateTime DateProchaineElection << get; set; >>
+        + bool Actif << get; set; >>
+    }
+
+    IMunicipaliteService ..> MunicipaliteSOAPDTO
+}
+
+
+package DSED_M05_SOAP_ExempleClientConsole {
+    class Programm {
+        + {static} int main(string[] argv)
+    }
+
+    Programm ..> DSED_M05_SOAP_Model.IMunicipaliteService
+}
+
+
+
+
+@enduml
+
+PlantUML version 1.2022.7(Mon Aug 22 13:01:30 EDT 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
+Language: fr
+Country: CA
+--></g></svg>
