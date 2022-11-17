@@ -52,7 +52,7 @@ package DSED_M05_SOAP_Web {
             - m_manipulationMunicipalites : ManipulationMunicipalites;
             + MunicipaliteService(ManipulationMunicipalites p_manipulationMunicipalites)
             + IEnumerable<MunicipaliteSOAPDTO> ObtenirListeMunicipalites()
-            + MunicipaliteSOAPDTO ObtenirListeMunicipalite(int p_codeGeographique)
+            + MunicipaliteSOAPDTO ObtenirMunicipalite(int p_codeGeographique)
             + void CreerMunicipalite(MunicipaliteSOAPDTO p_municipalite)
             + void ModifierMunicipalite(MunicipaliteSOAPDTO p_municipalite)
             + void SupprimerMunicipalite(MunicipaliteSOAPDTO p_municipalite)
@@ -122,7 +122,7 @@ package DSED_M05_SOAP_Web {
 package DSED_M05_SOAP_Model {
     interface IMunicipaliteService {
         + IEnumerable<MunicipaliteSOAPDTO> ObtenirListeMunicipalites()
-        + MunicipaliteSOAPDTO ObtenirListeMunicipalite(int p_codeGeographique)
+        + MunicipaliteSOAPDTO ObtenirMunicipalite(int p_codeGeographique)
         + void CreerMunicipalite(MunicipaliteSOAPDTO p_municipalite)
         + void ModifierMunicipalite(MunicipaliteSOAPDTO p_municipalite)
         + void SupprimerMunicipalite(MunicipaliteSOAPDTO p_municipalite)
