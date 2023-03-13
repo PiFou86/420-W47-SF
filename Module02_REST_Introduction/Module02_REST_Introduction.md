@@ -48,7 +48,7 @@ Pré-requis :
 - Connexion réseau
 - Des images avec des visages
 
-Dans cet exercice, vous allez utiliser l'API de vision [deepstack](https://www.deepstack.cc) afin détecter les visages (Face detection) dans une image. [Le code du projet se trouve sur un dépôt GitHub](https://github.com/johnolafenwa/DeepStack). Le dépôt contient un fichier README.md très riche.
+Dans cet exercice, vous allez utiliser l'API de vision [deepstack](https://github.com/johnolafenwa/DeepStack) afin détecter les visages (Face detection) dans une image. [Le code du projet se trouve sur un dépôt GitHub](https://github.com/johnolafenwa/DeepStack). Le dépôt contient un fichier README.md très riche.
 
 Écrivez un programme qui va :
 
@@ -59,8 +59,8 @@ Dans cet exercice, vous allez utiliser l'API de vision [deepstack](https://www.d
 
 Pour cela, vous allez utiliser les documentations suivantes :
 
-- Lancer le conteneur contenant l'image docker de DeepStack en suivant [la documentation](https://docs.deepstack.cc/getting-started/index.html)
-- Regarder l'exemple de la documentation de l'[API de vision](https://docs.deepstack.cc/face-detection/index.html) afin de voir comment l'exploiter. Vous avez des exemples en C#, il suffit de cliquer sur l'onglet "C#" de chaque exemple pour voir le code
+- Lancer le conteneur contenant l'image docker de DeepStack en suivant [la documentation](https://deepstack.readthedocs.io/en/latest/)
+- Regarder l'exemple de la documentation de l'[API de détection de visages](https://deepstack.readthedocs.io/en/latest/face-detection/index.html) afin de voir comment l'exploiter. Vous avez des exemples en C#, il suffit de cliquer sur l'onglet "C#" de chaque exemple pour voir le code
 - Pour récupérer le nom de l'image, vous devez utiliser le paramètres "args" de la classe "Program". Vous pouvez utiliser [cette page pour vous aider](https://dailydotnettips.com/how-to-pass-command-line-arguments-using-visual-studio/)
 - Pour modifier l'image, vous devez utiliser le package nuget "SixLabors.ImageSharp.Drawing" (Si le package ne s'affiche pas cochez la case "include prerelease"). Exemple de code :
 
