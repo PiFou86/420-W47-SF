@@ -82,7 +82,7 @@ namespace M03_DAL_Municipalite << dalm >> {
         + ListerMunicipalitesActives() : IEnumerable<Municipalite>
         + ctor(p_contexte : ApplicationDbContext)
         + DesactiverMunicipalite(p_municipalite:srvm.Municipalite) : void
-        + AjouterMunicipalite(p_municipalite:srvm.Municipalite) : Municipalite
+        + AjouterMunicipalite(p_municipalite:srvm.Municipalite) : srvm.Municipalite
         + MAJMunicipalite(p_municipalite:srvm.Municipalite) : void
     }
 
