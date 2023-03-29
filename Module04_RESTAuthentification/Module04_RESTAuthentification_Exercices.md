@@ -34,7 +34,7 @@ Objectifs :
 - Ouvrez l'entête de la requête "userinfo". Voyez-vous un champ relatif à l'authentification ? Est-il renseigné avec un élément d'une requête précédente ? Qu'observez-vous dans la réponse ?
 - Copiez la valeur du couple qui a pour clef "Authorization" (sans le mot clef "Bearer") et allez sur le site jwt.io et collez le jeton JWT. Observez ce qu'il contient.
 - Ouvrez "Postman"
-- Essayez de faire un "GET" vers "https://localhost:5001/weatherforecast". Vous devriez avoir une réponse "401".
+- Essayez de faire un "GET" vers "https://localhost:5001/weatherforecast" (remplacez 5001 par votre numéro de port local. Si vous n'exposez pas en TLS, n'oubliez pas de modifier le protocole pour http). Vous devriez avoir une réponse "401".
 - Allez dans l'onglet "Authorization", sélectionnez le type "BearerToken" et renseignez le champ "Token". Refaite maintenant la requête : vous devriez avoir les informations de météo
 
 ## Exercice 2 - Protégez votre API de municipalités
