@@ -1,5 +1,5 @@
 @startuml
-set namespaceSeparator ::
+skinparam linetype polyline
 
 package DSED_M05_SOAP_Web {
     namespace Entite {
@@ -37,6 +37,9 @@ package DSED_M05_SOAP_Web {
             + void SupprimerMunicipalite(Municipalite p_municipalite)
         }
         note top of ManipulationMunicipalites: Cette classe permet d'avoir un traitement spécifique par cas d'utilisation\n(Algorithme). Ici, chaque méthode pourra appeler directement le dépot.
+
+        ManipulationMunicipalites --> DSED_M05_SOAP_Web.Entite.IDepotMunicipalites
+        ManipulationMunicipalites ..> DSED_M05_SOAP_Web.Entite.Municipalite
     }
     
     namespace PresentationServiceSOAP {
@@ -50,6 +53,8 @@ package DSED_M05_SOAP_Web {
             + void SupprimerMunicipalite(MunicipaliteSOAPDTO p_municipalite)
         }
         note top of MunicipaliteService: Cette classe permet d'exposer ManipulationMunicipalites. Il ne doit pas faire de\nmanipulation algorithmiques autres que des conversions de types et des validations\nd'entrées. Elle ne fait que présenter les méthodes.
+
+        MunicipaliteService -> DSED_M05_SOAP_Web.CasUtilisation.ManipulationMunicipalites
     }
 
     namespace Persistance {
@@ -81,6 +86,8 @@ package DSED_M05_SOAP_Web {
 
     DepotMunicipalitesSQL .> MunicipaliteSQLDTO
     DepotMunicipalitesSQL .u.> ApplicationDbContext
+    DepotMunicipalitesSQL .|> DSED_M05_SOAP_Web.Entite.IDepotMunicipalites
+    DepotMunicipalitesSQL ..> DSED_M05_SOAP_Web.Entite.Municipalite
     }
 
     class Startup {}
@@ -90,16 +97,11 @@ package DSED_M05_SOAP_Web {
     }
 
     Program ..> Startup
-    Startup ..> Persistance::DepotMunicipalitesSQL
-    Startup .> Persistance::ApplicationDbContext
-    Startup ..> Entite::IDepotMunicipalites
-    Startup ..> CasUtilisation::ManipulationMunicipalites
-    Startup ..> PresentationServiceSOAP::MunicipaliteService
-    CasUtilisation::ManipulationMunicipalites --> Entite::IDepotMunicipalites
-    CasUtilisation::ManipulationMunicipalites ..> Entite::Municipalite
-    PresentationServiceSOAP::MunicipaliteService -> CasUtilisation::ManipulationMunicipalites
-    Persistance::DepotMunicipalitesSQL .|> Entite::IDepotMunicipalites
-    Persistance::DepotMunicipalitesSQL ..> Entite::Municipalite
+    Startup ..> Persistance.DepotMunicipalitesSQL
+    Startup .> Persistance.ApplicationDbContext
+    Startup ..> Entite.IDepotMunicipalites
+    Startup ..> CasUtilisation.ManipulationMunicipalites
+    Startup ..> PresentationServiceSOAP.MunicipaliteService
 }
 
 together {
@@ -121,7 +123,7 @@ together {
             + DateTime DateProchaineElection << get; set; >>
             + bool Actif << get; set; >>
         }
-        note left of MunicipaliteSOAPDTO: Propriétés et format\nadaptés aux clients\ndu service SOAP
+        note left of MunicipaliteSOAPDTO: Propriétés et format adaptés aux\nclients du service SOAP
     
         IMunicipaliteService ..> MunicipaliteSOAPDTO
     }
@@ -133,8 +135,8 @@ together {
     }
 }
 
-DSED_M05_SOAP_Web::Startup .> DSED_M05_SOAP_Model::IMunicipaliteService
-DSED_M05_SOAP_Web::PresentationServiceSOAP::MunicipaliteService .|> DSED_M05_SOAP_Model::IMunicipaliteService
-DSED_M05_SOAP_Web::PresentationServiceSOAP::MunicipaliteService ..> DSED_M05_SOAP_Model::MunicipaliteSOAPDTO
-DSED_M05_SOAP_ExempleClientConsole::Program ..> DSED_M05_SOAP_Model::IMunicipaliteService
+DSED_M05_SOAP_Web.Startup .> DSED_M05_SOAP_Model.IMunicipaliteService
+DSED_M05_SOAP_Web.PresentationServiceSOAP.MunicipaliteService .|> DSED_M05_SOAP_Model.IMunicipaliteService
+DSED_M05_SOAP_Web.PresentationServiceSOAP.MunicipaliteService ..> DSED_M05_SOAP_Model.MunicipaliteSOAPDTO
+DSED_M05_SOAP_ExempleClientConsole.Program ..> DSED_M05_SOAP_Model.IMunicipaliteService
 @enduml
