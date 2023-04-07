@@ -1,5 +1,5 @@
 @startuml
-set namespaceSeparator ::
+skinparam linetype ortho
 
 namespace M03_API_Municipalite << apim >> {
     class Startup {
@@ -63,7 +63,8 @@ namespace M03_Srv_Municipalite << srvm >> {
     ManipulationMunicipalites -> IDepotMunicipalites
     IDepotMunicipalites ..> Municipalite
     ManipulationMunicipalites ..> Municipalite
-
+    M03_API_Municipalite.Startup ..> IDepotMunicipalites : configure injection (depot)
+    M03_API_Municipalite.MunicipalitesController --> ManipulationMunicipalites
 }
 
 namespace M03_DAL_Municipalite << dalm >> {
@@ -95,11 +96,8 @@ namespace M03_DAL_Municipalite << dalm >> {
 
     DepotMunicipalitesXYZSQL --> ApplicationDbContext
     DepotMunicipalitesXYZSQL -[hidden]-> Municipalite
+    M03_API_Municipalite.Startup .> DepotMunicipalitesXYZSQL : configure injection (depot)
+    DepotMunicipalitesXYZSQL ..|> M03_Srv_Municipalite.IDepotMunicipalites
 }
-
-M03_API_Municipalite::Startup ..> M03_Srv_Municipalite::IDepotMunicipalites : configure injection (depot)
-M03_API_Municipalite::Startup .> M03_DAL_Municipalite::DepotMunicipalitesXYZSQL : configure injection (depot)
-M03_API_Municipalite::MunicipalitesController --> M03_Srv_Municipalite::ManipulationMunicipalites
-M03_DAL_Municipalite::DepotMunicipalitesXYZSQL ..|> M03_Srv_Municipalite::IDepotMunicipalites
 
 @enduml
