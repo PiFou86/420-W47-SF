@@ -1,5 +1,6 @@
 @startuml
 set namespaceSeparator ::
+skinparam linetype ortho
 
 namespace DSED_M01_Fichiers_Texte {
     class Program {
@@ -45,8 +46,9 @@ namespace M01_Srv_Municipalite << srvm >> {
     }
 
     IDepotImportationMunicipalites -[hidden]-> IDepotMunicipalites
-    IDepotMunicipalites -[hidden]-> StatistiquesImportationDonnees
-    StatistiquesImportationDonnees -[hidden]-> TraitementImporterDonneesMunicipalite
+    IDepotImportationMunicipalites -[hidden]> TraitementImporterDonneesMunicipalite
+    TraitementImporterDonneesMunicipalite -[hidden]-> StatistiquesImportationDonnees
+    StatistiquesImportationDonnees -[hidden]> Municipalite
 }
 
 namespace M01_DAL_Municipalite_MySQL {
@@ -59,7 +61,7 @@ namespace M01_DAL_Municipalite_MySQL {
         + MAJMunicipalite(p_municipalite : srvm.Municipalite) : void
     }
 
-    DepotMunicipalitesMySQL --|> M01_Srv_Municipalite::IDepotMunicipalites
+    DepotMunicipalitesMySQL -|> M01_Srv_Municipalite::IDepotMunicipalites
 
     class Municipalite {
         + MunicipaliteId : int <<get>> <<set>>
@@ -79,10 +81,11 @@ namespace M01_DAL_Municipalite_MySQL {
         # <<override>> OnConfiguring(p_optionBuilder : DbContextOptionsBuilder) : void
     }
 
-    MunicipaliteContextMySQL -[hidden]-> Municipalite
-    Municipalite -[hidden]-> DepotMunicipalitesMySQL
+    'MunicipaliteContextMySQL -[hidden]-> Municipalite
+    Municipalite -[hidden]-> MunicipaliteContextMySQL
+    'Municipalite -[hidden]-> DepotMunicipalitesMySQL
+    MunicipaliteContextMySQL -[hidden]-> DepotMunicipalitesMySQL
 }
-
 
 namespace M01_DAL_Import_Munic_CSV {
     class DepotImportationMunicipaliteCSV {
@@ -106,9 +109,12 @@ DSED_M01_Fichiers_Texte .> M01_DAL_Import_Munic_JSON
 DSED_M01_Fichiers_Texte ..> M01_DAL_Import_Munic_CSV
 DSED_M01_Fichiers_Texte ..> M01_DAL_Municipalite_MySQL
 DSED_M01_Fichiers_Texte ..> M01_Srv_Municipalite
+
 M01_DAL_Import_Munic_CSV ..> M01_Srv_Municipalite
 M01_DAL_Import_Munic_JSON ..> M01_Srv_Municipalite
 M01_DAL_Municipalite_MySQL ..> M01_Srv_Municipalite
+
+System.Data.Entity::DbContext -[hidden]-> M01_DAL_Municipalite_MySQL::Municipalite
 M01_DAL_Municipalite_MySQL::MunicipaliteContextMySQL -u-|> System.Data.Entity::DbContext
 
 @enduml
