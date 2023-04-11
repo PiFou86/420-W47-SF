@@ -84,10 +84,10 @@ package DSED_M05_SOAP_Web {
             + DbSet<MunicipaliteSQLDTO> Municipalite <<get; set;>>
         }
 
-    DepotMunicipalitesSQL .> MunicipaliteSQLDTO
-    DepotMunicipalitesSQL .u.> ApplicationDbContext
-    DepotMunicipalitesSQL .|> DSED_M05_SOAP_Web.Entite.IDepotMunicipalites
-    DepotMunicipalitesSQL ..> DSED_M05_SOAP_Web.Entite.Municipalite
+        DepotMunicipalitesSQL .> MunicipaliteSQLDTO
+        DepotMunicipalitesSQL .u.> ApplicationDbContext
+        DepotMunicipalitesSQL .|> DSED_M05_SOAP_Web.Entite.IDepotMunicipalites
+        DepotMunicipalitesSQL ..> DSED_M05_SOAP_Web.Entite.Municipalite
     }
 
     class Startup {}
