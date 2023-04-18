@@ -13,7 +13,7 @@ Utilisez l'image présente sur [docker hub](https://hub.docker.com/_/rabbitmq).
 À l'écriture de l'exercice on peut utiliser la commande suivante pour lancer la version 3 :
 
 ```bash
-docker run -d --name s4_DSED_rabbitmq -p 8080:15672 -p 1883:1883 rabbitmq:3-management
+docker run --rm -d --name s4_DSED_rabbitmq -p 8080:15672 -p 5672:5672 rabbitmq:3-management
 ```
 
 Ce conteneur contient aussi la partie gestion graphique des ressources RabbitMQ. Pour y accéder, allez sur ```http://localhost:8080/```. Nom d'utilisateur ```guest``` et mot de passe ```guest```.
