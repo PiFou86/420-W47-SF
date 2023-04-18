@@ -2,7 +2,7 @@
 
 ## Pré-requis
 
-Nous allons utiliser une file de messages locale appelée RabbitMQ. Vous pouvez soit l'installer localement sur votre environnement ou réinvestir les connaissances du cours ITV et utilise un conteneur.
+Nous allons utiliser une file de messages locale appelée RabbitMQ. Vous pouvez soit l'installer localement sur votre environnement ou réinvestir les connaissances du cours ISS et utilise un conteneur.
 
 ### Installation locale
 
@@ -42,6 +42,14 @@ En substance (extrait d'une des réponses) :
 Il faut que docker fonctionne sur votre environnement de travail.
 
 Utilisez l'image présente sur [docker hub](https://hub.docker.com/_/rabbitmq).
+
+À l'écriture de l'exercice on peut utiliser la commande suivante pour lancer la version 3 :
+
+```bash
+docker run -d --name s4_DSED_rabbitmq -p 8080:15672 -p 1883:1883 rabbitmq:3-management
+```
+
+Ce conteneur contient aussi la partie gestion graphique des ressources RabbitMQ. Pour y accéder, allez sur ```http://localhost:8080/```. Nom d'utilisateur ```guest``` et mot de passe ```guest```.
 
 ## Exercice 1 - Mes premiers messages
 
