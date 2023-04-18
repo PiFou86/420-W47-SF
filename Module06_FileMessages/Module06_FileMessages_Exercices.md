@@ -11,9 +11,21 @@ Pour l'installer sur votre VM ou machine locale :
 - Ouvrez un interpréteur Powershell avec les privilèges administrateur
 - Tapez la commande suivante :
 
-```pwsh
-choco install rabbitmq
-```
+
+<details open>
+  <summary>Via winget</summary>
+  
+  ```pwsh
+  winget install Redisant.RabbitMQAssistant
+  ```
+</details>
+<details>
+  <summary>Via choco</summary>
+  
+  ```pwsh
+  choco install rabbitmq
+  ```
+</details>
 
 - Acceptez d'exécuter tous les scripts
 - Une fois installé, validez que le service est démarré et fonctionnel en tapant la commande suivante : ```rabbitmqctl.bat status```
