@@ -1,23 +1,27 @@
-@startuml clients_classes_enveloppe
+@startuml clients_classes
+set namespaceSeparator ::
 
 package M06_CasUtilisation_Clients {
     class ManipulationsClient {
         - m_depotClients : IDepotClients
-        + ManipulationsClient(p_depotClients : IDepotClients)
+        + ctor(p_depotClients : IDepotClients)
         + CreerClient(p_client : Client)
     }
+
     interface IDepotClients {
         + CreerClient(p_client : Client)
     }
+
     class Client {
         + Identifiant : Guid <<get; private set;>>
         + Prenom : string <<get; private set;>>
         + Nom : string <<get; private set;>>
         + Courriel : string <<get; private set;>>
         + NumeroTelephone : string <<get; private set;>>
-        + Client(p_identificant : Guid, p_prenom : string, p_nom : string, p_courriel : string, p_numeroTelephone : string)
+        + ctor(p_identificant : Guid, p_prenom : string, p_nom : string, p_courriel : string, p_numeroTelephone : string)
     }
-    ManipulationsClient --> IDepotClients
+
+    ManipulationsClient -> IDepotClients
     ManipulationsClient ..> Client
     IDepotClients ..> Client
 }
@@ -33,54 +37,55 @@ package M06_DAL_Client_SQLServeur {
         + Nom : string <<get; set;>>
         + Courriel : string <<get; set;>>
         + NumeroTelephone : string <<get; set;>>
-        + ClientSQLDTO(p_client : Client)
+        + ctor(p_client : Client)
     }
 
-    DepotClientSQLServeur ..|> IDepotClients
-    DepotClientSQLServeur ..> ClientSQLServeurDTO
+    DepotClientSQLServeur ..|> M06_CasUtilisation_Clients::IDepotClients
+    DepotClientSQLServeur .l> ClientSQLServeurDTO
 }
 
-package M06_MessageClient {
-    class MessageClient {
-        + Prenom : string <<get; set;>>
-        + Nom : string <<get; set;>>
-        + Courriel : string <<get; set;>>
-        + NumeroTelephone : string <<get; set;>>
+together {
+    package M06_MessageClient {
+        class MessageClient {
+            + Prenom : string <<get; set;>>
+            + Nom : string <<get; set;>>
+            + Courriel : string <<get; set;>>
+            + NumeroTelephone : string <<get; set;>>
+        }
+
+        class EnveloppeClient {
+            + Action : string <<get; set;>>
+            + ActionId : string <<get; set;>>
+            + Client : MessageClient <<get; set;>>
+        }
+
+        EnveloppeClient --> MessageClient
     }
 
-    class EnveloppeClient {
-        + Action : string <<get; set;>>
-        + ActionId : string <<get; set;>>
-        + Client : MessageClient <<get; set;>>
+    package M06_Clients_Producteur {
+        class Program
+
+        Program ..> M06_MessageClient::EnveloppeClient
     }
 
-    EnveloppeClient --> MessageClient
+    package Rabbitmq.Client {}
 }
 
-package M06_Client_Producteur {
+package M06_Clients_Consommateur {
+    class Program
 
-}
-M06_Client_Producteur.Program ..> EnveloppeClient
-
-package M06_Client_Consommateur {
-
-
-}
-M06_Client_Consommateur.Program ..> EnveloppeClient
-M06_Client_Consommateur.Program ..> ManipulationsClient
-M06_Client_Consommateur.Program ..> IDepotClients
-M06_Client_Consommateur.Program ..> DepotClientSQLServeur
-
-
-package Rabbitmq.Client {
-
+    Program ..> M06_MessageClient::EnveloppeClient
+    Program ..> M06_CasUtilisation_Clients::ManipulationsClient
+    Program ..> M06_CasUtilisation_Clients::IDepotClients
+    Program .l> M06_DAL_Client_SQLServeur::DepotClientSQLServeur
 }
 
+M06_Clients_Producteur .[#blue]> Rabbitmq.Client
+M06_Clients_Producteur .[#blue].> M06_MessageClient
 
-M06_Client_Producteur ..> Rabbitmq.Client
-M06_Client_Producteur ..> M06_MessageClient
+M06_Clients_Consommateur .[#blue]> Rabbitmq.Client
+M06_Clients_Consommateur .[#blue].> M06_CasUtilisation_Clients
+M06_Clients_Consommateur .[#blue].> M06_MessageClient
+M06_Clients_Consommateur .[#blue]l> M06_DAL_Client_SQLServeur
 
-M06_Client_Consommateur ..> Rabbitmq.Client
-M06_Client_Consommateur ..> M06_CasUtilisation_Clients
-M06_Client_Consommateur ..> M06_MessageClient
 @enduml
