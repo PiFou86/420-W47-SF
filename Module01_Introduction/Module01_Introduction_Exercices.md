@@ -75,14 +75,9 @@ dotnet tool install --global dotnet-ef
     - LireMunicipalite : () ->  IEnumerable\<Municipalite>
 - Ajoutez le projet "M01_DAL_Municipalite_SQLServer" de type "bibliothèque de classes". Ce projet va implanter l'interface "IDepotMunicipalites"
 - Dans le projet "M01_DAL_Municipalite_SQLServer", installez les packages NuGet :
-<!--   - "MySql.EntityFrameworkCore" si vous décidez d'utiliser MySql
-  - "Oracle.EntityFrameworkCore" si vous décidez d'utiliser Oracle -->
   - "Microsoft.EntityFrameworkCore.SqlServer" si vous décidez d'utiliser SqlServer
-<!--   - "Microsoft.EntityFrameworkCore.Design" quelque soit votre cas -->
 - Créez une classe de contexte qui peut se connecter à votre base de données (SQLServer)
-  - Pour la surcharge de la méthode "OnConfiguring", inspirez vous des liens suivants :
-<!--     - [MySQL](https://dev.mysql.com/doc/connector-net/en/connector-net-entityframework-core.html)
-    - [Oracle](https://github.com/oracle/dotnet-db-samples/blob/master/samples/dotnet-core/ef-core/get-started/create-model-save-query-scaffold.cs) -->
+  - Pour la surcharge de la méthode "OnConfiguring", inspirez vous des liens suivants : (Solution rapide mais non configurable. Voir l'utilisation du fichier `appsettings.json` pour plus d'informations)
     - [SQL Server](https://docs.microsoft.com/en-us/ef/core)
   - À la suite de l'appel à "UseMySQL / UseSQLServer / UseOracle", ajoutez l'appel à la méthode U le tout devrait ressembler à cela :
 
