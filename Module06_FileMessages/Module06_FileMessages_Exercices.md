@@ -157,3 +157,7 @@ Vous trouverez ci-après une très belle démonstration des programmes demandés
 Vous trouverez ci-après une autre très belle démonstration des programmes demandés proposée par Sébastien Bédard (Session Automne 2021). Il a su mélanger trois cours de quatrième session pour faire cette démonstration : DSED, AMOC (IoT) et ISS ! La vidéo est séparée en deux partie. La première présente un client embarqué dans un ESP32. La deuxième partie présente un client console très évolué : un jeu vidéo console en couleur ! Merci d'avoir poussé le concept aussi loin !
 
 [![Démonstration Sébastien Bédard - Automne 2021](https://img.youtube.com/vi/JYrr5xtN3p8/0.jpg)](https://youtu.be/JYrr5xtN3p8)
+
+Vous trouverez ci-aprés une belle démonstration des programmes demandés proposée par Simon Quillaud (Session hiver 2023). Il montre le client qui envoie les requêtes et les 3 programmes qui les traitent en parallèle. Merci à lui d'avoir pris ce temps pour nous faire une démonstration !!
+
+[![Démonstration Simon Quillaud - Hiver 2023](https://img.youtube.com/vi/-iLTFnB5erE/0.jpg)](https://www.youtube.com/watch?v=-iLTFnB5erE)
