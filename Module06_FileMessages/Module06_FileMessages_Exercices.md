@@ -168,7 +168,7 @@ Pour aller plus loin, voici deux pistes d'extension (qui se suivent) à l'exerci
 
 Références :
 - Création de hash : https://learn.microsoft.com/en-us/dotnet/api/system.security.cryptography.hashalgorithm.computehash
-- Aide pour crypter des messages : https://stackoverflow.com/a/68403721
+- Aide pour crypter des messages : https://stackoverflow.com/questions/17128038/c-sharp-rsa-encryption-decryption-with-transmission
 
 
 ### Exercice 3 - Contributions
