@@ -1,6 +1,5 @@
-@startuml diag_classes_municipalite_api
-
-
+@startuml
+skinparam linetype ortho
 
 namespace M03_API_Municipalite << apim >> {
     class Startup {
@@ -29,11 +28,7 @@ namespace M03_API_Municipalite << apim >> {
         + VersEntite() : srvm.Municipalite
     }
 
-    Startup .left.> M03_Srv_Municipalite.IDepotMunicipalites : configure injection (depot)
-    Startup .right.> M03_DAL_Municipalite.DepotMunicipalitesXYZSQL : configure injection (depot)
-
-    MunicipalitesController --> M03_Srv_Municipalite.ManipulationMunicipalites
-    MunicipalitesController ..> MunicipaliteModel
+    MunicipalitesController .u.> MunicipaliteModel
 }
 
 namespace M03_Srv_Municipalite << srvm >> {
@@ -65,15 +60,16 @@ namespace M03_Srv_Municipalite << srvm >> {
         + ctor(p_municipaliteId : int, p_nomMunicipalite : string, p_adresseCourriel : string, p_adresseWeb : string, p_dateProchaineElection : DateTime, p_actif : bool = true)
     }
 
-    ManipulationMunicipalites -left-> IDepotMunicipalites
+    ManipulationMunicipalites -> IDepotMunicipalites
     IDepotMunicipalites ..> Municipalite
     ManipulationMunicipalites ..> Municipalite
-
+    M03_API_Municipalite.Startup ..> IDepotMunicipalites : configure injection (depot)
+    M03_API_Municipalite.MunicipalitesController --> ManipulationMunicipalites
 }
 
 namespace M03_DAL_Municipalite << dalm >> {
     class ApplicationDbContext {
-        ...
+        ~ MUNICIPALITES : DbSet<Municipalite> <<get>> <<set>>
     }
 
     class DepotMunicipalitesXYZSQL {
@@ -99,6 +95,9 @@ namespace M03_DAL_Municipalite << dalm >> {
     }
 
     DepotMunicipalitesXYZSQL --> ApplicationDbContext
+    DepotMunicipalitesXYZSQL -[hidden]-> Municipalite
+    M03_API_Municipalite.Startup .> DepotMunicipalitesXYZSQL : configure injection (depot)
+    DepotMunicipalitesXYZSQL ..|> M03_Srv_Municipalite.IDepotMunicipalites
 }
 
 @enduml

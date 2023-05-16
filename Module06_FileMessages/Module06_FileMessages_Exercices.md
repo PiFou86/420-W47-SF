@@ -2,7 +2,21 @@
 
 ## Pré-requis
 
-Nous allons utiliser une file de messages locale appelée RabbitMQ. Vous pouvez soit l'installer localement sur votre environnement ou réinvestir les connaissances du cours ITV et utilise un conteneur.
+Nous allons utiliser une file de messages locale appelée RabbitMQ. Vous pouvez soit l'installer localement sur votre environnement ou réinvestir les connaissances du cours ISS et utilise un conteneur.
+
+### Installation avec docker
+
+Il faut que docker fonctionne sur votre environnement de travail.
+
+Utilisez l'image présente sur [docker hub](https://hub.docker.com/_/rabbitmq).
+
+À l'écriture de l'exercice on peut utiliser la commande suivante pour lancer la version 3 :
+
+```bash
+docker run --rm -d --name s4_DSED_rabbitmq -p 8080:15672 -p 5672:5672 rabbitmq:3-management
+```
+
+Ce conteneur contient aussi la partie gestion graphique des ressources RabbitMQ. Pour y accéder, allez sur ```http://localhost:8080/```. Nom d'utilisateur ```guest``` et mot de passe ```guest```.
 
 ### Installation locale
 
@@ -36,12 +50,6 @@ En substance (extrait d'une des réponses) :
   - Start Server : rabbitmq-service.bat start
   - Start App : rabbitmqctl.bat start_app  
 </details>
-
-### Installation avec docker
-
-Il faut que docker fonctionne sur votre environnement de travail.
-
-Utilisez l'image présente sur [docker hub](https://hub.docker.com/_/rabbitmq).
 
 ## Exercice 1 - Mes premiers messages
 
@@ -140,7 +148,30 @@ Le programme console "TraitementLettresMortes" doit lire les messages de la file
 
 ![Schéma fonctionnel des comptes](img/schema_fonctionnel_compte.png)
 
+Il est fortement recommandé de créer une enveloppe contenant :
+  
+- Une chaine de caractères représentant le type d'action
+- Une chaine de caractères représentant l'entité modifiée
+- Une propriété par entité (Compte et Transaction). Suivant l'entité visée, une des champs sera `null`. Cette astuce est là pour vous faire gagner du temps de développement. D'une certaine manière, elle brise l'OCP.
+  
 </details>
+
+### Exercice 3 - Aller plus loin (optionnel)
+
+Pour aller plus loin, voici deux pistes d'extension (qui se suivent) à l'exercice :
+
+1. Remplacez les propriétés créées par entité par un champ unique appelé `Corps` qui représente les information de l'entité à créer/modifier en version chaine de caractères. Ce champ va contenir la version sérialiser en JSON.
+2. Ajoutez des signatures dans vos messages à la production et validez la au moment des traitements. Pour cela, séparez votre enveloppe en trois (3) parties :
+  - Une entête qui contient le type d'entité, d'action et un identifiant d'action
+  - Un corps de message
+  - Une pied qui contient deux signatures électroniques : celle de l'entête et celle du corps de message
+
+Références :
+- Création de hash : https://learn.microsoft.com/en-us/dotnet/api/system.security.cryptography.hashalgorithm.computehash
+- Aide pour crypter des messages : https://stackoverflow.com/questions/17128038/c-sharp-rsa-encryption-decryption-with-transmission
+
+
+### Exercice 3 - Contributions
 
 Vous trouverez ci-après une très belle démonstration des programmes demandés proposée par Raoul Hunter-Villeneuve (Session hiver 2020). Il y montre les trois programmes en parallèle avec une interface texte très évoluée. Il a configuré son programme pour avoir une probabilité de 20% d'erreurs. Merci à lui !
 
@@ -149,3 +180,7 @@ Vous trouverez ci-après une très belle démonstration des programmes demandés
 Vous trouverez ci-après une autre très belle démonstration des programmes demandés proposée par Sébastien Bédard (Session Automne 2021). Il a su mélanger trois cours de quatrième session pour faire cette démonstration : DSED, AMOC (IoT) et ISS ! La vidéo est séparée en deux partie. La première présente un client embarqué dans un ESP32. La deuxième partie présente un client console très évolué : un jeu vidéo console en couleur ! Merci d'avoir poussé le concept aussi loin !
 
 [![Démonstration Sébastien Bédard - Automne 2021](https://img.youtube.com/vi/JYrr5xtN3p8/0.jpg)](https://youtu.be/JYrr5xtN3p8)
+
+Vous trouverez ci-aprés une belle démonstration des programmes demandés proposée par Simon Quillaud (Session hiver 2023). Il montre le client qui envoie les requêtes et les 3 programmes qui les traitent en parallèle. Merci à lui d'avoir pris ce temps pour nous faire une démonstration !!
+
+[![Démonstration Simon Quillaud - Hiver 2023](https://img.youtube.com/vi/-iLTFnB5erE/0.jpg)](https://www.youtube.com/watch?v=-iLTFnB5erE)
