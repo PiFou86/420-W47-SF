@@ -12,7 +12,6 @@
 </div>
 
 @section scripts {
-    <script src="~/lib/jquery/dist/jquery.js"></script>
     <script src="~/lib/microsoft/signalr/dist/browser/signalr.js"></script>
     <style>
         #tableauBlanc {
@@ -29,7 +28,8 @@
             };
         }
 
-        $(function () {
+        window.addEventListener("load", onload);
+        function onload() {
             function dessinerLigne(ligne) {
                 console.log(ligne);
                 ctx.beginPath();
@@ -102,6 +102,6 @@
             document.getElementById("btCouleurRouge")
                 .onclick = function () { couleur = "#F00"; };
 
-        });
+        }
     </script>
 }
