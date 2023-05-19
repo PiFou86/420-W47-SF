@@ -36,6 +36,8 @@ Le but est de créer une application client/serveur de chat multi-utilisateur, m
 <details>
     <summary>Code Razor à utiliser pour la vue du chat</summary>
 
+Merci à Simon Quillaud de la cohorte H23 pour sa proposition de correction du template web !
+    
 ```csharp
 @{
     ViewData["Title"] = "Index";
