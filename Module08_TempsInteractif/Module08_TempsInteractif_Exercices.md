@@ -150,37 +150,31 @@ Le but est de créer une application client/serveur de chat multi-utilisateur, m
 
         });
 
-        var gabaritMessageUtilisateurCourant = `
-                            <li class="right clearfix">
-                            <span class="chat-img pull-right">
-                                <img src="http://placehold.it/50/FA6F57/fff&text=ME" alt="User Avatar" class="img-circle" />
-                            </span>
-                            <div class="chat-body clearfix">
-                                <div class="header">
-                                    <strong class="pull-right primary-font">{{userDisplayName}}</strong>
-                                </div>
-                                <p>
-                                    {{message}}
-                                </p>
-                            </div>
-                        </li>
-    `;
+        let gabaritMessageUtilisateurCourant = `                            
+                <li class="m-2 text-end">
+                    <button type="button" class="btn btn-primary position-relative" disabled>
+                                                        {{message}}
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary-subtle text-black">
+                                                          {{userDisplayName}}
+                        <span class="visually-hidden">unread messages</span>
+                        </span>
+                    </button>
+                </li>
+            `;
 
-        var gabaritMessageUtilisateurAutre = `
-                        <li class="left clearfix">
-                            <span class="chat-img pull-left">
-                                <img src="http://placehold.it/50/55C1E7/fff&text=U" alt="User Avatar" class="img-circle" />
-                            </span>
-                            <div class="chat-body clearfix">
-                                <div class="header">
-                                    <strong class="pull-right primary-font">{{userDisplayName}}</strong>
-                                </div>
-                                <p>
-                                    {{message}}
-                                </p>
-                            </div>
-                        </li>
-        `;
+
+
+        let gabaritMessageUtilisateurAutre = `
+                <li class="m-2 text-start">
+                    <button type="button" class="btn btn-success position-relative" disabled>
+                                                    {{message}}
+                        <span class="position-absolute top-0 start-0 translate-middle badge rounded-pill bg-success-subtle text-black">
+                                                          {{userDisplayName}}
+                        <span class="visually-hidden">unread messages</span>
+                        </span>
+                    </button>
+                </li>
+        `;
     </script>
 }
 ```
