@@ -8,7 +8,7 @@ Reprenez la solution Visual Studio "DSED_M08_DemoCours" du cours et ajoutez la p
 - S'il le souhaite, il peut ajouter un tableau grace à un textbox qui contient le nom du futur tableau et un bouton "Créer tableau" qui demande au serveur de le créer. Une fois créé, on rejoint le tableau blanc. Si le tableau existe déjà (déjà listé ou créé entre temps), on ne fait que le rejoindre
 - Validez que le tout fonctionne
 
-Pour gérer les différents tableaux, vous allez utiliser [la notion de groupe de SignalR](https://docs.microsoft.com/en-us/aspnet/signalr/overview/guide-to-the-api/working-with-groups) (Groups.Add(...) / Groups.Remove(...))
+Pour gérer les différents tableaux, vous allez utiliser [la notion de groupes de SignalR](https://learn.microsoft.com/en-us/aspnet/core/signalr/groups) (Groups.AddToGroupAsync(...) / Groups.RemoveFromGroupAsync(...))
 
 <details>
     <summary>Diagramme de séquence d'un utilisateur qui se connecte et qui dessine</summary>
