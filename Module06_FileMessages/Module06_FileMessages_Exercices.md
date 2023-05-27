@@ -170,6 +170,97 @@ Références :
 - Création de hash : https://learn.microsoft.com/en-us/dotnet/api/system.security.cryptography.hashalgorithm.computehash
 - Aide pour crypter des messages : https://stackoverflow.com/questions/17128038/c-sharp-rsa-encryption-decryption-with-transmission
 
+<details>
+  <summary>Simon Quillaud de la session hiver 2023 vous propose une classe utilitaire pour réaliser la signature et la vérification de la signature</summary>
+  
+```csharp
+public class ClesRSAPersonnelles
+{
+    private string _clePrivee;
+    private string _clePublique;
+    public string ClePublique { get { return this._clePublique; } }
+
+    // Prends en paramètre les clés privées et publiques
+    public ClesRSAPersonnelles(string p_clePriveeXml, string p_clePubliqueXml)
+    {
+        if (String.IsNullOrWhiteSpace(p_clePriveeXml))
+        {
+            throw new ArgumentNullException(nameof(p_clePriveeXml));
+        }
+        if (String.IsNullOrWhiteSpace(p_clePubliqueXml))
+        {
+            throw new ArgumentNullException(nameof(p_clePubliqueXml));
+        }
+
+        this._clePrivee = p_clePriveeXml;
+        this._clePublique = p_clePubliqueXml;
+    }
+
+    // Crypte le message avec la clé publique du destinataire
+    public string CrypterMessage(string p_message, string p_clePubliqueDestinataireXml)
+    {
+        if (String.IsNullOrWhiteSpace(p_clePubliqueDestinataireXml))
+        {
+            throw new ArgumentNullException(nameof(p_clePubliqueDestinataireXml));
+        }
+
+        if (String.IsNullOrWhiteSpace(p_message))
+        {
+            throw new ArgumentNullException(nameof(p_message));
+        }
+
+        string retour;
+
+        using (RSACryptoServiceProvider rsa = new RSACryptoServiceProvider())
+        {
+            rsa.FromXmlString(this.p_clePubliqueDestinataireXml);
+
+            byte[] message = Encoding.UTF8.GetBytes(p_message);
+            byte[] messageCrypte = rsa.Encrypt(message, true);
+            retour = Convert.ToBase64String(messageCrypte);
+        }
+
+        return retour;
+    }
+
+    // Décrypte le message avec la clé privée (donc du destinataire qui est l'objet courant)
+    // Le message est en base64
+    public string DecrypterMessage(string p_message)
+    {
+        string retour;
+
+        using (RSACryptoServiceProvider rsa = new RSACryptoServiceProvider())
+        {
+            rsa.FromXmlString(_clePrivee);
+            byte[] message = Convert.FromBase64String(p_message);
+            byte[] messageDecrypte = rsa.Decrypt(message, true);
+            retour = Encoding.UTF8.GetString(messageDecrypte);
+        }
+
+        return retour;
+    }
+
+    // Signe le message avec la clé privée de l'expéditeur (donc l'objet courant)
+    // La signature pourra être validée avec la clé publique de l'expéditeur
+    // Le message est en base64
+    public string SignerMessage(string p_message)
+    {
+        string retour;
+
+        using (RSACryptoServiceProvider rsa = new RSACryptoServiceProvider())
+        {
+            rsa.FromXmlString(_clePrivee);
+            byte[] message = Convert.FromBase64String(p_message);
+            byte[] messageSigne = rsa.SignData(message, new SHA256CryptoServiceProvider());
+            retour = Convert.ToBase64String(messageSigne);
+        }
+
+        return retour;
+    }
+}
+```
+
+</details>
 
 ### Exercice 3 - Contributions
 
