@@ -259,6 +259,8 @@ public class ClesRSAPersonnelles
     }
 }
 ```
+  
+Pour créer un couple de clefs, vous pouvez utiliser la méthode statique [Create de la classe RSA](https://learn.microsoft.com/en-us/dotnet/api/system.security.cryptography.rsa.create). Pour l'enregistrer facilement, vous pouvez convertir les clefs en format XML avec la méthode [ExportParameters](https://learn.microsoft.com/en-us/dotnet/api/system.security.cryptography.rsa.exportparameters)
 
 </details>
 
