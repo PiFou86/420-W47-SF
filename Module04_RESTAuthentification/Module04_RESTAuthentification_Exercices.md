@@ -28,16 +28,16 @@ Objectifs :
 - Dans les options, cochez l'option "Conserver les journaux" si ce n'est pas fait
 - Effacez le journal réseau
 - Entrez vos identifiants et validez
-- Observez le code de retour de la requête vers la page "Login?Return[...]" vers quelle page le navigateur va se rediriger ? Est-ce bien l'URL que vous avez comme requête suivante ?
+- Observez le code de retour de la requête vers la page `Login?Return[...]` vers quelle page le navigateur va se rediriger ? Est-ce bien l'URL que vous avez comme requête suivante ?
 - Voyez-vous dans la première URL d'où provient cette adresse ?
-- Observez la requête vers l'adresse "token". Que voyez-vous dans la réponse ?
-- Ouvrez l'entête de la requête "userinfo". Voyez-vous un champ relatif à l'authentification ? Est-il renseigné avec un élément d'une requête précédente ? Qu'observez-vous dans la réponse ?
-- Copiez la valeur du couple qui a pour clef "Authorization" (sans le mot clef "Bearer") et allez sur le site jwt.io et collez le jeton JWT. Observez ce qu'il contient.
+- Observez la requête vers l'adresse `token`. Que voyez-vous dans la réponse ?
+- Ouvrez l'entête de la requête `userinfo`. Voyez-vous un champ relatif à l'authentification ? Est-il renseigné avec un élément d'une requête précédente ? Qu'observez-vous dans la réponse ?
+- Copiez la valeur du couple qui a pour clef "Authorization" (sans le mot clef "Bearer") et allez sur le site https://jwt.io et collez le jeton JWT (Ne pas faire avec de vrais données de production !). Observez ce qu'il contient.
 - Ouvrez "Postman"
 - Essayez de faire un "GET" vers "https://localhost:5001/weatherforecast" (remplacez 5001 par votre numéro de port local. Si vous n'exposez pas en TLS, n'oubliez pas de modifier le protocole pour http). Vous devriez avoir une réponse "401".
 - Allez dans l'onglet "Authorization", sélectionnez le type "BearerToken" et renseignez le champ "Token". Refaite maintenant la requête : vous devriez avoir les informations de météo
 
-Si vous avez une erreur d'authentification à cause du jeton :
+**Si vous avez une erreur d'authentification à cause du jeton :**
 
 - Modifiez le fichier "Program.cs", avant le `var app = builder.Build()`, ajouter (Réf. https://github.com/dotnet/core/blob/main/release-notes/6.0/known-issues.md#aspnet-core) :
 ```csharp
