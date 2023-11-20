@@ -37,6 +37,15 @@ Objectifs :
 - Essayez de faire un "GET" vers "https://localhost:5001/weatherforecast" (remplacez 5001 par votre numéro de port local. Si vous n'exposez pas en TLS, n'oubliez pas de modifier le protocole pour http). Vous devriez avoir une réponse "401".
 - Allez dans l'onglet "Authorization", sélectionnez le type "BearerToken" et renseignez le champ "Token". Refaite maintenant la requête : vous devriez avoir les informations de météo
 
+Si vous avez une erreur d'authentification à cause du jeton :
+
+- Modifiez le fichier "Program.cs", avant le `var app = builder.Build()`, ajouter (Réf. https://github.com/dotnet/core/blob/main/release-notes/6.0/known-issues.md#aspnet-core) :
+```csharp
+builder.Services.Configure<JwtBearerOptions>("IdentityServerJwtBearer", o => o.Authority = "https://localhost:44416");
+```
+- Modifiez le port (ici 44416) par celui de votre application NodeJS
+- Relancez votre application et refaite le test
+
 ## Exercice 2 - Protégez votre API de municipalités
 
 ### Exercice 2.1 - Reproduire le mécanisme d'authentification par clef d'API
