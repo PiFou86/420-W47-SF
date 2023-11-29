@@ -33,3 +33,30 @@ Dans ce diagramme, les packages sont les projets, les sous-packages des dossiers
 
 ![Diagramme UML](../images/Module05_SOAP/diag/M05_Exercice2/M05_Exercice2_SOAP.svg)
 </details>
+
+<details>
+    <summary>Comment obtenir un `ManipulationMunicipalite` dans le service SOAP ?</summary>
+  
+Lorsque vous travaillez avec un service SOAP dont le cycle de vie est configuré en mode Singleton (c'est-à-dire qu'il persiste pour la durée de vie de l'application), vous pouvez rencontrer certains défis en essayant d'utiliser des objets dont le cycle de vie est différent. Par exemple, ManipulationMunicipalite est déclaré avec un cycle de vie de type Scoped (limité à la durée de vie d'une requête), ce qui signifie qu'il ne peut pas être injecté directement dans un objet IMunicipaliteService de cycle de vie Singleton.
+
+Pour résoudre ce problème, une approche consiste à utiliser le service d'injection de dépendances lui-même. Vous pouvez demander une référence à l'IServiceProvider en le passant comme paramètre au constructeur de votre MunicipaliteService. Ensuite, stockez cette référence dans une variable membre, par exemple m_serviceProvider.
+
+Avec cette référence, vous pouvez créer une nouvelle portée de type Scoped en utilisant la méthode CreateScope. Cela vous permettra de demander des instances de Scoped depuis le service d'injection de dépendances.
+
+Voici un exemple de code en C# illustrant cette approche :
+
+```csharp
+public MunicipaliteModel ObtenirMunicipalite(int p_codeGeographique)
+{
+    using (IServiceScope scope = m_serviceProvider.CreateScope())
+    {
+        ManipulationMunicipalites manipMunicipalites = scope.ServiceProvider.GetService<ManipulationMunicipalites>();
+        // Ici, vous pouvez utiliser manipMunicipalites selon vos besoins
+        // ...
+    }
+}
+```
+
+Cette méthode garantit que vous respectez les cycles de vie de vos services tout en conservant la flexibilité nécessaire pour utiliser des services Scoped dans un contexte Singleton.
+
+</details>
