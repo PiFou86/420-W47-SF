@@ -37,11 +37,11 @@ Dans ce diagramme, les packages sont les projets, les sous-packages des dossiers
 <details>
     <summary>Comment obtenir un `ManipulationMunicipalite` dans le service SOAP ?</summary>
   
-Lorsque vous travaillez avec un service SOAP dont le cycle de vie est configuré en mode Singleton (c'est-à-dire qu'il persiste pour la durée de vie de l'application), vous pouvez rencontrer certains défis en essayant d'utiliser des objets dont le cycle de vie est différent. Par exemple, ManipulationMunicipalite est déclaré avec un cycle de vie de type Scoped (limité à la durée de vie d'une requête), ce qui signifie qu'il ne peut pas être injecté directement dans un objet IMunicipaliteService de cycle de vie Singleton.
+Lorsque vous travaillez avec un service SOAP dont le cycle de vie est configuré en mode `Singleton` (c'est-à-dire qu'il persiste pour la durée de vie de l'application), vous pouvez rencontrer certains défis en essayant d'utiliser des objets dont le cycle de vie est différent. Par exemple, `ManipulationMunicipalite` est déclaré avec un cycle de vie de type `Scoped` (limité à la durée de vie d'une requête), ce qui signifie qu'il ne peut pas être injecté directement dans un objet `IMunicipaliteService` de cycle de vie `Singleton`.
 
-Pour résoudre ce problème, une approche consiste à utiliser le service d'injection de dépendances lui-même. Vous pouvez demander une référence à l'IServiceProvider en le passant comme paramètre au constructeur de votre MunicipaliteService. Ensuite, stockez cette référence dans une variable membre, par exemple m_serviceProvider.
+Pour résoudre ce problème, une approche consiste à utiliser le service d'injection de dépendances lui-même. Vous pouvez demander une référence à l'`IServiceProvider` en le passant comme paramètre au constructeur de votre `MunicipaliteService`. Ensuite, stockez cette référence dans une variable membre, par exemple `m_serviceProvider`.
 
-Avec cette référence, vous pouvez créer une nouvelle portée de type Scoped en utilisant la méthode CreateScope. Cela vous permettra de demander des instances de Scoped depuis le service d'injection de dépendances.
+Avec cette référence, vous pouvez créer une nouvelle portée de type `Scoped` en utilisant la méthode éponyme `CreateScope`. Cela vous permettra de demander des instances de `Scoped` depuis le service d'injection de dépendances.
 
 Voici un exemple de code en C# illustrant cette approche :
 
