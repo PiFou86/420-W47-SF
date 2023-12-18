@@ -166,6 +166,21 @@ Pour aller plus loin, voici deux pistes d'extension (qui se suivent) à l'exerci
   - Un corps de message
   - Une pied qui contient deux signatures électroniques : celle de l'entête et celle du corps de message
 
+Exemple de document JSON :
+
+```json
+{
+    "header": "{\"id\":\"0bd48cf3-d7c6-45f3-9f30-1054658c53d4\",\"entity\":\"transaction\",\"action\":\"create\",\"version\":\"v1\"}",
+    "body": "{\"compteId\":\"b5e2037a-5824-42c9-8f4e-3e0012a49073\",\"type\":\"credit\",\"date\":\"2023-12-18T19:03:09.543Z\",\"montant\":42.42}",
+    "signature": {
+        "hashmethod": "SHA256",
+        "bodysignature": "Vml2ZSBsZXMgY2hvY29sYXRpbmVzLCBhcnLqdGV6IGRlIGTpY29kZXIgbGVzIG1lc3NhZ2VzIQ==",
+        "headersignature": "Vml2ZSBsZSBwYXlzIGJhc3F1ZSBsLi4uIGhldSAhIHZpdmUgbGUgcGF5cyBiYXNxdWUgISEh",
+        "publickey": "Tm9uIG1haXMgY2Egc3VmZml0ICE="
+    }
+}
+```
+
 Références :
 - Création de hash : https://learn.microsoft.com/en-us/dotnet/api/system.security.cryptography.hashalgorithm.computehash
 - Aide pour crypter des messages : https://stackoverflow.com/questions/17128038/c-sharp-rsa-encryption-decryption-with-transmission
