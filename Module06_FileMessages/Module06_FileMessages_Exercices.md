@@ -133,18 +133,18 @@ Le programme console "TraitementLettresMortes" doit lire les messages de la file
 <details>
   <summary>Indices</summary>
 
-| Programme       | Entité       |   Action   |   Dépot de données |
-|-----------------|--------------|------------|--------------------|
-| API             | Compte       | GET        | Base de données    |
-| API             | Compte       | GET(id)    | Base de données    |
-| API             | Compte       | POST       | File de messages   |
-| API             | Compte       | PUT(id)    | File de messages   |
-| API             | Compte       | DELETE     | 403                |
-| API             | Transaction  | GET        | Base de données    |
-| API             | Transaction  | GET(id)    | Base de données    |
-| API             | Transaction  | POST       | File de messages   |
-| API             | Transaction  | PUT(id)    | 403                |
-| API             | Transaction  | DELETE     | 403                |
+| Programme       | Entité       |   Action   |   Dépot de données | Exemple URI                                          |
+|-----------------|--------------|------------|--------------------|------------------------------------------------------|
+| API             | Compte       | GET        | Base de données    | ../comptes                                           |
+| API             | Compte       | GET(id)    | Base de données    | ../comptes/{compteId}                                |
+| API             | Compte       | POST       | File de messages   | ../comptes                                           |
+| API             | Compte       | PUT(id)    | File de messages   | ../comptes/{compteId}                                |
+| API             | Compte       | DELETE     | 403                | N/A                                                  |
+| API             | Transaction  | GET        | Base de données    | ../comptes/{compteId}/transactions                   |
+| API             | Transaction  | GET(id)    | Base de données    | ../comptes/{compteId}/transactions/{transactionId}   |
+| API             | Transaction  | POST       | File de messages   | ../comptes/{compteId}/transactions                   |
+| API             | Transaction  | PUT(id)    | 403                | N/A                                                  |
+| API             | Transaction  | DELETE     | 403                | N/A                                                  |
 
 ![Schéma fonctionnel des comptes](img/schema_fonctionnel_compte.png)
 
