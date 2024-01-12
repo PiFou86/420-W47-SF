@@ -42,7 +42,7 @@ Une fois ces données extraites, vous devez les insérer ou les mettre à jour d
 
 ---
 
-Pour accéder à la base de données, vous devez utiliser Entity Framework core. Si la librairie vous est inconnue, basez-vous sur l'article https://docs.microsoft.com/en-us/ef/core/ et sur l'approche db first.
+Pour accéder à la base de données, vous devez utiliser Entity Framework core. **Si la librairie vous est inconnue, basez-vous sur l'article https://docs.microsoft.com/en-us/ef/core/ et sur l'approche DB first**
 
 De manière grossière :
 
@@ -63,7 +63,8 @@ dotnet tool install --global dotnet-ef
 ---
 
 - Créez une solution Visual Studio du type "console" avec le cadriciel .Net core. Le projet doit être nommé "DSED_M01_Fichiers_Texte"
-- Ajoutez le projet "M01_Srv_Municipalite" de type "bibliothèque de classes". Ce projet va contenir la classe "Municipalite" qui contient les informations pertinentes sur les municipalitées plus une propriété nommée "Actif" de type booléen. Le booléen "Actif" permet simuler la suppression d'un enregistrement (suppression logique à la place de physique)
+- Ajoutez le projet "M01_Srv_Municipalite" de type "bibliothèque de classes". Ce projet va contenir le traitement de l'importation des données
+- Ajoutez le projet "M01_Entite" de type "bibliothèque de classes". Ce projet va contenir la classe "Municipalite" qui contient les informations pertinentes sur les municipalitées plus une propriété nommée "Actif" de type booléen. Le booléen "Actif" permet simuler la suppression d'un enregistrement (suppression logique à la place de physique)
 - Ajoutez les interfaces "IDepotMunicipalites" et "IDepotImportationMunicipalites" :
   - IDepotMunicipalites :
     - ChercherMunicipaliteParCodeGeographique : int -> Municipalite (Renvoie la municipalité active ou non par son code géographique)
@@ -82,7 +83,9 @@ dotnet tool install --global dotnet-ef
   - À la suite de l'appel à "UseMySQL / UseSQLServer / UseOracle", ajoutez l'appel à la méthode U le tout devrait ressembler à cela :
 
 ```csharp
+// Seulement si vous n'utilisez pas le fichier appsettings.json sinon ne pas mettre ces lignes
 protected override void OnConfiguring(DbContextOptionsBuilder options) {
+  // Chaine de connexion à la base de données avec un utilisateur SQL Server. À adapter selon votre configuration et peut être remplacé par un fichier de configuration et une authentification Windows : https://docs.microsoft.com/en-us/ef/core/miscellaneous/connection-strings
   options.UseSqlServer("server=.;database=municipalites;user id=sa;password=Bonjour01.+")
          .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
 }
@@ -100,33 +103,38 @@ protected override void OnConfiguring(DbContextOptionsBuilder options) {
 
 - Ajoutez le projet "M01_DAL_Import_Munic_CSV" de type "bibliothèque de classes"
 - Ajoutez-y une classe qui implante l'interface "IDepotImportationMunicipalite"
-- Codez la méthode "LireMunicipalite" :
+- Codez la méthode "LireMunicipalite" - Solution 1 :
   - Ouvrez le fichier en mode lecture
   - Lisez le fichier ligne par ligne (ReadLine)
+  - Pour chacune des lignes, créez un objet de type "Municipalite" avec les bonnes valeurs. (Vous pouvez utiliser la méthode ["Split" de la classe "String"](https://docs.microsoft.com/en-us/dotnet/api/system.string.split?view=netcore-3.1))
+- Codez la méthode "LireMunicipalite" - Solution 2 :
+  - Ouvrez le fichier en mode lecture
+  - Utilisez la [bibliothèque CSV Helper](https://joshclose.github.io/CsvHelper/) (lire la documentation sur le site officiel)
   - Pour chacune des lignes, créez un objet de type "Municipalite" avec les bonnes valeurs. (Vous pouvez utiliser la méthode ["Split" de la classe "String"](https://docs.microsoft.com/en-us/dotnet/api/system.string.split?view=netcore-3.1))
 
 ### Étape 4 - Traitement du fichier
 
-- À partir du projet "M01_Srv_Municipalite", ajoutez la classe "StatistiquesImportationDonnees" avec les propriétés suivantes :
+- À partir du projet "M01_Entite", ajoutez la classe "StatistiquesImportationDonnees" avec les propriétés suivantes :
   - NombreEnregistrementsAjoutes : int
   - NombreEnregistrementsModifies : int
   - NombreEnregistrementsDesactives : int
 - Implantez la méthode "ToString" de cette dernière.
 - Ajoutez la classe "TraitementImporterDonneesMunicipalite"
-- Créez un constructeur d'initialisation qui reçoit deux objets, un objet de type "IDepotImportationMunicipalite" et l'autre de type "IDepotMunicipalites".
-- Ajoutez la méthode "Executer" : () -> StatistiquesImportationDonnees
-  - Si la municipalité est manquante, l'ajouter
-  - Si la municipalité est existante, la mettre à jour seulement si nécessaire (ex. si inactive, l'activer)
-  - Si la municipalité n'existe pas dans le fichier à importer, la marquer inactive
-  - Suivant le cas, incrémentez le compteur correspondant
-  - À la fin du traitement, renvoie les statistiques
+- À partir du projet "M01_Srv_Municipalite" :
+  - Créez un constructeur d'initialisation qui reçoit deux objets, un objet de type "IDepotImportationMunicipalite" et l'autre de type "IDepotMunicipalites".
+  - Ajoutez la méthode "Executer" qui va réaliser la fusion des données ([Revoir exercice 2 du module 02 de POO](https://github.com/PiFou86/420-W30-SF/blob/master/Module02_TestsUnitaires/Module02_TestsUnitaires_Exercices.md)) : () -> StatistiquesImportationDonnees
+    - Si la municipalité est manquante, l'ajouter
+    - Si la municipalité est existante, la mettre à jour seulement si nécessaire (ex. si inactive, l'activer)
+    - Si la municipalité n'existe pas dans le fichier à importer, la marquer inactive
+    - Suivant le cas, incrémentez le compteur correspondant
+    - À la fin du traitement, renvoie les statistiques
 
 ### Étape 5 - Programme principal
 
 - Votre programme principal doit créer une instance de traitement. Pour cela, vous devez préalablement créer les instances des dépôts et les passer au constructeur d'initialisation.
 - Le programme exécute ensuite le traitement et affiche les statistiques sur la sortie standard.
 
-### Étape 5 - Tests unitaires
+### Étape 6 - Tests unitaires
 
 - Faîtes vos tests unitaires de la classe de traitement en utilisant les packages "XUnit" et "Moq".
 

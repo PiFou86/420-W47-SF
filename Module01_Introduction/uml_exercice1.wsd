@@ -8,7 +8,7 @@ namespace DSED_M01_Fichiers_Texte {
     }
 }
 
-namespace M01_Srv_Municipalite << srvm >> {
+namespace M01_Entite {
     class Municipalite {
         + CodeGeographique : int <<get>> <<set>>
         + NomMunicipalite : string <<get>> <<set>>
@@ -39,21 +39,23 @@ namespace M01_Srv_Municipalite << srvm >> {
     interface IDepotImportationMunicipalites {
         LireMunicipalites() : IEnumerable<Municipalite>
     }
+}
 
+namespace M01_Srv_Municipalite << srvm >> {
     class TraitementImporterDonneesMunicipalite {
         + ctor(p_depotImportationMunicipalites : IDepotImportationMunicipalites, p_depotMunicipalites : IDepotMunicipalites)
         + Executer() : StatistiquesImportationDonnees
     }
 
-    IDepotImportationMunicipalites -[hidden]-> IDepotMunicipalites
-    IDepotImportationMunicipalites -[hidden]> TraitementImporterDonneesMunicipalite
-    TraitementImporterDonneesMunicipalite -[hidden]-> StatistiquesImportationDonnees
-    StatistiquesImportationDonnees -[hidden]> Municipalite
+    M01_Entite::IDepotImportationMunicipalites -[hidden]-> M01_Entite::IDepotMunicipalites
+    M01_Entite::IDepotImportationMunicipalites -[hidden]-> TraitementImporterDonneesMunicipalite
+    TraitementImporterDonneesMunicipalite -[hidden]-> M01_Entite::StatistiquesImportationDonnees
+    M01_Entite::StatistiquesImportationDonnees -[hidden]> M01_Entite::Municipalite
 }
 
-namespace M01_DAL_Municipalite_MySQL {
-    class DepotMunicipalitesMySQL {
-        + ctor(p_contexte : MunicipaliteContextMySQL)
+namespace M01_DAL_Municipalite_SQLServer {
+    class DepotMunicipalitesSQLServer {
+        + ctor(p_contexte : MunicipaliteContextSQLServer)
         + AjouterMunicipalite(p_municipalite : srvm.Municipalite) : void
         + ChercherMunicipaliteParCodeGeographique(p_codeGeographique : int) : srvm.Municipalite
         + DesactiverMunicipalite(p_municipalite : srvm.Municipalite) : void
@@ -61,7 +63,7 @@ namespace M01_DAL_Municipalite_MySQL {
         + MAJMunicipalite(p_municipalite : srvm.Municipalite) : void
     }
 
-    DepotMunicipalitesMySQL -|> M01_Srv_Municipalite::IDepotMunicipalites
+    DepotMunicipalitesSQLServer -|> M01_Entite::IDepotMunicipalites
 
     class Municipalite {
         + MunicipaliteId : int <<get>> <<set>>
@@ -75,16 +77,16 @@ namespace M01_DAL_Municipalite_MySQL {
         + VersEntite() : srvm.Municipalite
     }
 
-    class MunicipaliteContextMySQL {
+    class MunicipaliteContextSQLServer {
         + MUNICIPALITES : DbSet<Municipalite>? <<get>> <<set>>
-        + ctor(options : DbContextOptions<MunicipaliteContextMySQL>)
-        # <<override>> OnConfiguring(p_optionBuilder : DbContextOptionsBuilder) : void
+        + ctor(options : DbContextOptions<MunicipaliteContextSQLServer>)
+        # <<override>> OnConfiguring(p_optionBuilder : DbContextOptionsBuilder) : void <<si pas appsettings.json>>
     }
 
-    'MunicipaliteContextMySQL -[hidden]-> Municipalite
-    Municipalite -[hidden]-> MunicipaliteContextMySQL
-    'Municipalite -[hidden]-> DepotMunicipalitesMySQL
-    MunicipaliteContextMySQL -[hidden]-> DepotMunicipalitesMySQL
+    'MunicipaliteContextSQLServer -[hidden]-> Municipalite
+    Municipalite -[hidden]-> MunicipaliteContextSQLServer
+    'Municipalite -[hidden]-> DepotMunicipalitesSQLServer
+    MunicipaliteContextSQLServer -[hidden]-> DepotMunicipalitesSQLServer
 }
 
 namespace M01_DAL_Import_Munic_CSV {
@@ -93,7 +95,7 @@ namespace M01_DAL_Import_Munic_CSV {
         + LireMunicipalites() : IEnumerable<Municipalite>
     }
 
-    DepotImportationMunicipaliteCSV ..|> M01_Srv_Municipalite::IDepotImportationMunicipalites
+    DepotImportationMunicipaliteCSV ..|> M01_Entite::IDepotImportationMunicipalites
 }
 
 namespace M01_DAL_Import_Munic_JSON {
@@ -102,19 +104,20 @@ namespace M01_DAL_Import_Munic_JSON {
         + LireMunicipalites() : IEnumerable<Municipalite>
     }
     
-    DepotImportationMunicipaliteJSON ..|> M01_Srv_Municipalite::IDepotImportationMunicipalites
+    DepotImportationMunicipaliteJSON ..|> M01_Entite::IDepotImportationMunicipalites
 }
 
 DSED_M01_Fichiers_Texte .> M01_DAL_Import_Munic_JSON
 DSED_M01_Fichiers_Texte ..> M01_DAL_Import_Munic_CSV
-DSED_M01_Fichiers_Texte ..> M01_DAL_Municipalite_MySQL
+DSED_M01_Fichiers_Texte ..> M01_DAL_Municipalite_SQLServer
 DSED_M01_Fichiers_Texte ..> M01_Srv_Municipalite
 
-M01_DAL_Import_Munic_CSV ..> M01_Srv_Municipalite
-M01_DAL_Import_Munic_JSON ..> M01_Srv_Municipalite
-M01_DAL_Municipalite_MySQL ..> M01_Srv_Municipalite
+M01_DAL_Import_Munic_CSV ..> M01_Entite
+M01_DAL_Import_Munic_JSON ..> M01_Entite
+M01_DAL_Municipalite_SQLServer ..> M01_Entite
+M01_Srv_Municipalite ..> M01_Entite
 
-System.Data.Entity::DbContext -[hidden]-> M01_DAL_Municipalite_MySQL::Municipalite
-M01_DAL_Municipalite_MySQL::MunicipaliteContextMySQL -u-|> System.Data.Entity::DbContext
+System.Data.Entity::DbContext -[hidden]-> M01_DAL_Municipalite_SQLServer::Municipalite
+M01_DAL_Municipalite_SQLServer::MunicipaliteContextSQLServer -u-|> System.Data.Entity::DbContext
 
 @enduml
