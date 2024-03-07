@@ -106,8 +106,8 @@ dotnet tool install --global dotnet-ef
   - NombreEnregistrementsModifies : int
   - NombreEnregistrementsDesactives : int
 - Implantez la méthode "ToString" de cette dernière.
-- Ajoutez la classe "TraitementImporterDonneesMunicipalite"
 - À partir du projet "M01_Srv_Municipalite" :
+  - Ajoutez la classe "TraitementImporterDonneesMunicipalite"
   - Créez un constructeur d'initialisation qui reçoit deux objets, un objet de type "IDepotImportationMunicipalite" et l'autre de type "IDepotMunicipalites".
   - Ajoutez la méthode "Executer" qui va réaliser la fusion des données ([Revoir exercice 2 du module 02 de POO](https://github.com/PiFou86/420-W30-SF/blob/master/Module02_TestsUnitaires/Module02_TestsUnitaires_Exercices.md)) : () -> StatistiquesImportationDonnees
     - Si la municipalité est manquante, l'ajouter
