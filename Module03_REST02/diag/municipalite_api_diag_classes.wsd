@@ -17,12 +17,11 @@ namespace M03_API_Municipalite << apim >> {
     }
 
     class MunicipaliteModel {
-        + MunicipaliteId : int <<get>> <<set>>
+        + CodeGeographique : int <<get>> <<set>>
         + NomMunicipalite : string <<get>> <<set>>
         + AdresseCourriel : string <<get>> <<set>>
         + AdresseWeb : string <<get>> <<set>>
         + DateProchaineElection : datetime? <<get>> <<set>>
-        + Actif : bool <<get>> <<set>>
         + ctor()
         + ctor(p_municipalite:srvm.Municipalite)
         + VersEntite() : srvm.Municipalite
@@ -51,7 +50,7 @@ namespace M03_Srv_Municipalite << srvm >> {
     }
 
     class Municipalite {
-        + MunicipaliteId : int <<get>> <<private set>>
+        + CodeGeographique : int <<get>> <<private set>>
         + NomMunicipalite : string <<get>> <<private set>>
         + AdresseCourriel : string <<get>> <<private set>>
         + AdresseWeb : string <<get>> <<private set>>
