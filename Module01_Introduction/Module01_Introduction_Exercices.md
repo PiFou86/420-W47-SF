@@ -1,5 +1,7 @@
 # Module 01 - Introduction
 
+Dans cet exercice pratique, nous explorerons la manipulation de données provenant de fichiers plats à travers une application console .NET. Nous mettrons l'accent sur les opérations CRUD (Créer, Lire, Mettre à jour, Supprimer) sur une base de données SQL Server, en nous appuyant sur Entity Framework Core pour un accès et une gestion des données efficaces et abstraits. L'exercice couvrira la lecture de données depuis des fichiers CSV et JSON, illustrant la flexibilité dans le traitement de différentes sources de données. À travers ces tâches, nous appliquerons des concepts avancés de programmation et des bonnes pratiques de développement, notamment l'utilisation de modèles de conception tels que le Repository Pattern. Cet exercice est conçu pour renforcer vos compétences en intégration de données, développement .NET, gestion de bases de données, et programmation orientée objet.
+
 ## Préalable - Installation pour la base de données
 
 Si SQL Server (Pas MySQL ni même Oracle SQL) n'est pas installé sur votre poste de travail, je vous conseille de l'installer à partir d'un conteneur docker.
@@ -24,7 +26,7 @@ Testez votre installation avec SSMS en vous connectant sur le serveur `.` avec l
 - L'adresse du site web
 - La date des prochaines élections
 
-Une fois ces données extraites, vous devez les insérer ou les mettre à jour dans une base de données MySQL ou Microsoft SQL Server ou Oracle.
+Une fois ces données extraites, vous devez les insérer ou les mettre à jour dans une base de données Microsoft SQL Server.
 
 <details>
     <summary>Diagramme de classe global</summary>
@@ -34,37 +36,39 @@ Une fois ces données extraites, vous devez les insérer ou les mettre à jour d
 
 ### Étape 1 - Visualisation du fichier
 
-- Téléchargez les données des municipalités à partir de [la page du MAMH du site des données libres du québec](https://www.donneesquebec.ca/recherche/fr/dataset/repertoire-des-municipalites-du-quebec/resource/19385b4e-5503-4330-9e59-f998f5918363).
-- Ouvrez le document avec Visual Studio Code ou NotePad++ et essayez de comprendre comment est fait le fichier.
-- Ouvrez ce même fichier dans Excel et choisissez "Données" puis "Convertir". Débrouillez vous pour que le fichier s'affiche correctement
+- Téléchargez les données des municipalités à partir de [la page du MAMH du site des données libres du québec](https://www.donneesquebec.ca/recherche/fr/dataset/repertoire-des-municipalites-du-quebec/resource/19385b4e-5503-4330-9e59-f998f5918363)
+- Ouvrez le document avec Visual Studio Code ou NotePad++ et essayez de comprendre la structure du fichier
+- Ouvrez ce même fichier dans Excel, choisissez "Données" puis "Convertir". Arrangez-vous pour que le fichier s'affiche correctement
 
-### Étape 2 - Dépôt de type EF
+**N'enregistrez pas cette version du fichier, nous allons travailler sur la version originale**
+
+### Étape 2 - Création d'un dépôt de type Entity Framework
 
 ---
 
-Pour accéder à la base de données, vous devez utiliser Entity Framework core. **Si la librairie vous est inconnue, basez-vous sur l'article https://docs.microsoft.com/en-us/ef/core/ et sur l'approche DB first**
+Pour accéder à la base de données, utilisez Entity Framework Core. **Si vous ne connaissez pas cette bibliothèque, consultez l'article https://docs.microsoft.com/en-us/ef/core/ et familiarisez-vous avec l'approche Database-First.**
 
-De manière grossière :
+De manière simplifiée :
 
-- Une propriété de type DbSet correspond à une table. Par convention, la table doit avoir le même nom que la classe et inversement.
+- Une propriété de type DbSet correspond à une table. Par convention, la table doit porter le même nom que la classe, et vice versa
 - Le type paramétré du DbSet correspond à la structure de la table
-- Par convention, la clef primaire est nommée par le nom de la classe suivi de "Id". Exemple pour la table "Client", on doit avoir une classe appelée "Client" et la clef primaire doit être stockée dans la propriété "ClientId".
-- Chaque propriété correspond à un champ dans la table. Le type du champ détermine le type dans la base de données.
-- Le comportement par convention peut être modifié en utilisant des attributs, mais je vous conseille de suivre la méthode par convention
+- Par convention, la clé primaire est nommée d'après le nom de la classe suivi de `Id`. Par exemple, pour la table `Client`, on doit avoir une classe appelée `Client` et la clé primaire doit être stockée dans la propriété `ClientId`
+- Chaque propriété de la classe correspond à un champ dans la table. Le type du champ détermine le type dans la base de données
+- Il est possible de modifier le comportement par défaut en utilisant des attributs, mais il est conseillé de suivre la convention
 
-Afin de respecter les bonnes pratiques vous devez implanter le patron "depot" que vous avez vu dans le [module 06 en POOII](https://github.com/PiFou86/420-W30-SF/blob/master/Module06_Formats_Echanges/Module06_Formats_Echanges_Exercices.md) dans le module sur les formats d'échanges de données.
+Afin de respecter les bonnes pratiques vous devez implanter le patron `repository` que vous avez vu dans le [module 06 en POOII](https://github.com/PiFou86/420-W30-SF/blob/master/Module06_Formats_Echanges/Module06_Formats_Echanges_Exercices.md) dans le module sur les formats d'échanges de données.
 
-<!-- Si c'est votre première utilisation d'entityFramework, il faut installer les outils. Pour cela, ouvrez une ligne de commande et tapez :
+Si c'est votre première utilisation d'entityFramework, il faut installer les outils. Pour cela, ouvrez une ligne de commande et tapez :
 
 ```powershell
 dotnet tool install --global dotnet-ef
-``` -->
+```
 
 ---
 
-- Créez une solution Visual Studio du type "console" avec le cadriciel .Net core. Le projet doit être nommé "DSED_M01_Fichiers_Texte"
+- Créez une solution Visual Studio du type "console" avec le cadriciel .Net 6.0. Le projet doit être nommé "DSED_M01_Fichiers_Texte"
 - Ajoutez le projet "M01_Srv_Municipalite" de type "bibliothèque de classes". Ce projet va contenir le traitement de l'importation des données
-- Ajoutez le projet "M01_Entite" de type "bibliothèque de classes". Ce projet va contenir la classe "Municipalite" qui contient les informations pertinentes sur les municipalitées plus une propriété nommée "Actif" de type booléen. Le booléen "Actif" permet simuler la suppression d'un enregistrement (suppression logique à la place de physique)
+- Ajoutez le projet "M01_Entite" de type "bibliothèque de classes". Ce projet va contenir la classe "Municipalite" qui contient les informations pertinentes sur les municipalitées. Le booléen "Actif" permet simuler la suppression d'un enregistrement (suppression logique à la place de physique)
 - Ajoutez les interfaces "IDepotMunicipalites" et "IDepotImportationMunicipalites" :
   - IDepotMunicipalites :
     - ChercherMunicipaliteParCodeGeographique : int -> Municipalite (Renvoie la municipalité active ou non par son code géographique)
@@ -74,28 +78,11 @@ dotnet tool install --global dotnet-ef
     - MAJMunicipalite : Municipalite -> ()
   - IDepotImportationMunicipalite:
     - LireMunicipalite : () ->  IEnumerable\<Municipalite>
-- Ajoutez le projet "M01_DAL_Municipalite_SQLServer" de type "bibliothèque de classes". Ce projet va implanter l'interface "IDepotMunicipalites"
+- Ajoutez le projet "M01_DAL_Municipalite_SQLServer" de type "bibliothèque de classes". Ce projet va implanter l'interface "IDepotMunicipalites" et avoir la classe "Municipalite" avec une propriété en plus nommée "Actif" de type booléen.
 - Dans le projet "M01_DAL_Municipalite_SQLServer", installez les packages NuGet :
   - "Microsoft.EntityFrameworkCore.SqlServer" si vous décidez d'utiliser SqlServer
 - Créez une classe de contexte qui peut se connecter à votre base de données (SQLServer)
-  - Pour la surcharge de la méthode "OnConfiguring", inspirez vous des liens suivants : (Solution rapide mais non configurable. Voir l'utilisation du fichier `appsettings.json` pour plus d'informations)
-    - [SQL Server](https://docs.microsoft.com/en-us/ef/core)
-  - À la suite de l'appel à "UseMySQL / UseSQLServer / UseOracle", ajoutez l'appel à la méthode U le tout devrait ressembler à cela :
-
-```csharp
-// Seulement si vous n'utilisez pas le fichier appsettings.json sinon ne pas mettre ces lignes
-protected override void OnConfiguring(DbContextOptionsBuilder options) {
-  // Chaine de connexion à la base de données avec un utilisateur SQL Server. À adapter selon votre configuration et peut être remplacé par un fichier de configuration et une authentification Windows : https://docs.microsoft.com/en-us/ef/core/miscellaneous/connection-strings
-  options.UseSqlServer("server=.;database=municipalites;user id=sa;password=Bonjour01.+")
-         .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
-}
-```
-
-  - Pour l'exercice, la chaine de connexion peut être codée. Dans un contexte réel, elle serait renseignée dans un fichier de configuration (Ex. appsettings.json : [voir module 08 - Architecture des applications du cours de POOII](https://github.com/PiFou86/420-W30-SF/blob/master/Module08_ArchitectureDesApplications/Module08_ArchitectureDesApplications_Exercices.md)
-<!-- - Créez la base de données avec les commandes suivantes :
-  - ```dotnet ef migrations add "initial"``` : la commande va parcourir votre code à la recherche de modification de structure de base de données afin de créer une méthode de migration nommée ici "initial". Le nom de chaque migration doit être différent d'une migration à l'autre
-  - ```dotnet ef database update``` : applique la/les migrations
-  - ***Les commandes doivent être tapées à partir de la racine du projet "M01_DAL_Municipalite_XYZ". L'utilitaire dotnet-ef doit être installé*** -->
+  - Inspirez-vous de ce que vous avez fait en POO et en BD pour utiliser un fichier `appsettings.json`
 - En utilisant SSMS, allez créer la base de données `municipalites`, créez la table `municipalites`ainsi que les colonnes correspontes à vos propriétés de votre DTO
 - Validez que votre base de données à la bonne structure.
 
@@ -103,11 +90,11 @@ protected override void OnConfiguring(DbContextOptionsBuilder options) {
 
 - Ajoutez le projet "M01_DAL_Import_Munic_CSV" de type "bibliothèque de classes"
 - Ajoutez-y une classe qui implante l'interface "IDepotImportationMunicipalite"
-- Codez la méthode "LireMunicipalite" - Solution 1 :
+- Codez la méthode "LireMunicipalite" - **Solution 1** :
   - Ouvrez le fichier en mode lecture
   - Lisez le fichier ligne par ligne (ReadLine)
   - Pour chacune des lignes, créez un objet de type "Municipalite" avec les bonnes valeurs. (Vous pouvez utiliser la méthode ["Split" de la classe "String"](https://docs.microsoft.com/en-us/dotnet/api/system.string.split?view=netcore-3.1))
-- Codez la méthode "LireMunicipalite" - Solution 2 :
+- Codez la méthode "LireMunicipalite" - **Solution 2** :
   - Ouvrez le fichier en mode lecture
   - Utilisez la [bibliothèque CSV Helper](https://joshclose.github.io/CsvHelper/) (lire la documentation sur le site officiel)
   - Pour chacune des lignes, créez un objet de type "Municipalite" avec les bonnes valeurs. (Vous pouvez utiliser la méthode ["Split" de la classe "String"](https://docs.microsoft.com/en-us/dotnet/api/system.string.split?view=netcore-3.1))
@@ -119,8 +106,8 @@ protected override void OnConfiguring(DbContextOptionsBuilder options) {
   - NombreEnregistrementsModifies : int
   - NombreEnregistrementsDesactives : int
 - Implantez la méthode "ToString" de cette dernière.
-- Ajoutez la classe "TraitementImporterDonneesMunicipalite"
 - À partir du projet "M01_Srv_Municipalite" :
+  - Ajoutez la classe "TraitementImporterDonneesMunicipalite"
   - Créez un constructeur d'initialisation qui reçoit deux objets, un objet de type "IDepotImportationMunicipalite" et l'autre de type "IDepotMunicipalites".
   - Ajoutez la méthode "Executer" qui va réaliser la fusion des données ([Revoir exercice 2 du module 02 de POO](https://github.com/PiFou86/420-W30-SF/blob/master/Module02_TestsUnitaires/Module02_TestsUnitaires_Exercices.md)) : () -> StatistiquesImportationDonnees
     - Si la municipalité est manquante, l'ajouter
