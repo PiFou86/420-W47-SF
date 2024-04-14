@@ -42,13 +42,15 @@
 
 ## Exercice 2 - Utilisation d'un projet open source de vision
 
+### Exercice 2.1 - Détection de visages
+
 Pré-requis :
 
 - Docker
 - Connexion réseau
 - Des images avec des visages
 
-Dans cet exercice, vous allez utiliser l'API de vision [deepstack](https://github.com/johnolafenwa/DeepStack) afin détecter les visages (Face detection) dans une image. [Le code du projet se trouve sur un dépôt GitHub](https://github.com/johnolafenwa/DeepStack). Le dépôt contient un fichier README.md très riche.
+Dans cet exercice, vous allez utiliser l'API de vision [CodeProjet.AI](https://github.com/johnolafenwa/DeepStack) afin détecter les visages (Face detection) dans une image. [Le code du projet se trouve sur un dépôt GitHub](https://github.com/johnolafenwa/DeepStack). Le dépôt contient un fichier README.md très riche.
 
 Écrivez un programme qui va :
 
@@ -59,8 +61,8 @@ Dans cet exercice, vous allez utiliser l'API de vision [deepstack](https://githu
 
 Pour cela, vous allez utiliser les documentations suivantes :
 
-- Lancer le conteneur contenant l'image docker de DeepStack en suivant [la documentation](https://deepstack.readthedocs.io/en/latest/)
-- Regarder l'exemple de la documentation de l'[API de détection de visages](https://deepstack.readthedocs.io/en/latest/face-detection/index.html) afin de voir comment l'exploiter. Vous avez des exemples en C#, il suffit de cliquer sur l'onglet "C#" de chaque exemple pour voir le code
+- Lancer le conteneur contenant l'image docker en suivant [Installation par docker](https://www.codeproject.com/ai/docs/install/running_in_docker.html)
+- Regarder l'exemple de la documentation de l'[API de détection de visages](https://www.codeproject.com/ai/docs/api/api_reference.html#face-detection) afin de voir comment l'exploiter. Pour désérialiser l'objet JSON, débutez par afficher le document JSON sur la console ou utilisez POSTMAN. Faites un collage spécial dans Visual Studio (Coller JSON comme classes)
 - Pour récupérer le nom de l'image, vous devez utiliser le paramètres "args" de la classe "Program". Vous pouvez utiliser [cette page pour vous aider](https://dailydotnettips.com/how-to-pass-command-line-arguments-using-visual-studio/)
 - Pour modifier l'image, vous devez utiliser le package nuget "SixLabors.ImageSharp.Drawing" (Si le package ne s'affiche pas cochez la case "include prerelease"). Exemple de code :
 
@@ -79,9 +81,16 @@ using (var img = Image.Load(image_path))
 
 Pour tester l'exercice, ma fille s'est donnée à fond : les visages sont penchés, il y a présence de grimages, etc. mais malgré cela, le système fonctionne.
 
-![DeepStack, détection de visages malgré les grimages](img/deepstack01.png)
+![CodeProject.AI, détection de visages malgré les grimages](img/deepstack01.png)
 
-## Exercice 3 - Météo
+### Exercice 2.2 - Détection d'objets
+
+- Cherchez une image qui contient des voitures, des personnes et des vélos
+- Naviguez le site de l'API et installez le module "Object Detection (YOLOv8)" à partir de l'onglet "Install modules"
+- Utilisez la documentation de l'API pour trouver comment détecter les objets de l'image et affichez l'information sur la console
+- Modifiez votre programme pour encadrer les objets détectés et mettez aussi un texte contenant le label de l'image
+
+## Exercice 3 - Météo - Optionnel
 
 - Créez une nouvelle solution avec un projet de type console
 - Le projet console (interface utilisateur) doit proposer un menu qui permet :
