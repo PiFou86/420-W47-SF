@@ -105,6 +105,12 @@ img.Mutate(ctx =>
 );
 ```
 
+Vous pouvez prendre l'image suivante pour avoir un résultat similaire au suivant :
+
+![](img/jack-finnigan-aEkk0KxvPpg-unsplash.jpg)
+
+![](img/jack-finnigan-aEkk0KxvPpg-unsplash-avec-labels.jpg)
+
 ## Exercice 3 - Météo - Optionnel
 
 - Créez une nouvelle solution avec un projet de type console
