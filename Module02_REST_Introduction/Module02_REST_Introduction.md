@@ -79,6 +79,8 @@ using (var img = Image.Load(image_path))
 }
 ```
 
+Si vous avez plusieurs rectangles à tracer, faites plusieurs appels à la méthode ```Mutate``` et faites un seul ```Save```. N'oubliez pas de remplacer ```rectangle``` par une variable qui a du sens dans votre code !
+
 Pour tester l'exercice, ma fille s'est donnée à fond : les visages sont penchés, il y a présence de grimages, etc. mais malgré cela, le système fonctionne.
 
 ![CodeProject.AI, détection de visages malgré les grimages](img/deepstack01.png)
@@ -89,6 +91,19 @@ Pour tester l'exercice, ma fille s'est donnée à fond : les visages sont pench�
 - Naviguez le site de l'API et installez le module "Object Detection (YOLOv8)" à partir de l'onglet "Install modules"
 - Utilisez la documentation de l'API pour trouver comment détecter les objets de l'image et affichez l'information sur la console
 - Modifiez votre programme pour encadrer les objets détectés et mettez aussi un texte contenant le label de l'image
+
+Pour vous aider, voici un bout de code qui permet d'écrire un texte :
+
+```csharp
+img.Mutate(ctx =>
+         {
+             ctx.Draw(Color.Red, 2.0f, new RectangleF(obj.x_min, obj.y_min, obj.x_max - obj.x_min, obj.y_max - obj.y_min));
+             ctx.Fill(Color.Red, new RectangleF(obj.x_min, obj.y_min - 20, obj.x_max - obj.x_min, 20));
+             ctx.DrawText(obj.label, SystemFonts.CreateFont("Arial", 15), Color.White, new PointF(obj.x_min, obj.y_min - 20));
+         }
+
+);
+```
 
 ## Exercice 3 - Météo - Optionnel
 
