@@ -233,13 +233,13 @@ public class ClesRSAPersonnelles
         return retour;
     }
 
-    // Déchiffre le message avec la clé publique du destinataire
+    // Déchiffre le message avec la clé publique de l'expéditeur
     // Le message est en base64
-    public string DechiffrerMessage(string p_message, string p_clePubliqueDestinataireXml)
+    public string DechiffrerMessage(string p_message, string p_clePubliqueExpediteurXml)
     {
-        if (String.IsNullOrWhiteSpace(p_clePubliqueDestinataireXml))
+        if (String.IsNullOrWhiteSpace(p_clePubliqueExpediteurXml))
         {
-            throw new ArgumentNullException(nameof(p_clePubliqueDestinataireXml));
+            throw new ArgumentNullException(nameof(p_clePubliqueExpediteurXml));
         }
 
         if (String.IsNullOrWhiteSpace(p_message))
@@ -251,7 +251,7 @@ public class ClesRSAPersonnelles
 
         using (RSACryptoServiceProvider rsa = new RSACryptoServiceProvider())
         {
-            rsa.FromXmlString(p_clePubliqueDestinataireXml);
+            rsa.FromXmlString(p_clePubliqueExpediteurXml);
             byte[] message = Convert.FromBase64String(p_message);
             byte[] messageDecrypte = rsa.Decrypt(message, true);
             retour = Encoding.UTF8.GetString(messageDecrypte);
