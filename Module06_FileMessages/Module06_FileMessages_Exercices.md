@@ -211,8 +211,31 @@ public class ClesRSAPersonnelles
         this._clePublique = p_clePubliqueXml;
     }
 
-    // Crypte le message avec la clé publique du destinataire
-    public string CrypterMessage(string p_message, string p_clePubliqueDestinataireXml)
+    // Chiffre le message avec la clé privée
+    public string ChiffrerMessage(string p_message)
+    {
+        if (String.IsNullOrWhiteSpace(p_message))
+        {
+            throw new ArgumentNullException(nameof(p_message));
+        }
+
+        string retour;
+
+        using (RSACryptoServiceProvider rsa = new RSACryptoServiceProvider())
+        {
+            rsa.FromXmlString(this._clePrivee);
+
+            byte[] message = Encoding.UTF8.GetBytes(p_message);
+            byte[] messageCrypte = rsa.Encrypt(message, true);
+            retour = Convert.ToBase64String(messageCrypte);
+        }
+
+        return retour;
+    }
+
+    // Déchiffre le message avec la clé publique du destinataire
+    // Le message est en base64
+    public string DechiffrerMessage(string p_message, string p_clePubliqueDestinataireXml)
     {
         if (String.IsNullOrWhiteSpace(p_clePubliqueDestinataireXml))
         {
@@ -228,25 +251,7 @@ public class ClesRSAPersonnelles
 
         using (RSACryptoServiceProvider rsa = new RSACryptoServiceProvider())
         {
-            rsa.FromXmlString(this.p_clePubliqueDestinataireXml);
-
-            byte[] message = Encoding.UTF8.GetBytes(p_message);
-            byte[] messageCrypte = rsa.Encrypt(message, true);
-            retour = Convert.ToBase64String(messageCrypte);
-        }
-
-        return retour;
-    }
-
-    // Décrypte le message avec la clé privée (donc du destinataire qui est l'objet courant)
-    // Le message est en base64
-    public string DecrypterMessage(string p_message)
-    {
-        string retour;
-
-        using (RSACryptoServiceProvider rsa = new RSACryptoServiceProvider())
-        {
-            rsa.FromXmlString(_clePrivee);
+            rsa.FromXmlString(p_clePubliqueDestinataireXml);
             byte[] message = Convert.FromBase64String(p_message);
             byte[] messageDecrypte = rsa.Decrypt(message, true);
             retour = Encoding.UTF8.GetString(messageDecrypte);
@@ -264,7 +269,7 @@ public class ClesRSAPersonnelles
 
         using (RSACryptoServiceProvider rsa = new RSACryptoServiceProvider())
         {
-            rsa.FromXmlString(_clePrivee);
+            rsa.FromXmlString(this._clePrivee);
             byte[] message = Convert.FromBase64String(p_message);
             byte[] messageSigne = rsa.SignData(message, new SHA256CryptoServiceProvider());
             retour = Convert.ToBase64String(messageSigne);
