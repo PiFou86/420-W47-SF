@@ -198,10 +198,16 @@ Merci à Simon Quillaud de la cohorte H23 pour sa proposition de correction du t
 
 ## Exercice 3 - Statistiques du service à la clientèle
 
+Dans cet exercice, vous allez créer une solution complète en utilisant ASP.Net Core MVC et SignalR pour suivre et afficher en temps réel les statistiques de service à la clientèle d'une entreprise. L'objectif est de développer une API REST permettant de gérer les appels des agents et de créer un hub de communication en temps réel pour suivre les métriques de performance des appels sur un tableau de bord (i.e. la page web).
+
+***Pour gagner du temps, vous pouvez implanter votre dépot de données à partir de structures de données classiques (listes, dictionnaires, etc.) sans passer par une vraie base de données, allez au plus simple et au plus rapide, ce que vous devez tester est la communication, pas faire la démonstration de votre connaissance de POO.***
+
+Étapes :
+
 - Créez une solution ASP.Net core MVC
-- Créez une API REST qui permet de garder la trace des dates de début et de fin d'un appel pour un agent identifié par un entier
-- Créez un hub qui envoie en temps réel le nombre d'appels de la journée courante, le temps moyen passé par appel, ainsi que le nombre d'agents présents
-- Ajoutez l'appel au hub qui va forcer la mise à jour des données. Pour cela, à partir du contrôleur de l'API, [appelez les clients à l'aide de ce lien](https://docs.microsoft.com/en-us/aspnet/core/signalr/hubcontext?view=aspnetcore-5.0)
+- Créez une API REST qui permet de garder la trace des dates de début et de fin d'un appel pour un agent identifié par un entier. Un appel à l'API est effectué au moment de la prise en charge de l'appel, un autre appel est effectué au moment de la fin de la communication
+- Créez un hub qui envoie en temps réel le nombre d'appels de la journée courante, le temps moyen passé par appel, ainsi que le nombre d'agents présents aux clients connectés
+- Ajoutez l'appel au hub qui va forcer la mise à jour des données. Pour cela, à partir du contrôleur de l'API (i.e. à la fin de chaque appel), [appelez les clients à l'aide de ce lien](https://docs.microsoft.com/en-us/aspnet/core/signalr/hubcontext?view=aspnetcore-5.0)
 - Créez une page web qui affiche ces informations en utilisant le hub précédent
 
 Schéma résumant le fonctionnement (Crédit Mélissa Lachapelle promotion Automne 2021) :
