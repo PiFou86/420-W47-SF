@@ -66,7 +66,7 @@ dotnet tool install --global dotnet-ef
 
 ---
 
-- Créez une solution Visual Studio du type "console" avec le cadriciel .Net 6.0. Le projet doit être nommé "DSED_M01_Fichiers_Texte"
+- Créez une solution Visual Studio du type "console" avec le cadriciel .Net 8.0. Le projet doit être nommé "DSED_M01_Fichiers_Texte"
 - Ajoutez le projet "M01_Srv_Municipalite" de type "bibliothèque de classes". Ce projet va contenir le traitement de l'importation des données
 - Ajoutez le projet "M01_Entite" de type "bibliothèque de classes". Ce projet va contenir la classe "Municipalite" qui contient les informations pertinentes sur les municipalitées. Le booléen "Actif" permet simuler la suppression d'un enregistrement (suppression logique à la place de physique)
 - Ajoutez les interfaces "IDepotMunicipalites" et "IDepotImportationMunicipalites" :
