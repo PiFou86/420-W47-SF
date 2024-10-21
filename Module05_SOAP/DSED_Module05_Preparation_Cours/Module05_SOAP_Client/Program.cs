@@ -15,13 +15,15 @@ namespace Module05_SOAP_Client
             IEchoService echoService = channelFactory.CreateChannel();
 
             string echo = echoService.Echo("Bonjour DSED !");
-            try
+            Console.Out.WriteLine($"Echo : {echo}");
+            try
             {
-                echoService.CalculInteretAnnuel(-1, 0);
-            }
+                decimal interetCalcule = echoService.CalculInteretAnnuel(-1, 0);
+                Console.Out.WriteLine($"Interet1 : {interetCalcule}");
+            }
             catch (Exception ex)
             {
-                Console.Error.WriteLine(ex.Message);
+                Console.Error.WriteLine($"Interet1 : {ex.Message}");
             }
 
             int nombreEssais = 0;
@@ -35,15 +37,19 @@ namespace Module05_SOAP_Client
                 {
                     interet = echoService.CalculInteretAnnuel(100, .199m);
                     appelEffectue = true;
-                }
-                catch (Exception)
+                    Console.Out.WriteLine($"Interet2 : {interet}");
+                }
+                catch (Exception ex)
                 {
-                    if (nombreEssais >= nombreMaximumEssais)
+                    Console.Error.WriteLine($"Interet2 : {ex.Message} - nombreEssais : {nombreEssais}");
+                    if (nombreEssais >= nombreMaximumEssais)
                     {
                         throw;
                     }
                 }
             }
+
+            Console.In.ReadLine();
         }
     }
 }

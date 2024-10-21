@@ -1,13 +1,13 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
 		<OutputType>Exe</OutputType>
-		<TargetFramework>net6.0</TargetFramework>
+		<TargetFramework>net8.0</TargetFramework>
 	</PropertyGroup>
 	<ItemGroup>
-		<PackageReference Include="System.ServiceModel.Http" Version="4.9.0"/>
-		<PackageReference Include="System.ServiceModel.Primitives" Version="4.9.0"/>
+		<PackageReference Include="System.ServiceModel.Http" Version="8.0.0" />
+		<PackageReference Include="System.ServiceModel.Primitives" Version="8.0.0" />
 	</ItemGroup>
 	<ItemGroup>
-		<ProjectReference Include="..\Module05_Models\Module05_Models.csproj"/>
+		<ProjectReference Include="..\Module05_Models\Module05_Models.csproj" />
 	</ItemGroup>
 </Project>
