@@ -105,6 +105,8 @@ dotnet tool install --global dotnet-ef
   - NombreEnregistrementsAjoutes : int
   - NombreEnregistrementsModifies : int
   - NombreEnregistrementsDesactives : int
+  - NombreEnregistrementsNonModifies : int
+  - NombreMunicipalitesImportees : int
 - Implantez la méthode "ToString" de cette dernière.
 - À partir du projet "M01_Srv_Municipalite" :
   - Ajoutez la classe "TraitementImporterDonneesMunicipalite"
