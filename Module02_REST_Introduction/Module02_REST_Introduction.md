@@ -61,7 +61,7 @@ Dans cet exercice, vous allez utiliser l'API de vision [CodeProjet.AI](https://g
 
 Pour cela, vous allez utiliser les documentations suivantes :
 
-- Lancer le conteneur contenant l'image docker en suivant [Installation par docker](https://www.codeproject.com/ai/docs/install/running_in_docker.html). Raccourci : `docker run --name CodeProject.AI -d -p 32168:32168 codeproject/ai-server`
+- Lancer le conteneur contenant l'image docker en suivant [Installation par docker](https://www.codeproject.com/ai/docs/install/running_in_docker.html). Raccourci : `docker run --name CodeProject.AI -d -p 32168:32168 codeproject/ai-server` (Ensuite, vous pouvez naviguer l'adresse [http://localhost:32168](http://localhost:32168) pour voir et installer de nouveaux modules)
 - Regarder l'exemple de la documentation de l'[API de détection de visages](https://www.codeproject.com/ai/docs/api/api_reference.html#face-detection) afin de voir comment l'exploiter. Pour désérialiser l'objet JSON, débutez par afficher le document JSON sur la console ou utilisez POSTMAN. Faites un collage spécial dans Visual Studio (Coller JSON comme classes)
 - Pour récupérer le nom de l'image, vous devez utiliser le paramètres "args" de la classe "Program". Vous pouvez utiliser [cette page pour vous aider](https://dailydotnettips.com/how-to-pass-command-line-arguments-using-visual-studio/)
 - Pour modifier l'image, vous devez utiliser le package nuget "SixLabors.ImageSharp.Drawing" (Si le package ne s'affiche pas cochez la case "include prerelease"). Exemple de code :
