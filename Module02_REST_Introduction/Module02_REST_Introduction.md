@@ -63,6 +63,66 @@ Pour cela, vous allez utiliser les documentations suivantes :
 
 - Lancer le conteneur contenant l'image docker en suivant [Installation par docker](https://www.codeproject.com/ai/docs/install/running_in_docker.html). Raccourci : `docker run --name CodeProject.AI -d -p 32168:32168 codeproject/ai-server` (Ensuite, vous pouvez naviguer l'adresse [http://localhost:32168](http://localhost:32168) pour voir et installer de nouveaux modules)
 - Regarder l'exemple de la documentation de l'[API de détection de visages](https://www.codeproject.com/ai/docs/api/api_reference.html#face-detection) afin de voir comment l'exploiter. Pour désérialiser l'objet JSON, débutez par afficher le document JSON sur la console ou utilisez POSTMAN. Faites un collage spécial dans Visual Studio (Coller JSON comme classes)
+
+Version rapide : example pour ceux qui ne veulent pas lire la documentation :
+
+```csharp
+using System.Text.Json;
+using SixLabors.Fonts;
+using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.Drawing.Processing;
+using SixLabors.ImageSharp.Processing;
+
+
+namespace appone
+{
+    class Response
+    {
+        public bool success { get; set; }
+        public DectectedObject[] predictions { get; set; }
+
+    }
+
+    class DectectedObject
+    {
+        public string label { get; set; }
+        public float confidence { get; set; }
+        public int y_min { get; set; }
+        public int x_min { get; set; }
+        public int y_max { get; set; }
+        public int x_max { get; set; }
+
+    }
+
+    class App
+    {
+        static HttpClient client = new HttpClient();
+
+        public static string detectFaceJson(string image_path)
+        {
+            MultipartFormDataContent request = new MultipartFormDataContent();
+            FileStream image_data = File.OpenRead(image_path);
+            request.Add(new StreamContent(image_data), "image", Path.GetFileName(image_path));
+            request.Add(new StringContent("Mysecretkey"), "api_key");
+            Task<HttpResponseMessage> outputTask = client.PostAsync("http://localhost:32168/v1/vision/face", request);
+            outputTask.Wait();
+            HttpResponseMessage output = outputTask.Result;
+            Task<string> jsonStringTask = output.Content.ReadAsStringAsync();
+            jsonStringTask.Wait();
+            string jsonString = jsonStringTask.Result;
+
+            return jsonString;
+        }
+
+        static void Main(string[] args)
+        {
+            string jsonString = detectFaceJson("Photo le 2022-02-18 à 15.53.jpg");
+            Console.Out.WriteLine(jsonString);
+        }
+    }
+}
+```
+
 - Pour récupérer le nom de l'image, vous devez utiliser le paramètres "args" de la classe "Program". Vous pouvez utiliser [cette page pour vous aider](https://dailydotnettips.com/how-to-pass-command-line-arguments-using-visual-studio/)
 - Pour modifier l'image, vous devez utiliser le package nuget "SixLabors.ImageSharp.Drawing" (Si le package ne s'affiche pas cochez la case "include prerelease"). Exemple de code :
 
