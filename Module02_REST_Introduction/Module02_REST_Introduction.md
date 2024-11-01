@@ -6,7 +6,7 @@
 - Adaptez le code suivant dans votre projet et testez-le ligne par ligne
 - Que fait ce code ?
 
-![Première requête REST](https://github.com/user-attachments/assets/fbcb6dab-1021-4241-a951-90cc24560e5e)
+![Première requête REST](https://github.com/user-attachments/assets/6190b99d-c67a-4946-85c7-a46afaac07d4)
 
 ## Outils pour vos tests
 
