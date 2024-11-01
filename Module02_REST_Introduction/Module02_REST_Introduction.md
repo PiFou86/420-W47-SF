@@ -37,7 +37,7 @@
   - Ajoutez l'entête de fichiers acceptés "application/json"
   - Utilisez la méthode "GET" pour obtenir les données présentes à l'adresse :  https://www.donneesquebec.ca/recherche/api/action/datastore_search?resource_id=19385b4e-5503-4330-9e59-f998f5918363&limit=3000
   - Pour réaliser cette requête, inspirez-vous du code du préambule
-  - Utilisez la bibliothèque Newtonsoft.Json de Newtonsoft
+  - Utilisez les méthodes de la bibliothéque standard de .Net [Sytem.Text.Json.Deserialize](https://learn.microsoft.com/en-us/dotnet/api/system.text.json.jsonserializer.deserialize)
 - Modifiez votre programme principal afin qu'il utilise maintenant le dépôt de type JSON pour faire vos exécutions.
 
 ## Exercice 2 - Utilisation d'un projet open source de vision
