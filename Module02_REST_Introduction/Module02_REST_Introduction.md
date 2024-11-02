@@ -79,11 +79,11 @@ namespace appone
     class Response
     {
         public bool success { get; set; }
-        public DectectedObject[] predictions { get; set; }
+        public DetectedObject[] predictions { get; set; }
 
     }
 
-    class DectectedObject
+    class DetectedObject
     {
         public string label { get; set; }
         public float confidence { get; set; }
@@ -123,7 +123,7 @@ namespace appone
 }
 ```
 
-- Pour récupérer le nom de l'image, vous devez utiliser le paramètres "args" de la classe "Program". Vous pouvez utiliser [cette page pour vous aider](https://dailydotnettips.com/how-to-pass-command-line-arguments-using-visual-studio/)
+- Pour récupérer le nom de l'image, vous devez utiliser le paramètre "args" de la classe "Program". Vous pouvez utiliser [cette page pour vous aider](https://dailydotnettips.com/how-to-pass-command-line-arguments-using-visual-studio/)
 - Pour modifier l'image, vous devez utiliser le package nuget "SixLabors.ImageSharp.Drawing" (Si le package ne s'affiche pas cochez la case "include prerelease"). Exemple de code :
 
 ```csharp
