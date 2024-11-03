@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace M01_Srv_Municipalite
@@ -16,15 +17,21 @@ namespace M01_Srv_Municipalite
         public StatistiquesImportationDonnees Executer()
         {
             StatistiquesImportationDonnees stats = new StatistiquesImportationDonnees();
+            Dictionary<int, Municipalite > municipalitesImportees = 
+                this.m_depotImportationMunicipalites
+                    .LireMunicipalites()
+                    .ToDictionary(m => m.CodeGeographique);
+            Dictionary<int, Municipalite> municipalitesBD = 
+                this.m_depotMunicipalites
+                    .ListerMunicipalitesActives()
+                    .ToDictionary(m => m.CodeGeographique);
 
-            IEnumerable<Municipalite> municipalitesImportees = this.m_depotImportationMunicipalites.LireMunicipalites();
-            stats.NombreMunicipalitesImportees = municipalitesImportees.Count();
 
-            foreach (Municipalite municipaliteImportee in municipalitesImportees)
+            foreach (Municipalite municipaliteImportee in municipalitesImportees.Values)
             {
-                Municipalite municipaliteDuDepot = this.m_depotMunicipalites.ChercherMunicipaliteParCodeGeographique(municipaliteImportee.CodeGeographique);
+                Municipalite? municipaliteDuDepot = municipalitesBD.GetValueOrDefault(municipaliteImportee.CodeGeographique);
 
-                if (municipaliteDuDepot is null)
+                if (municipaliteDuDepot is null)
                 {
                     this.m_depotMunicipalites.AjouterMunicipalite(municipaliteImportee);
                     ++stats.NombreEnregistrementsAjoutes;
@@ -41,13 +48,14 @@ namespace M01_Srv_Municipalite
                         ++stats.NombreEnregistrementsNonModifies;
                     }
                 }
+                ++stats.NombreMunicipalitesImportees;
             }
 
-            Dictionary<int, Municipalite> municipalitesImporteesDic = municipalitesImportees.ToDictionary(m => m.CodeGeographique);
-            IEnumerable<Municipalite> municipalitesADesactiver =
-                this.m_depotMunicipalites
-                    .ListerMunicipalitesActives()
-                    .Where(m => !municipalitesImporteesDic.ContainsKey(m.CodeGeographique));
+            IEnumerable<Municipalite> municipalitesADesactiver = 
+                municipalitesBD.Values
+                               .Where(m => 
+                                      !municipalitesImportees.ContainsKey(m.CodeGeographique)
+                                     );
 
             foreach (Municipalite municipalite in municipalitesADesactiver)
             {
