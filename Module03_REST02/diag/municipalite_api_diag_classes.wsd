@@ -2,21 +2,21 @@
 skinparam linetype ortho
 
 namespace M03_API_Municipalite << apim >> {
-    class Startup {
+    class Program {
         ...
     }
 
     class MunicipalitesController {
         - m_manipulationMunicipalites : ManipulationMunicipalites
         + ctor(p_manipulationMunicipalites : ManipulationMunicipalites)
-        + Get() : ActionResult<IEnumerable<MunicipaliteModel>>
-        + Get(municipaliteId : int) : ActionResult<MunicipaliteModel>
-        + Post(p_municipalite : MunicipaliteModel) : ActionResult
-        + Put(municipaliteId : int, p_municipalite : MunicipaliteModel) : ActionResult
+        + Get() : ActionResult<IEnumerable<MunicipaliteViewModel>>
+        + Get(municipaliteId : int) : ActionResult<MunicipaliteViewModel>
+        + Post(p_municipalite : MunicipaliteViewModel) : ActionResult
+        + Put(municipaliteId : int, p_municipalite : MunicipaliteViewModel) : ActionResult
         + Delete(municipaliteId : int) : ActionResult
     }
 
-    class MunicipaliteModel {
+    class MunicipaliteViewModel {
         + CodeGeographique : int <<get>> <<set>>
         + NomMunicipalite : string <<get>> <<set>>
         + AdresseCourriel : string <<get>> <<set>>
@@ -27,7 +27,7 @@ namespace M03_API_Municipalite << apim >> {
         + VersEntite() : srvm.Municipalite
     }
 
-    MunicipalitesController .u.> MunicipaliteModel
+    MunicipalitesController .u.> MunicipaliteViewModel
 }
 
 namespace M03_Srv_Municipalite << srvm >> {
@@ -55,7 +55,6 @@ namespace M03_Srv_Municipalite << srvm >> {
         + AdresseCourriel : string <<get>> <<private set>>
         + AdresseWeb : string <<get>> <<private set>>
         + DateProchaineElection : datetime? <<get>> <<private set>>
-        + Actif : bool <<get>> <<private set>>
         + ctor(p_municipaliteId : int, p_nomMunicipalite : string, p_adresseCourriel : string, p_adresseWeb : string, p_dateProchaineElection : DateTime, p_actif : bool = true)
     }
 
