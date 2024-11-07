@@ -6,7 +6,7 @@ L'objectif de l'exercice est de créer une API REST permettant de fournir les op
 
 Voici un diagramme de classes qui peut vous inspirer :
 
-![Diagramme de classes](../images/Module03_REST02/diag/municipalite_api_diag_classes/diag_classes_municipalite_api.png)
+![Diagramme de classes](../images/Module03_REST02/diag/municipalite_api_diag_classes/municipalite_api_diag_classes.png)
 
 ### Exercice 1.1 - Création de l'API REST
 
