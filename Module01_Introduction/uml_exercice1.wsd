@@ -10,6 +10,7 @@ namespace DSED_M01_Fichiers_Texte {
 
 namespace M01_Entite {
     class Municipalite {
+        + ctor(p_municipaliteId : int, p_nomMunicipalite : string, p_adresseCourriel : string, p_adresseWeb : string, p_dateProchaineElection : DateTime, p_actif : bool = true)
         + CodeGeographique : int <<get>> <<set>>
         + NomMunicipalite : string <<get>> <<set>>
         + AdresseCourriel : string? <<get>> <<set>>
@@ -20,20 +21,11 @@ namespace M01_Entite {
     }
 
     interface IDepotMunicipalites {
-        + ChercherMunicipaliteParCodeGeographique(p_codeGeographique : int) : Municipalite
+        + ChercherMunicipaliteParCodeGeographique(p_codeGeographique : int) : Municipalite?
         + ListerMunicipalitesActives() : IEnumerable<Municipalite>
         + DesactiverMunicipalite(p_municipalite : Municipalite) : void
         + AjouterMunicipalite(p_municipalite : Municipalite) : void
         + MAJMunicipalite(p_municipalite : Municipalite) : void
-    }
-
-    class StatistiquesImportationDonnees {
-        + NombreEnregistrementsAjoutes : int <<get>> <<set>>
-        + NombreEnregistrementsModifies : int <<get>> <<set>>
-        + NombreEnregistrementsDesactives : int <<get>> <<set>>
-        + NombreEnregistrementsNonModifies : int <<get>> <<set>>
-        + NombreMunicipalitesImportees : int <<get>> <<set>>
-        + <<override>> ToString() : string
     }
 
     interface IDepotImportationMunicipalites {
@@ -47,46 +39,56 @@ namespace M01_Srv_Municipalite << srvm >> {
         + Executer() : StatistiquesImportationDonnees
     }
 
-    M01_Entite::IDepotImportationMunicipalites -[hidden]-> M01_Entite::IDepotMunicipalites
-    M01_Entite::IDepotImportationMunicipalites -[hidden]-> TraitementImporterDonneesMunicipalite
-    TraitementImporterDonneesMunicipalite -[hidden]-> M01_Entite::StatistiquesImportationDonnees
-    M01_Entite::StatistiquesImportationDonnees -[hidden]> M01_Entite::Municipalite
+    class StatistiquesImportationDonnees {
+        + NombreEnregistrementsAjoutes : int <<get>> <<set>>
+        + NombreEnregistrementsModifies : int <<get>> <<set>>
+        + NombreEnregistrementsDesactives : int <<get>> <<set>>
+        + NombreEnregistrementsNonModifies : int <<get>> <<set>>
+        + NombreMunicipalitesImportees : int <<get>> <<set>>
+        + <<override>> ToString() : string
+    }
+
+    TraitementImporterDonneesMunicipalite --> M01_Entite::IDepotImportationMunicipalites
+    TraitementImporterDonneesMunicipalite --> M01_Entite::IDepotMunicipalites
+    ' M01_Entite::IDepotImportationMunicipalites -[hidden]-> M01_Entite::IDepotMunicipalites
+    ' M01_Entite::IDepotImportationMunicipalites -[hidden]-> TraitementImporterDonneesMunicipalite
+    ' TraitementImporterDonneesMunicipalite -[hidden]-> StatistiquesImportationDonnees
+    ' StatistiquesImportationDonnees -[hidden]> M01_Entite::Municipalite
 }
 
 namespace M01_DAL_Municipalite_SQLServer {
     class DepotMunicipalitesSQLServer {
         + ctor(p_contexte : MunicipaliteContextSQLServer)
         + AjouterMunicipalite(p_municipalite : srvm.Municipalite) : void
-        + ChercherMunicipaliteParCodeGeographique(p_codeGeographique : int) : srvm.Municipalite
+        + ChercherMunicipaliteParCodeGeographique(p_codeGeographique : int) : srvm.Municipalite?
         + DesactiverMunicipalite(p_municipalite : srvm.Municipalite) : void
         + ListerMunicipalitesActives() : IEnumerable<srvm.Municipalite>
         + MAJMunicipalite(p_municipalite : srvm.Municipalite) : void
     }
 
-    DepotMunicipalitesSQLServer -|> M01_Entite::IDepotMunicipalites
+    DepotMunicipalitesSQLServer ..|> M01_Entite::IDepotMunicipalites
+    DepotMunicipalitesSQLServer --> MunicipaliteContextSQLServer
 
     class Municipalite {
+        + ctor()
+        + ctor(p_municipalite : srvm.Municipalite)
         + MunicipaliteId : int <<get>> <<set>>
         + NomMunicipalite : string <<get>> <<set>>
         + AdresseCourriel : string? <<get>> <<set>>
         + AdresseWeb : string? <<get>> <<set>>
         + DateProchaineElection : datetime? <<get>> <<set>>
         + Actif : bool <<get>> <<set>>
-        + ctor()
-        + ctor(p_municipalite : srvm.Municipalite)
         + VersEntite() : srvm.Municipalite
     }
 
     class MunicipaliteContextSQLServer {
-        + MUNICIPALITES : DbSet<Municipalite>? <<get>> <<set>>
         + ctor(options : DbContextOptions<MunicipaliteContextSQLServer>)
+        + Municipalite : DbSet<Municipalite> <<get>> <<set>>
         # <<override>> OnConfiguring(p_optionBuilder : DbContextOptionsBuilder) : void <<si pas appsettings.json>>
     }
 
-    'MunicipaliteContextSQLServer -[hidden]-> Municipalite
-    Municipalite -[hidden]-> MunicipaliteContextSQLServer
-    'Municipalite -[hidden]-> DepotMunicipalitesSQLServer
-    MunicipaliteContextSQLServer -[hidden]-> DepotMunicipalitesSQLServer
+    ' Municipalite -[hidden]-> MunicipaliteContextSQLServer
+    ' MunicipaliteContextSQLServer -[hidden]-> DepotMunicipalitesSQLServer
 }
 
 namespace M01_DAL_Import_Munic_CSV {
@@ -107,15 +109,15 @@ namespace M01_DAL_Import_Munic_JSON {
     DepotImportationMunicipaliteJSON ..|> M01_Entite::IDepotImportationMunicipalites
 }
 
-DSED_M01_Fichiers_Texte .> M01_DAL_Import_Munic_JSON
-DSED_M01_Fichiers_Texte ..> M01_DAL_Import_Munic_CSV
-DSED_M01_Fichiers_Texte ..> M01_DAL_Municipalite_SQLServer
-DSED_M01_Fichiers_Texte ..> M01_Srv_Municipalite
+' DSED_M01_Fichiers_Texte .> M01_DAL_Import_Munic_JSON
+' DSED_M01_Fichiers_Texte ..> M01_DAL_Import_Munic_CSV
+' DSED_M01_Fichiers_Texte ..> M01_DAL_Municipalite_SQLServer
+DSED_M01_Fichiers_Texte ..> M01_Srv_Municipalite::TraitementImporterDonneesMunicipalite
 
-M01_DAL_Import_Munic_CSV ..> M01_Entite
-M01_DAL_Import_Munic_JSON ..> M01_Entite
-M01_DAL_Municipalite_SQLServer ..> M01_Entite
-M01_Srv_Municipalite ..> M01_Entite
+' M01_DAL_Import_Munic_CSV ..> M01_Entite
+' M01_DAL_Import_Munic_JSON ..> M01_Entite
+' M01_DAL_Municipalite_SQLServer ..> M01_Entite
+' M01_Srv_Municipalite ..> M01_Entite
 
 System.Data.Entity::DbContext -[hidden]-> M01_DAL_Municipalite_SQLServer::Municipalite
 M01_DAL_Municipalite_SQLServer::MunicipaliteContextSQLServer -u-|> System.Data.Entity::DbContext

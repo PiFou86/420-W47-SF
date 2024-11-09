@@ -10,27 +10,30 @@ Voici un diagramme de classes qui peut vous inspirer :
 
 ### Exercice 1.1 - Création de l'API REST
 
-***Afin de simplifier le code, je vous demande de ne faire qu'une solution avec un projet de type Application web et de créer vos différentes couches dans des répertoires qui simulent vos projets services et accès aux données. Ce type de projet utilise le moteur d'injection de dépendances : pour avoir un contexte, il vous suffit de créer un constructeur avec en paramètre le type d'objet voulu.***
-
-- Créez la solution "DSED_M03_REST01" de type "ASP.NET Core Web App (Model-View-Controller)" :
+- Partez de la solution présente à la racine de ce répertoire (DSED_Module03_QuickStartXYZ)
+- Ajoutez le projet `M03_Web_Municipalites_REST01` de type "ASP.NET Core Web App (Model-View-Controller)" :
   - Choisissez le modèle général "ASP.NET Core Web App (Model-View-Controller)"
-  - Choisissez le type d'authentification "Individual Accounts" ("Comptes d'utilisateurs individuels")
-- Par défaut, le projet va créer la chaine de connexion "DefaultConnection" qui utilise une base de données de type "localdb". Allez modifier cette chaîne de connexion pour la faire correspondre à votre base de données locale qui contient vos données de municipalités.
-- Modifiez vos options de démarrage de projet pour que ce ne soit pas "IIS Express" qui héberge votre site web, mais que ce soir le programme lui-même en sélectionnant "DSED_M03_REST01"
-- Ajoutez le support de Swagger en ajoutant le package Nuget "NSwag.AspNetCore" et en modifiant la classe "Startup" comme indiqué dans le cours et la démonstration ou directement la classe "Program" si vous utilisez la dernière version de Visual Studio. Dans ce dernier car, la partie "ConfigureServices" et avant l'appel à la méthode "Build" et la partie "Configure" est après.
-- Dans votre projet, créez les classes qui permettent de manipuler des ressources de types "Municipalite" en utilisant une abstraction de dépot de municipalités dans un répertoire "services" :
+- Ajoutez les dépendances nécessaires pour que le projet puisse accéder à la base de données :
+  - Ajoutez le package Nuget "Microsoft.EntityFrameworkCore.SqlServer"
+  - Ajoutez les références vers le projet qui contient les entités et le projet qui contient la couche d'accès aux données SQL
+  - Configurez le moteur d'injection de dépendances pour que le contexte de données soit injecté dans les contrôleurs
+  - Ajoutez le fichier `appsettings.json` pour configurer la connexion à la base de données
+  - Faites la même chose pour le dépôt de municipalités
+- Ajoutez le support de Swagger en ajoutant le package Nuget "NSwag.AspNetCore" et en modifiant la classe "Program".
+- Dans la couche service, ajoutez une classe de manipulation de municipalités :
   - Les municipalités sont définies comme dans les modules précédents
-  - Vos services doivent permettre :
+  - Le dépôt de municipalités est injecté dans le constructeur
+  - Votre service doit permettre :
     - De lister les municipalités ou d'avoir l'information par rapport à un identifiant
     - De créer / modifier une municipalité
     - De supprimer une municipalité (suppression logique)
-- Toujours dans ce projet et dans le répertoire "Data", modifiez la couche d'accès aux données qui permet de persister les données de l'entité "Municipalite". Ajoutez une implantation de dépot qui utilise cette couche d'accès aux données.
-- Ajoutez le contrôleur d'API "MunicipalitesController" :
+- Dans le projet Web, Ajoutez le contrôleur d'API "MunicipalitesController" :
   - Faites un clic droit sur le répertoire "Controller" de votre projet
   - Choisissez "Ajouter" puis "Contrôleur"
-  - Choisissez "Contrôleur d'API avec actions de lecture/écriture"
+  - Choisissez "Contrôleur d'API avec actions de lecture/écriture" (Attention vous devez valider que c'est bien le contrôleur d'API et non le contrôleur MVC)
   - Appelez le contrôleur (la classe) "MunicipalitesController"
   - Ajustez chaque action pour qu'elles renvoient des "ActionResult" comme présenté dans la démonstration
+  - Validez que vous renvoyez bien les codes HTTP appropriés et donnés dans la démonstration (Voir la démonstration présente dans la vidéo ou dans les répertoires de démonstration `DSED_Module03_Preparation_Cours_XYZ`)
 - Testez votre API à travers les pages d'exploration d'API de Swagger
 
 ### Exercice 1.2 - Client console
