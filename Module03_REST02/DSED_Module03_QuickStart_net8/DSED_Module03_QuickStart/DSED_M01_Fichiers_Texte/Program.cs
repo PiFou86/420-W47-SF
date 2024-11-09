@@ -16,6 +16,7 @@ using M01_DAL_Import_Munic_CSV;
 using M01_DAL_Municipalite_SQLServer;
 using M01_Srv_Municipalite;
 using M01_DAL_Import_Munic_JSON;
+using M01_Entite;
 
 namespace DSED_M01_Fichiers_Texte
 {

@@ -15,7 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "M01_Srv_Municipalite", "M01
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "M01_Srv_Municipalite.Tests", "M01_Srv_Municipalite.Tests\M01_Srv_Municipalite.Tests.csproj", "{98E652E2-0160-47EF-8809-9B137E535A58}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "M01_DAL_Import_Munic_JSON", "M01_DAL_Import_Munic_JSON\M01_DAL_Import_Munic_JSON.csproj", "{CF640D95-7510-4E33-8D32-06F01E3BCA7D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "M01_DAL_Import_Munic_JSON", "M01_DAL_Import_Munic_JSON\M01_DAL_Import_Munic_JSON.csproj", "{CF640D95-7510-4E33-8D32-06F01E3BCA7D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "M01_Entite", "M01_Entite\M01_Entite.csproj", "{97E85FCF-CB91-4F7A-8D17-AF82D573891F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{CF640D95-7510-4E33-8D32-06F01E3BCA7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CF640D95-7510-4E33-8D32-06F01E3BCA7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CF640D95-7510-4E33-8D32-06F01E3BCA7D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97E85FCF-CB91-4F7A-8D17-AF82D573891F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97E85FCF-CB91-4F7A-8D17-AF82D573891F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97E85FCF-CB91-4F7A-8D17-AF82D573891F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97E85FCF-CB91-4F7A-8D17-AF82D573891F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,7 +1,8 @@
-﻿using M01_Configuration_Application;
-using M01_DAL_Municipalite_SQLServer;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
+
+using M01_Configuration_Application;
+using M01_DAL_Municipalite_SQLServer;
 
 namespace DSED_M01_Fichiers_Texte
 {

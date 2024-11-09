@@ -11,7 +11,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\M01_Configuration_Application\M01_Configuration_Application.csproj" />
-    <ProjectReference Include="..\M01_Srv_Municipalite\M01_Srv_Municipalite.csproj" />
+    <ProjectReference Include="..\M01_Entite\M01_Entite.csproj" />
   </ItemGroup>
 
 </Project>

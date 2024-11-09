@@ -1,6 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+
+using M01_Entite;
 
 namespace M01_Srv_Municipalite
 {

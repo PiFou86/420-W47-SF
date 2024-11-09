@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace M01_Srv_Municipalite
+﻿namespace M01_Entite
 {
     public class Municipalite
     {

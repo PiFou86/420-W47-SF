@@ -23,6 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\M01_Entite\M01_Entite.csproj" />
     <ProjectReference Include="..\M01_Srv_Municipalite\M01_Srv_Municipalite.csproj" />
   </ItemGroup>
 

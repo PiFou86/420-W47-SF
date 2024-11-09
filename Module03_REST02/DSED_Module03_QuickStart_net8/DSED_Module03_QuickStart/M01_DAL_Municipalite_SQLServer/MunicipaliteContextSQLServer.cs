@@ -1,5 +1,4 @@
-﻿//using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace M01_DAL_Municipalite_SQLServer
 {
