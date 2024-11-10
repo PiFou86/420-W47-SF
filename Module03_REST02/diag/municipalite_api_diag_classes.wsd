@@ -17,20 +17,21 @@ namespace M03_Web_Municipalites_REST01 << apim >> {
     }
 
     class MunicipaliteModel {
+        + ctor()
+        + ctor(p_municipalite:srvm.Municipalite)
         + CodeGeographique : int <<get>> <<set>>
         + NomMunicipalite : string <<get>> <<set>>
         + AdresseCourriel : string <<get>> <<set>>
         + AdresseWeb : string <<get>> <<set>>
         + DateProchaineElection : datetime? <<get>> <<set>>
-        + ctor()
-        + ctor(p_municipalite:srvm.Municipalite)
         + VersEntite() : srvm.Municipalite
     }
 
-    MunicipalitesController .u.> MunicipaliteModel
+    MunicipalitesController ..> MunicipaliteModel
+
 }
 
-namespace M03_Srv_Municipalite << srvm >> {
+namespace M01_Srv_Municipalite << srvm >> {
     class ManipulationMunicipalites {
         - m_depotMunicipalite : IDepotMunicipalites
         + ctor(p_depotMunicipalite : IDepotMunicipalites)
@@ -41,10 +42,11 @@ namespace M03_Srv_Municipalite << srvm >> {
         + MAJMunicipalite(p_municipalite:Municipalite) : void
     }
 
-    M03_Web_Municipalites_REST01.MunicipalitesController --> ManipulationMunicipalites
+    MunicipalitesController -d-> ManipulationMunicipalites
+
 }
 
-namespace M03_Entite_Municipalite << entitem >> {
+namespace M01_Entite_Municipalite << entitem >> {
     interface IDepotMunicipalites {
         + ChercherMunicipaliteParCodeGeographique(p_codeGeographique : int) : Municipalite?
         + ListerMunicipalitesActives() : IEnumerable<Municipalite>
@@ -61,15 +63,16 @@ namespace M03_Entite_Municipalite << entitem >> {
         + AdresseWeb : string? <<get>> <<set>>
         + DateProchaineElection : datetime? <<get>> <<set>>
         + <<override>> Equals(obj : object) : bool
-        + <<override>> GetHashCode() : int    }
+        + <<override>> GetHashCode() : int
+    }
 
-    M03_Srv_Municipalite.ManipulationMunicipalites -> IDepotMunicipalites
+    M01_Srv_Municipalite.ManipulationMunicipalites -> IDepotMunicipalites
     IDepotMunicipalites ..> Municipalite
-    M03_Srv_Municipalite.ManipulationMunicipalites ..> Municipalite
+    M01_Srv_Municipalite.ManipulationMunicipalites ..> Municipalite
     M03_Web_Municipalites_REST01.Program ..> IDepotMunicipalites : configure injection (depot)
 }
 
-namespace M03_DAL_Municipalite << dalm >> {
+namespace M01_DAL_Municipalite << dalm >> {
     class ApplicationDbContext {
         ~ MUNICIPALITES : DbSet<Municipalite> <<get>> <<set>>
     }
@@ -96,10 +99,13 @@ namespace M03_DAL_Municipalite << dalm >> {
         + VersEntite() : srvm.Municipalite
     }
 
-    M01_DAL_Municipalite_SQLServer --> ApplicationDbContext
-    M01_DAL_Municipalite_SQLServer -[hidden]-> Municipalite
-    M03_Web_Municipalites_REST01.Program .> M01_DAL_Municipalite_SQLServer : configure injection (depot)
-    M01_DAL_Municipalite_SQLServer ..|> M03_Entite_Municipalite.IDepotMunicipalites
+    DepotMunicipalitesSQLServer ..|> M01_Entite_Municipalite.IDepotMunicipalites
+    DepotMunicipalitesSQLServer --> ApplicationDbContext
+    DepotMunicipalitesSQLServer ..> Municipalite
 }
+
+M03_Web_Municipalites_REST01 .u[hidden]. M01_Srv_Municipalite
+M01_Srv_Municipalite .l[hidden]. M01_Entite_Municipalite
+
 
 @enduml
