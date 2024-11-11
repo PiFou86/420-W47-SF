@@ -1,0 +1,10 @@
+﻿{
+  "AppName": "DSED_M04_Auth0Base",
+  "AppDescription": "ASP.NET Core MVC application created and registered via Auth0 Templates for .NET",
+  "AppType": "regular",
+  "Callbacks": "https://localhost:7234/callback",
+  "LogoutUrls": "https://localhost:7234/",
+  "AppSettingsFiles": ["./appsettings.json"],
+  "RegistrationScriptFile": "../register-with-auth0.cmd",
+  "Verbose": false
+}
