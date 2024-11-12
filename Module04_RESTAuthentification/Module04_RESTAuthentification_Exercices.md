@@ -55,7 +55,7 @@ Exemple :
 ```
 
 - À partir du tableau de bord d’Auth0, rendez-vous dans la configuration de votre application et ajoutez "https://localhost:7234/callback" dans la liste des URLs de fonction de rappel (allowed callback URLs)
-- Essayez de vous authentifier dans votre application, cela devrait fonctionner !
+- Essayez de vous authentifier dans votre application. À la première connexion, il faut que vous vous créiez un compte pour votre application. Une fois cela fait, cela devrait fonctionner !
 - Essayez de vous déconnecter. Vous devriez avoir une erreur. Analysez l’erreur et corrigez en suivant les indications. Réessayez pour valider que tout fonctionne correctement
 
 ### Exercice 1.2 - Observation des mécanismes d’authentification
