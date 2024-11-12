@@ -60,7 +60,7 @@ Exemple :
 
 ### Exercice 1.2 - Observation des mécanismes d’authentification
 
-- Passez votre navigateur en mode développement. (Procédure testée avec Chrome et anciennement avec FireFox). Dans l’onglet "Réseau" ("Network") activez la conservation du journal ("Preserve log").
+- Passez votre navigateur en mode développement (Appuyez sur la touche F12 de votre clavier ou inspectez un élément). (Procédure testée avec Chrome et anciennement avec FireFox). Dans l’onglet "Réseau" ("Network") activez la conservation du journal ("Preserve log").
 - Authentifiez vous et cherchez la requête de type "POST" sur "https://localhost:7234/callback". Dans "Charge utile" ("Payload"), cherchez le champ "id_token" puis copiez la valeur.
 - Rendez-vous sur le site https://jwt.io/, collez la valeur et observez le contenu du jeton. Vous allez y voir trois parties : l’entête qui contient les informations sur le type de jeton, la charge utile qui contient les données et la signature électronique. Vous devriez aussi observer que ces trois parties sont en fait trois valeurs séparées par un point et encodées en base 64.
 - Gardez les informations de l’entête et de la charge utile pour les comparer avec les informations que vous allez obtenir dans ce qui suit.
