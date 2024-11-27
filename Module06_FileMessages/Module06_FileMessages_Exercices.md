@@ -152,7 +152,7 @@ Il est fortement recommandé de créer une enveloppe contenant :
   
 - Une chaine de caractères représentant le type d'action
 - Une chaine de caractères représentant l'entité modifiée
-- Une propriété par entité (Compte et Transaction). Suivant l'entité visée, une des champs sera `null`. Cette astuce est là pour vous faire gagner du temps de développement. D'une certaine manière, elle brise l'OCP.
+- Une propriété par entité (Compte et Transaction). Suivant l'entité visée, un des champs sera `null`. Cette astuce est là pour vous faire gagner du temps de développement. D'une certaine manière, elle brise l'OCP.
   
 </details>
 
@@ -160,7 +160,7 @@ Il est fortement recommandé de créer une enveloppe contenant :
 
 Pour aller plus loin, voici deux pistes d'extension (qui se suivent) à l'exercice :
 
-1. Remplacez les propriétés créées par entité par un champ unique appelé `Corps` qui représente les information de l'entité à créer/modifier en version chaine de caractères. Ce champ va contenir la version sérialiser en JSON.
+1. Remplacez les propriétés créées par entité par un champ unique appelé `Corps` qui représente les informations de l'entité à créer/modifier en version chaine de caractères. Ce champ va contenir la version sérialiser en JSON.
 2. Ajoutez des signatures dans vos messages à la production et validez la au moment des traitements. Pour cela, séparez votre enveloppe en trois (3) parties :
   - Une entête qui contient le type d'entité, d'action et un identifiant d'action
   - Un corps de message
