@@ -97,7 +97,7 @@ dotnet tool install --global dotnet-ef
 - Codez la méthode "LireMunicipalite" - **Solution 2** :
   - Ouvrez le fichier en mode lecture
   - Utilisez la [bibliothèque CSV Helper](https://joshclose.github.io/CsvHelper/) (lire la documentation sur le site officiel)
-  - Pour chacune des lignes, créez un objet de type "Municipalite" avec les bonnes valeurs. (Vous pouvez utiliser la méthode ["Split" de la classe "String"](https://docs.microsoft.com/en-us/dotnet/api/system.string.split?view=netcore-3.1))
+  - Pour chacune des lignes, créez un objet de type "Municipalite" avec les bonnes valeurs.
 
 ### Étape 4 - Traitement du fichier
 
