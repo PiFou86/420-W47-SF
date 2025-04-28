@@ -68,7 +68,7 @@ dotnet tool install --global dotnet-ef
 
 - Créez une solution Visual Studio du type "console" avec le cadriciel .Net 8.0. Le projet doit être nommé "DSED_M01_Fichiers_Texte"
 - Ajoutez le projet "M01_Srv_Municipalite" de type "bibliothèque de classes". Ce projet va contenir le traitement de l'importation des données
-- Ajoutez le projet "M01_Entite" de type "bibliothèque de classes". Ce projet va contenir la classe "Municipalite" qui contient les informations pertinentes sur les municipalitées. Le booléen "Actif" permet simuler la suppression d'un enregistrement (suppression logique à la place de physique)
+- Ajoutez le projet "M01_Entite" de type "bibliothèque de classes". Ce projet va contenir la classe "Municipalite" qui contient les informations pertinentes sur les municipalitées.
 - Ajoutez les interfaces "IDepotMunicipalites" et "IDepotImportationMunicipalites" :
   - IDepotMunicipalites :
     - ChercherMunicipaliteParCodeGeographique : int -> Municipalite (Renvoie la municipalité active ou non par son code géographique)
@@ -78,7 +78,7 @@ dotnet tool install --global dotnet-ef
     - MAJMunicipalite : Municipalite -> ()
   - IDepotImportationMunicipalite:
     - LireMunicipalite : () ->  IEnumerable\<Municipalite>
-- Ajoutez le projet "M01_DAL_Municipalite_SQLServer" de type "bibliothèque de classes". Ce projet va implanter l'interface "IDepotMunicipalites" et avoir la classe "Municipalite" avec une propriété en plus nommée "Actif" de type booléen.
+- Ajoutez le projet "M01_DAL_Municipalite_SQLServer" de type "bibliothèque de classes". Ce projet va implanter l'interface "IDepotMunicipalites" et avoir la classe "Municipalite" avec une propriété en plus nommée "Actif" de type booléen. Le booléen "Actif" permet simuler la suppression d'un enregistrement (suppression logique à la place de physique).
 - Dans le projet "M01_DAL_Municipalite_SQLServer", installez les packages NuGet :
   - "Microsoft.EntityFrameworkCore.SqlServer" si vous décidez d'utiliser SqlServer
 - Créez une classe de contexte qui peut se connecter à votre base de données (SQLServer)
