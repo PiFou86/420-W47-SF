@@ -28,6 +28,8 @@ Testez votre installation avec SSMS en vous connectant sur le serveur `.` avec l
 
 Une fois ces données extraites, vous devez les insérer ou les mettre à jour dans une base de données Microsoft SQL Server.
 
+![Processus global de l'exercice](exercice.png)
+
 Ce type de processus est généralement utilisé en entreprise pour des importations massives de données. Souvent un fichier est déposé dans un répertoire. À la détection d'un nouveau fichier dans ce répertoire, il est traité et ensuite archivé. Je vous ai mis un exemple de programme qui réaliser ces étapes avec un faux traitement qui attend ici 2 secondes pour le simuler dans le répertoire [FileSystemWatcher](FileSystemWatcher). En entreprise, on utilise généralement un outil d'infrastructure pour déclancher le traitement, comme un outil de gestion de traitements ou des outils d'intégration comme "Biztalk".
 
 ![Exemple entreprise](exemple_entreprise01.png)
