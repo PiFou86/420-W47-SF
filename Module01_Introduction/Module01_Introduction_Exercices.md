@@ -28,8 +28,18 @@ Testez votre installation avec SSMS en vous connectant sur le serveur `.` avec l
 
 Une fois ces données extraites, vous devez les insérer ou les mettre à jour dans une base de données Microsoft SQL Server.
 
+Ce type de processus est généralement utilisé en entreprise pour des importations massives de données. Souvent un fichier est déposé dans un répertoire. À la détection d'un nouveau fichier dans ce répertoire, il est traité et ensuite archivé. Je vous ai mis un exemple de programme qui réaliser ces étapes avec un faux traitement qui attend ici 2 secondes pour le simuler dans le répertoire [FileSystemWatcher](FileSystemWatcher). En entreprise, on utilise généralement un outil d'infrastructure pour déclancher le traitement, comme un outil de gestion de traitements ou des outils d'intégration comme "Biztalk".
+
+![Exemple entreprise](exemple_entreprise01.png)
+
+1. Un fichier à importer est déposé dans le répertoire `ToImport`
+2. Le fichier est déplacé dans le répertoire `Processing`
+3. a) Si pas d'erreur durant le traitement, le fichier est déplacé dans le répertoire `Processed`. b) En cas d'erreur le fichier est déplacé dans le répertoire `Error`
+
+Ici, vous ne faites que le traitement mais vous pouvez implanter les autres étapes en exercice supplémentaire.
+
 <details>
-    <summary>Diagramme de classe global</summary>
+    <summary>Diagramme de classe global (Exemple)</summary>
 
 ![Diagramme UML](../images/Module01_Introduction/uml_exercice1/uml_exercice1.png)
 </details>
