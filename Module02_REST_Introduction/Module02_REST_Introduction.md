@@ -50,7 +50,7 @@ Pré-requis :
 - Connexion réseau
 - Des images avec des visages
 
-Dans cet exercice, vous allez utiliser l'API de vision [CodeProjet.AI](https://github.com/johnolafenwa/DeepStack) (anciennement DeepStack) afin détecter les visages (Face detection) dans une image. [Le code du projet se trouve sur un dépôt GitHub](https://github.com/johnolafenwa/DeepStack). Le dépôt contient un fichier README.md très riche.
+Dans cet exercice, vous allez utiliser l'API de vision [CodeProjet.AI](https://www.codeproject.com/ai/) (anciennement [DeepStack](https://github.com/johnolafenwa/DeepStack)) afin détecter les visages (Face detection) dans une image. [Le code du projet se trouve sur un dépôt GitHub](https://github.com/johnolafenwa/DeepStack). Le dépôt contient un fichier README.md très riche.
 
 Écrivez un programme qui va :
 
