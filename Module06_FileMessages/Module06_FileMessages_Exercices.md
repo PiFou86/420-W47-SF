@@ -90,7 +90,7 @@ Un bénéficiaire est défini par :
 <details>
     <summary>Proposition solution - diagramme de classes</summary>
 
-![Proposition de digramme de packages](img/../../images/Module06_FileMessages/diag/uml_exercice2_enveloppe/beneficiaires_classes_enveloppe.png)
+![Proposition de digramme de packages](img/../../images/Module06_FileMessages/diag/uml_exercice2/clients_classes.png)
 
 </details>
 
