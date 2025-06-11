@@ -83,7 +83,7 @@ Un bénéficiaire est défini par :
 <details>
     <summary>Proposition solution - diagramme de packages</summary>
 
-![Proposition de digramme de packages](img/../../images/Module06_FileMessages/diag/uml_exercice2_package/beneficiaires_packages.png)
+![Proposition de digramme de packages](img/../../images/Module06_FileMessages/diag/uml_exercice2_package/Beneficiaires_packages.png)
 
 </details>
 
