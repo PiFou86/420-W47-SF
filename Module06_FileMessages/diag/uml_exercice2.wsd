@@ -1,18 +1,12 @@
-@startuml clients_classes
+@startuml Beneficiaires_classes
 set namespaceSeparator ::
 
-package M06_CasUtilisation_Clients {
-    class ManipulationsClient {
-        - m_depotClients : IDepotClients
-        + ctor(p_depotClients : IDepotClients)
-        + CreerClient(p_client : Client)
+package M06_Entite_Beneficiaires {
+    interface IDepotBeneficiaires {
+        + CreerBeneficiaire(p_Beneficiaire : Beneficiaire)
     }
 
-    interface IDepotClients {
-        + CreerClient(p_client : Client)
-    }
-
-    class Client {
+    class Beneficiaire {
         + Identifiant : Guid <<get; private set;>>
         + Prenom : string <<get; private set;>>
         + Nom : string <<get; private set;>>
@@ -20,33 +14,48 @@ package M06_CasUtilisation_Clients {
         + NumeroTelephone : string <<get; private set;>>
         + ctor(p_identificant : Guid, p_prenom : string, p_nom : string, p_courriel : string, p_numeroTelephone : string)
     }
-
-    ManipulationsClient -> IDepotClients
-    ManipulationsClient ..> Client
-    IDepotClients ..> Client
 }
 
-package M06_DAL_Client_SQLServeur {
-    class DepotClientSQLServeur {
-        + void CreerClient(p_client : Client)
+package M06_CasUtilisation_Beneficiaires {
+    class ManipulationsBeneficiaire {
+        - m_depotBeneficiaires : IDepotBeneficiaires
+        + ctor(p_depotBeneficiaires : IDepotBeneficiaires)
+        + CreerBeneficiaire(p_Beneficiaire : Beneficiaire)
     }
 
-    class ClientSQLServeurDTO {
-        + ClientSQLDTOId : Guid <<get; set;>>
+    ManipulationsBeneficiaire -d-> M06_Entite_Beneficiaires::IDepotBeneficiaires
+    'ManipulationsBeneficiaire ..> M06_Entite_Beneficiaires::Beneficiaire
+    'M06_Entite_Beneficiaires::IDepotBeneficiaires ..> M06_Entite_Beneficiaires::Beneficiaire
+}
+
+package M06_DAL_Beneficiaire_SQLServeur {
+    class DepotBeneficiaireSQLServeur {
+        - m_contexte : ApplicationDBContext
+        + ctor(p_contexte : ApplicationDBContext)
+        + CreerBeneficiaire(p_Beneficiaire : Beneficiaire)
+    }
+
+    class BeneficiaireSQLServeurDTO {
+        + BeneficiaireSQLDTOId : Guid <<get; set;>>
         + Prenom : string <<get; set;>>
         + Nom : string <<get; set;>>
         + Courriel : string <<get; set;>>
         + NumeroTelephone : string <<get; set;>>
-        + ctor(p_client : Client)
+        + ctor(p_Beneficiaire : Beneficiaire)
     }
 
-    DepotClientSQLServeur ..|> M06_CasUtilisation_Clients::IDepotClients
-    DepotClientSQLServeur .l> ClientSQLServeurDTO
+    class ApplicationDBContext {
+        + ...
+    }
+
+    DepotBeneficiaireSQLServeur .[#blue]l.|> M06_Entite_Beneficiaires::IDepotBeneficiaires
+    'DepotBeneficiaireSQLServeur .l> BeneficiaireSQLServeurDTO
+    DepotBeneficiaireSQLServeur "1" --> "1" ApplicationDBContext
 }
 
 together {
-    package M06_MessageClient {
-        class MessageClient {
+    package M06_MessageBeneficiaire {
+        class MessageBeneficiaire {
             + Prenom : string <<get; set;>>
             + Nom : string <<get; set;>>
             + Courriel : string <<get; set;>>
@@ -54,30 +63,30 @@ together {
         }
     }
 
-    package M06_Clients_Producteur {
+    package M06_Beneficiaires_Producteur {
         class Program
 
-        Program ..> M06_MessageClient::MessageClient
+        'Program ..> M06_MessageBeneficiaire::EnveloppeBeneficiaire
     }
 
-    package Rabbitmq.Client {}
+   ' package Rabbitmq.Client {}
 }
 
-package M06_Clients_Consommateur {
+package M06_Beneficiaires_Consommateur {
     class Program
 
-    Program ..> M06_MessageClient::MessageClient
-    Program ..> M06_CasUtilisation_Clients::ManipulationsClient
-    Program ..> M06_CasUtilisation_Clients::IDepotClients
-    Program .l> M06_DAL_Client_SQLServeur::DepotClientSQLServeur
+    'Program ..> M06_MessageBeneficiaire::EnveloppeBeneficiaire
+    'Program ..> M06_CasUtilisation_Beneficiaires::ManipulationsBeneficiaire
+    'Program ..> M06_Entite_Beneficiaires::IDepotBeneficiaires
+    'Program .l> M06_DAL_Beneficiaire_SQLServeur::DepotBeneficiaireSQLServeur
 }
 
-M06_Clients_Producteur .[#blue]> Rabbitmq.Client
-M06_Clients_Producteur .[#blue].> M06_MessageClient
+'M06_Beneficiaires_Producteur .[#blue].> Rabbitmq.Client
+'M06_Beneficiaires_Producteur .[#blue].> M06_MessageBeneficiaire
 
-M06_Clients_Consommateur .[#blue]> Rabbitmq.Client
-M06_Clients_Consommateur .[#blue].> M06_CasUtilisation_Clients
-M06_Clients_Consommateur .[#blue].> M06_MessageClient
-M06_Clients_Consommateur .[#blue]l> M06_DAL_Client_SQLServeur
+'M06_Beneficiaires_Consommateur .[#blue]> Rabbitmq.Client
+'M06_Beneficiaires_Consommateur .[#blue].> M06_CasUtilisation_Beneficiaires
+'M06_Beneficiaires_Consommateur .[#blue].> M06_MessageBeneficiaire
+'M06_Beneficiaires_Consommateur .[#blue]l> M06_DAL_Beneficiaire_SQLServeur
 
 @enduml

@@ -57,9 +57,9 @@ En substance (extrait d'une des réponses) :
   - Le premier produira des messages. Les messages sont lu sur la console (ReadLine) et envoyé sur la file "m06-mes-premiers-messages"
   - Le second programme doit écouter la file "m06-mes-premiers-messages" en continu et afficher les messages reçus sur la console
 
-## Exercice 2 - Création de clients
+## Exercice 2 - Création de bénéficiaires
 
-Un client est défini par :
+Un bénéficiaire est défini par :
 
 - Un identifiant de type Guid
 - Un prénom, un nom
@@ -68,46 +68,47 @@ Un client est défini par :
 
 ### Exercice 2.1 - Version simple
 
-- Créez la solution "DSED_M06_Clients" avec deux projets de type "console" :
-  - "M06_Clients_Producteur_UI" : permet de saisir un client et de l'envoyer à la file de messages "m06-clients". Le client est envoyé sous forme de document JSON
-  - "M06_Clients_Consommateur" : écoute la file "m06-clients" et enregistrer les clients dans une base de données
+- Créez la solution "DSED_M06_Beneficiaires" avec deux projets de type "console" :
+  - "M06_Beneficiaires_Producteur_UI" : permet de saisir un bénéficiaire et de l'envoyer à la file de messages "m06-beneficiaires". Le bénéficiaire est envoyé sous forme de document JSON
+  - "M06_Beneficiaires_Consommateur" : écoute la file "m06-beneficiaires" et enregistrer les bénéficiaires dans une base de données
 - Essayez le programme
 
 <details>
   <summary>Indices</summary>
 
-![Schéma fonctionnel des comptes](img/schema_fonctionnel_client.png)
+![Schéma fonctionnel des comptes](img/schema_fonctionnel_beneficiaire.png)
 
 </details>
 
 <details>
     <summary>Proposition solution - diagramme de packages</summary>
 
-![Proposition de digramme de packages](img/../../images/Module06_FileMessages/diag/uml_exercice2_package/clients_packages.png)
+![Proposition de digramme de packages](img/../../images/Module06_FileMessages/diag/uml_exercice2_package/beneficiaires_packages.png)
 
 </details>
 
 <details>
     <summary>Proposition solution - diagramme de classes</summary>
 
-![Proposition de digramme de packages](img/../../images/Module06_FileMessages/diag/uml_exercice2/clients_classes.png)
+![Proposition de digramme de packages](img/../../images/Module06_FileMessages/diag/uml_exercice2_enveloppe/beneficiaires_classes_enveloppe.png)
 
 </details>
 
 ### Exercice 2.2 - Ajoutons une enveloppe
 
-Plutôt que d'envoyer votre client directement, vous devez utiliser une enveloppe qui contient :
+Plutôt que d'envoyer votre bénéficiaire directement, vous devez utiliser une enveloppe qui contient :
 
+- Un identifiant unique de message (Ex. Guid)
+- Le type d'entité sur laquelle on agit, ici "beneficiaire"
 - Le type d'action, ici "create"
-- Un identifiant d'action
-- Le client
+- Le bénéficiaire
 
 Modifiez le programme pour tenir compte de cette dernière contrainte.
 
 <details>
     <summary>Proposition solution - diagramme de classes</summary>
 
-![Proposition de digramme de packages](img/../../images/Module06_FileMessages/diag/uml_exercice2_enveloppe/clients_classes_enveloppe.png)
+![Proposition de digramme de packages](img/../../images/Module06_FileMessages/diag/uml_exercice2_enveloppe/beneficiaires_classes_enveloppe.png)
 
 </details>
 
