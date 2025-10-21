@@ -2,6 +2,15 @@
 
 Dans cet exercice pratique, nous explorerons la manipulation de données provenant de fichiers plats à travers une application console .NET. Nous mettrons l'accent sur les opérations CRUD (Créer, Lire, Mettre à jour, Supprimer) sur une base de données SQL Server, en nous appuyant sur Entity Framework Core pour un accès et une gestion des données efficaces et abstraits. L'exercice couvrira la lecture de données depuis des fichiers CSV et JSON, illustrant la flexibilité dans le traitement de différentes sources de données. À travers ces tâches, nous appliquerons des concepts avancés de programmation et des bonnes pratiques de développement, notamment l'utilisation de modèles de conception tels que le Repository Pattern. Cet exercice est conçu pour renforcer vos compétences en intégration de données, développement .NET, gestion de bases de données, et programmation orientée objet.
 
+## Prérequis techniques
+
+- SDK .NET 8 installé (vérifier avec `dotnet --version`)
+- Docker Desktop (pour SQL Server en conteneur)
+- SQL Server Management Studio (SSMS)
+- Encodage des fichiers en UTF-8 recommandé
+
+Attention sécurité : les identifiants fournis sont à usage pédagogique uniquement. Ne jamais réutiliser ces mots de passe en production.
+
 ## Préalable - Installation pour la base de données
 
 Si SQL Server (Pas MySQL ni même Oracle SQL) n'est pas installé sur votre poste de travail, je vous conseille de l'installer à partir d'un conteneur docker.
@@ -12,9 +21,11 @@ Pour le lancer avec docker :
 docker run --rm -d --name sqlserver -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=Bonjour01.+" -e "MSSQL_PID=Developer" -p 1433:1433 -d mcr.microsoft.com/mssql/server:2022-latest
 ```
 
-Si ce n'est pas fait, installez aussi SQL Server Management Studio (SSMS) : https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms
+Si ce n'est pas fait, installez aussi SQL Server Management Studio (SSMS) : [lien de téléchargement](https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms)
 
 Testez votre installation avec SSMS en vous connectant sur le serveur `.` avec l'authentification `SQL Server` et les identifiants `sa` et le mot de passe `Bonjour01.+`.
+
+> Attention: n'utilisez jamais le compte `sa` ni ces mots de passe en contexte réel. Préférez un compte applicatif avec droits minimaux et stockez les secrets via variables d'environnement ou fichiers de configuration ignorés par le contrôle de source.
 
 ## Exercice 1 - Lecture des municipalités - CSV
 
@@ -30,7 +41,7 @@ Une fois ces données extraites, vous devez les insérer ou les mettre à jour d
 
 ![Processus global de l'exercice](exercice.png)
 
-Ce type de processus est généralement utilisé en entreprise pour des importations massives de données. Souvent un fichier est déposé dans un répertoire. À la détection d'un nouveau fichier dans ce répertoire, il est traité et ensuite archivé. Je vous ai mis un exemple de programme qui réaliser ces étapes avec un faux traitement qui attend ici 2 secondes pour le simuler dans le répertoire [FileSystemWatcher](FileSystemWatcher). En entreprise, on utilise généralement un outil d'infrastructure pour déclancher le traitement, comme un outil de gestion de traitements ou des outils d'intégration comme "Biztalk".
+Ce type de processus est généralement utilisé en entreprise pour des importations massives de données. Souvent, un fichier est déposé dans un répertoire. À la détection d'un nouveau fichier dans ce répertoire, il est traité puis archivé. Je vous ai mis un exemple de programme qui réalise ces étapes avec un faux traitement (attente de 2 secondes pour la simulation) dans le répertoire [FileSystemWatcher](FileSystemWatcher). En entreprise, on utilise généralement un outil d'infrastructure pour déclencher le traitement, comme un outil de gestion de traitements ou des outils d'intégration (ex.: BizTalk).
 
 ![Exemple entreprise](exemple_entreprise01.png)
 
@@ -48,17 +59,23 @@ Ici, vous ne faites que le traitement mais vous pouvez implanter les autres éta
 
 ### Étape 1 - Visualisation du fichier
 
-- Téléchargez les données des municipalités à partir de [la page du MAMH du site des données libres du québec](https://www.donneesquebec.ca/recherche/fr/dataset/repertoire-des-municipalites-du-quebec/resource/19385b4e-5503-4330-9e59-f998f5918363)
-- Ouvrez le document avec Visual Studio Code ou NotePad++ et essayez de comprendre la structure du fichier
+- Téléchargez les données des municipalités à partir de [la page du MAMH du site des données libres du Québec](https://www.donneesquebec.ca/recherche/fr/dataset/repertoire-des-municipalites-du-quebec/resource/19385b4e-5503-4330-9e59-f998f5918363)
+- Ouvrez le document avec Visual Studio Code ou Notepad++ et essayez de comprendre la structure du fichier
 - Ouvrez ce même fichier dans Excel, choisissez "Données" puis "Convertir". Arrangez-vous pour que le fichier s'affiche correctement
 
-**N'enregistrez pas cette version du fichier, nous allons travailler sur la version originale**
+Quelques points d'attention:
+
+- Repérez le séparateur utilisé (`,` ou `;`) et la présence d'un en-tête.
+- Vérifiez l'encodage (UTF-8 recommandé) pour éviter les problèmes d'accents.
+- Identifiez les colonnes utiles: code géographique (int), nom (string), courriel (string?), site web (string?), date des prochaines élections (DateOnly?/DateTime?).
+
+Important: n'enregistrez pas cette version du fichier, nous allons travailler sur la version originale.
 
 ### Étape 2 - Création d'un dépôt de type Entity Framework
 
 ---
 
-Pour accéder à la base de données, utilisez Entity Framework Core. **Si vous ne connaissez pas cette bibliothèque, consultez l'article https://docs.microsoft.com/en-us/ef/core/ et familiarisez-vous avec l'approche Database-First.**
+Pour accéder à la base de données, utilisez Entity Framework Core. **Si vous ne connaissez pas cette bibliothèque, consultez l'article [Entity Framework Core](https://learn.microsoft.com/ef/core/) et familiarisez-vous avec l'approche Database-First.**
 
 De manière simplifiée :
 
@@ -70,7 +87,7 @@ De manière simplifiée :
 
 Afin de respecter les bonnes pratiques vous devez implanter le patron `repository` que vous avez vu dans le [module 06 en POOII](https://github.com/PiFou86/420-W30-SF/blob/master/Module06_Formats_Echanges/Module06_Formats_Echanges_Exercices.md) dans le module sur les formats d'échanges de données.
 
-Si c'est votre première utilisation d'entityFramework, il faut installer les outils. Pour cela, ouvrez une ligne de commande et tapez :
+Si c'est votre première utilisation d'Entity Framework, il faut installer les outils. Pour cela, ouvrez une ligne de commande et tapez :
 
 ```powershell
 dotnet tool install --global dotnet-ef
@@ -78,9 +95,9 @@ dotnet tool install --global dotnet-ef
 
 ---
 
-- Créez une solution Visual Studio du type "console" avec le cadriciel .Net 8.0. Le projet doit être nommé "DSED_M01_Fichiers_Texte"
+- Créez une solution Visual Studio du type "console" avec le cadriciel .NET 8.0. Le projet doit être nommé "DSED_M01_Fichiers_Texte"
 - Ajoutez le projet "M01_Srv_Municipalite" de type "bibliothèque de classes". Ce projet va contenir le traitement de l'importation des données
-- Ajoutez le projet "M01_Entite" de type "bibliothèque de classes". Ce projet va contenir la classe "Municipalite" qui contient les informations pertinentes sur les municipalitées.
+- Ajoutez le projet "M01_Entite" de type "bibliothèque de classes". Ce projet va contenir la classe "Municipalite" qui contient les informations pertinentes sur les municipalités.
 - Ajoutez les interfaces "IDepotMunicipalites" et "IDepotImportationMunicipalites" :
   - IDepotMunicipalites :
     - ChercherMunicipaliteParCodeGeographique : int -> Municipalite (Renvoie la municipalité active ou non par son code géographique)
@@ -90,13 +107,19 @@ dotnet tool install --global dotnet-ef
     - MAJMunicipalite : Municipalite -> ()
   - IDepotImportationMunicipalite:
     - LireMunicipalite : () ->  IEnumerable\<Municipalite>
-- Ajoutez le projet "M01_DAL_Municipalite_SQLServer" de type "bibliothèque de classes". Ce projet va implanter l'interface "IDepotMunicipalites" et avoir la classe "Municipalite" avec une propriété en plus nommée "Actif" de type booléen. Le booléen "Actif" permet simuler la suppression d'un enregistrement (suppression logique à la place de physique).
+- Ajoutez le projet "M01_DAL_Municipalite_SQLServer" de type "bibliothèque de classes". Ce projet va implanter l'interface "IDepotMunicipalites" et avoir la classe "Municipalite" avec une propriété en plus nommée "Actif" de type booléen. Le booléen "Actif" permet de simuler la suppression d'un enregistrement (suppression logique à la place de physique).
 - Dans le projet "M01_DAL_Municipalite_SQLServer", installez les packages NuGet :
   - "Microsoft.EntityFrameworkCore.SqlServer" si vous décidez d'utiliser SqlServer
-- Créez une classe de contexte qui peut se connecter à votre base de données (SQLServer)
+- Créez une classe de contexte qui peut se connecter à votre base de données (SQL Server)
   - Inspirez-vous de ce que vous avez fait en POO et en BD pour utiliser un fichier `appsettings.json`
-- En utilisant SSMS, allez créer la base de données `municipalites`, créez la table `municipalites`ainsi que les colonnes correspontes à vos propriétés de votre DTO
-- Validez que votre base de données à la bonne structure.
+- En utilisant SSMS, allez créer la base de données `municipalites`, créez la table `municipalites` ainsi que les colonnes correspondantes à vos propriétés de votre DTO
+- Validez que votre base de données a la bonne structure.
+
+Conseils de modélisation:
+
+- Utilisez le code géographique comme clé primaire ou, à minima, comme index unique.
+- Typage conseillé: `int` pour le code, `string` pour nom/courriel/site, `DateOnly?` (ou `DateTime?`) pour la date des prochaines élections, `bool` pour `Actif`.
+- Configurez la chaîne de connexion via `appsettings.{Environment}.json`.
 
 ### Étape 3 - Lecture C# du fichier CSV
 
@@ -128,7 +151,25 @@ dotnet tool install --global dotnet-ef
     - Si la municipalité est existante, la mettre à jour seulement si nécessaire (ex. si inactive, l'activer)
     - Si la municipalité n'existe pas dans le fichier à importer, la marquer inactive
     - Suivant le cas, incrémentez le compteur correspondant
-    - À la fin du traitement, renvoie les statistiques
+  - À la fin du traitement, renvoie les statistiques
+
+Pseudo‑algorithme suggéré (fusion efficace):
+
+- Lire toutes les municipalités du fichier => `dictImport` indexé par code.
+- Charger toutes les municipalités de la base => `dictDb` indexé par code.
+- Pour chaque code de `dictImport`:
+  - si absent de `dictDb` => Ajouter (stat.Ajoutes++).
+  - sinon => comparer champs pertinents et l'état `Actif`:
+    - si différence ou inactif => Mettre à jour/Activer (stat.Modifies++).
+    - sinon => (stat.NonModifies++).
+- Pour chaque code de `dictDb` absent de `dictImport`:
+  - si `Actif` => `Actif=false` (stat.Desactives++).
+- `stat.MunicipalitesImportees = dictImport.Count`.
+
+Conseils:
+
+- Envisagez une transaction si vous faites des mises à jour en masse.
+- Journalisez les anomalies (lignes invalides, doublons) au lieu de planter le traitement.
 
 ### Étape 5 - Programme principal
 
@@ -137,9 +178,23 @@ dotnet tool install --global dotnet-ef
 
 ### Étape 6 - Tests unitaires
 
-- Faîtes vos tests unitaires de la classe de traitement en utilisant les packages "XUnit" et "Moq".
+- Faites vos tests unitaires de la classe de traitement en utilisant les packages "xUnit" et "Moq".
+
+Cas à couvrir (minimum):
+
+- Ajout d'une nouvelle municipalité
+- Réactivation d'une municipalité inactive
+- Mise à jour lorsqu'un champ diffère
+- Aucun changement (ligne identique)
+- Désactivation si absente du fichier
+- Gestion d'une ligne invalide (si implémenté)
+
+Outils/suggestions:
+
+- Isolez les dépôts avec des mocks (Moq) pour tester la logique de fusion.
 
 ## Exercice 2 - Lecture des municipalités - JSON (Optionnel)
 
-- Refaites les étapes 1 (Affichage texte seulement sans Excel) et 3 de l'exercice 1 mais avec le format JSON disponible à l'adresse suivante : https://www.donneesquebec.ca/recherche/api/action/datastore_search?resource_id=19385b4e-5503-4330-9e59-f998f5918363&limit=3000. Pour désérialiser le fichier téléchargé, vous devez utiliser la méthode de la bibliothéque standard de .Net [Sytem.Text.Json.JsonSerializer.Deserialize](https://learn.microsoft.com/en-us/dotnet/api/system.text.json.jsonserializer.deserialize)
+- Refaites les étapes 1 (affichage texte seulement, sans Excel) et 3 de l'exercice 1 mais avec le format JSON disponible à l'adresse suivante : [API Données Québec - Répertoire des municipalités](https://www.donneesquebec.ca/recherche/api/action/datastore_search?resource_id=19385b4e-5503-4330-9e59-f998f5918363&limit=3000). Pour désérialiser le fichier téléchargé, vous devez utiliser la méthode de la bibliothèque standard de .NET [System.Text.Json.JsonSerializer.Deserialize](https://learn.microsoft.com/en-us/dotnet/api/system.text.json.jsonserializer.deserialize).
+- Note: l'API renvoie une enveloppe de type CKAN; les enregistrements sont généralement dans `result.records`.
 - Modifiez votre programme principal afin qu'il utilise maintenant le dépôt de type JSON pour faire vos exécutions.

@@ -14,12 +14,12 @@ Voici un diagramme de classes qui peut vous inspirer :
 - Ajoutez le projet `M03_Web_Municipalites_REST01` de type "ASP.NET Core Web App (Model-View-Controller)" :
   - Choisissez le modèle général "ASP.NET Core Web App (Model-View-Controller)"
 - Ajoutez les dépendances nécessaires pour que le projet puisse accéder à la base de données :
-  - Ajoutez le package Nuget "Microsoft.EntityFrameworkCore.SqlServer"
+  - Ajoutez le package NuGet "Microsoft.EntityFrameworkCore.SqlServer"
   - Ajoutez les références vers le projet qui contient les entités et le projet qui contient la couche d'accès aux données SQL
-  - Configurez le moteur d'injection de dépendances pour que le contexte de données soit injecté dans les contrôleurs
-  - Ajoutez le fichier `appsettings.json` pour configurer la connexion à la base de données
-  - Faites la même chose pour le dépôt de municipalités
-- Ajoutez le support de Swagger en ajoutant le package Nuget "NSwag.AspNetCore" et en modifiant la classe "Program".
+  - Configurez l'injection de dépendances pour que le DbContext soit injecté dans les contrôleurs (AddDbContext)
+  - Ajoutez le fichier `appsettings.json` pour configurer la connexion à la base de données ("DefaultConnection")
+  - Enregistrez le dépôt de municipalités dans DI (AddScoped)
+- Ajoutez le support de Swagger en ajoutant le package NuGet "NSwag.AspNetCore" et en modifiant la classe "Program".
 - Dans la couche service, ajoutez une classe de manipulation de municipalités :
   - Les municipalités sont définies comme dans les modules précédents
   - Le dépôt de municipalités est injecté dans le constructeur
@@ -28,22 +28,28 @@ Voici un diagramme de classes qui peut vous inspirer :
     - De créer / modifier une municipalité
     - De supprimer une municipalité (suppression logique)
 - Dans le projet Web, Ajoutez le contrôleur d'API "MunicipalitesController" :
-  - Faites un clic droit sur le répertoire "Controller" de votre projet
+  - Faites un clic droit sur le répertoire "Controllers" de votre projet
   - Choisissez "Ajouter" puis "Contrôleur"
   - Choisissez "Contrôleur d'API avec actions de lecture/écriture" (Attention vous devez valider que c'est bien le contrôleur d'API et non le contrôleur MVC)
   - Appelez le contrôleur (la classe) "MunicipalitesController"
-  - Ajustez chaque action pour qu'elles renvoient des "ActionResult" comme présenté dans la démonstration
-  - Validez que vous renvoyez bien les codes HTTP appropriés et donnés dans la démonstration (Voir la démonstration présente dans la vidéo ou dans les répertoires de démonstration `DSED_Module03_Preparation_Cours_XYZ`)
+  - Ajustez chaque action pour qu'elle renvoie `ActionResult<T>`
+  - Validez que vous renvoyez bien les codes HTTP appropriés: 201 (Created) avec `CreatedAtAction` lors d'une création, 204 (NoContent) pour une suppression/modification sans contenu, 404 (NotFound) si la ressource est absente
 - Testez votre API à travers les pages d'exploration d'API de Swagger
 
 ### Exercice 1.2 - Client console
 
 - Créez une nouvelle solution à partir d'une nouvelle instance de Visual Studio (ie, votre solution précédente est toujours disponible)
-- Créez le code C# client à partir de NSwag Studio
+- Générez le code C# client à partir de NSwag Studio
 - Écrivez un programme qui :
   - Liste les municipalités et affiche leurs noms sur la console
   - Modifie le nom de la municipalité de Québec pour "Quebecq" ([retour aux sources de 1601](https://fr.wikipedia.org/wiki/Québec_(ville)#Toponymie))
 ***Avant de tester votre programme et de générer le code client, n'oubliez pas de valider que votre API est bien en cours d'exécution dans l'autre instance de Visual Studio***
+
+Notes utiles pour le client généré :
+
+- Vérifiez et ajustez l'URL de base ([http://localhost:xxxx](http://localhost:xxxx))
+- Activez la désérialisation insensible à la casse si nécessaire (PropertyNameCaseInsensitive)
+- Gérez les erreurs HTTP (exceptions vs codes) et utilisez HttpClientFactory pour la durée de vie
 
 ## Exercice 2 - Ajout des élections (Optionnel)
 
@@ -58,7 +64,7 @@ Pour réaliser l'ajout des élections :
 
 - Ajoutez une table pour sauvegarder les élections (directement en SQL sans passer par les migrations d'entity framework : plus simple à réaliser)
 - Ajoutez le support d'élections :
-  - Modifiez votre "ApplicationDbContext" et les classes alentours pour ajouter la nouvelle table 
+  - Modifiez votre "ApplicationDbContext" et les classes alentours pour ajouter la nouvelle table
   - Ajouter le contrôleur d'API "ElectionsController". Il doit permettre les opérations de type CRUD sur les ressources de type "Election" à partir d'une municipalité (l'url doit inclure la municipalité)
   - Il doit y avoir un service spécifique aux municipalités et un pour les élections (ie deux classes dans le même projet)
   - La couche d'accès aux données utilise le même contexte applicatif
