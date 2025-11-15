@@ -4,6 +4,7 @@
 #define MANUEL
 
 
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
@@ -16,6 +17,10 @@ builder.Services.AddScoped<MonApplication>();
 // Pour la configuration structuree
 builder.Services.AddOptions<ExempleConfigurationStructuree>()
     .Bind(builder.Configuration.GetSection("ConfigurationStructuree"));
+
+// Affichage de la chaine de connexion
+string? chaineConnexion = builder.Configuration.GetConnectionString("MaSuperChaine");
+Console.WriteLine($"Chaine de connexion : {chaineConnexion}");
 
 // Avec hosting
 #if UTILISER_HOSTING
