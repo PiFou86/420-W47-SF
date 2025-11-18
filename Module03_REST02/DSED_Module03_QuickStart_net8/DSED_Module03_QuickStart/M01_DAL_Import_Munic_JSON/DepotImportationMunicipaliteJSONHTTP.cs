@@ -7,39 +7,18 @@ using M01_Entite;
 
 namespace M01_DAL_Import_Munic_JSON
 {
-    public class DepotImportationMunicipaliteJSON : IDepotImportationMunicipalites
+    public class DepotImportationMunicipaliteJSONHTTP : IDepotImportationMunicipalites
     {
-        private string m_nomFichierAImporter;
+        private string m_uri;
 
-        public DepotImportationMunicipaliteJSON(IOptions<ConfigurationImportationMunicipalites> depotImportationMunicipaliteOptions)
-            : this(depotImportationMunicipaliteOptions.Value.Uri)
+        public DepotImportationMunicipaliteJSONHTTP(IOptions<ConfigurationImportationMunicipalites> depotImportationMunicipaliteOptions)
         {
-            ;
-        }
-
-        public DepotImportationMunicipaliteJSON(string? p_nomFichierAImporter)
-        {
-            if (string.IsNullOrWhiteSpace(p_nomFichierAImporter))
-            {
-                throw new ArgumentOutOfRangeException(nameof(p_nomFichierAImporter));
-            }
-
-            if (!File.Exists(p_nomFichierAImporter))
-            {
-                throw new InvalidOperationException($"Impossible de trouver le fichier {p_nomFichierAImporter}");
-            }
-
-            if (Path.GetExtension(p_nomFichierAImporter) != ".json")
-            {
-                throw new InvalidOperationException($"Le fichier {p_nomFichierAImporter} n'est pas un fichier JSON.");
-            }
-
-            this.m_nomFichierAImporter = p_nomFichierAImporter;
+            this.m_uri = depotImportationMunicipaliteOptions.Value.Uri;
         }
 
         public IEnumerable<Municipalite> LireMunicipalites()
         {
-            string json = LireContenuURI(this.m_nomFichierAImporter);
+            string json = LireContenuURI(this.m_uri);
             Rootobject? root = JsonSerializer.Deserialize<Rootobject>(json);
 
             return root!.result!.records!.Select(m =>
@@ -56,7 +35,14 @@ namespace M01_DAL_Import_Munic_JSON
 
         protected virtual string LireContenuURI(string uri)
         {
-            return File.ReadAllText(this.m_nomFichierAImporter);
+            using HttpClient httpClient = new HttpClient();
+            Task<HttpResponseMessage> responseTask = httpClient.GetAsync(uri);
+            responseTask.Wait();
+            HttpResponseMessage response = responseTask.Result;
+            response.EnsureSuccessStatusCode();
+            Task<string> contentTask = response.Content.ReadAsStringAsync();
+            contentTask.Wait();
+            return contentTask.Result;
         }
 
         public class Rootobject

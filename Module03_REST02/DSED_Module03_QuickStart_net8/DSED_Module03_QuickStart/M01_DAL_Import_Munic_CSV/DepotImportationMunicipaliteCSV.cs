@@ -15,8 +15,8 @@ namespace M01_DAL_Import_Munic_CSV
 
         private string m_nomFichierAImporter;
 
-        public DepotImportationMunicipaliteCSV(IOptions<DepotImportationMunicipaliteOptions> depotImportationMunicipaliteOptions)
-            : this(depotImportationMunicipaliteOptions.Value.FilePath)
+        public DepotImportationMunicipaliteCSV(IOptions<ConfigurationImportationMunicipalites> depotImportationMunicipaliteOptions)
+            : this(depotImportationMunicipaliteOptions.Value.Uri)
         {
             ;
         }
