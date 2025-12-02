@@ -103,7 +103,7 @@ exports.onExecutePostLogin = async (event, api) => {
 
 - Dans votre base de données, créez la table "ClefAPI" avec la clef primaire "ClefAPIId" de type Guid ou VARCHAR(140) si le type Guid n'existe pas
 - De retour dans votre projet, créez la classe "ClefAPI" qui permet de stocker des clefs API de type "Guid"
-- À partir de la classe "ApplicationDbContext", ajoutez la propriété table "ClefsAPIs" de type "DbSet\<ClefAPI>"
+- À partir de la classe "MunicipaliteContextSQLServer", ajoutez la propriété table "ClefsAPIs" de type "DbSet\<ClefAPI>"
 - Modifiez votre dépot afin de pouvoir valider l'existance d'une clef API dans la table éponyme clef API
 - Modifiez le filtre d'authentification afin de valider la clef, non pas à partir de votre constante mais à partir du dépot. Inspirez-vous du code qui suit pour obtenir le dépôt
 - Validez que le tout fonctionne
