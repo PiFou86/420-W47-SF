@@ -121,7 +121,19 @@ pfleon@pflmb > ~ > curl --request GET \
 
 Le résultat contient la liste des titres de l'album avec l'identifiant `4BVfh43LPsAtTYzjgzercl`. On retrouve aussi la pagination avec le lien vers les données suivantes (`next`) et le total (`total`).
 
-### Exercice 2.2 - Création d'un MCP pour Spotify
+### Exercice 2.2 - Création d'un client API Spotify
+
+Reprenez le requête précédente et implémentez un client API Spotify en C# qui offre les fonctionnalités suivantes :
+
+- Récupérer un token d'accès (Bearer Token) à partir du Client ID et du Client Secret
+- Rechercher un artiste par son nom
+- Récupérer les albums d'un artiste à partir de son identifiant Spotify
+- Récupérer les noms des albums d'un artiste à partir de son identifiant Spotify
+- Récupérer les titres d'un album à partir de son identifiant Spotify
+
+***Si vous avez passé plus de 3h sur l'API de Spotify, utilisez le code source fourni dans le répertoire `api_spotify_exemple` pour continuer l'exercice.***
+
+### Exercice 2.3 - Création d'un MCP pour Spotify
 
 Votre mission est de créer un MCP qui offre les fonctionnalités suivantes :
 
@@ -132,7 +144,7 @@ Votre mission est de créer un MCP qui offre les fonctionnalités suivantes :
 
 Pour réaliser cet exercice, vous devez modifier la solution de l'exercice 1 `mcpservertest01` et la modifier. Pour réaliser l'exercice, écrivez les outils un par un et testez-les avant de passer à l'outil suivant.
 
-### Exercice 2.3 - Testez votre MCP Spotify dans un chatbot
+### Exercice 2.4 - Testez votre MCP Spotify dans un chatbot
 
 Dans cet exercice vous allez pouvoir tester votre MCP Spotify dans un chatbot vocal. Pour cela, vous devez télécharger le projet "chatrealtime" présent à la racine de ce répertoire. Ce projet est une application ASP.NET Core MVC écrit par Claude Sonnet 4.5 qui permet de créer un chatbot vocal en utilisant le service d'OpenAI et d'un connecter des MCPs.
 

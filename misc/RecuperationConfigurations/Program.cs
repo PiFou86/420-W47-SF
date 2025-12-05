@@ -20,7 +20,10 @@ builder.Services.AddOptions<ExempleConfigurationStructuree>()
 
 // Affichage de la chaine de connexion
 string? chaineConnexion = builder.Configuration.GetConnectionString("MaSuperChaine");
-Console.WriteLine($"Chaine de connexion : {chaineConnexion}");
+Console.Out.WriteLine($"Chaine de connexion : {chaineConnexion}");
+
+string? clefConfigurationSimple = builder.Configuration["ClefConfigurationSimple"];
+Console.Out.WriteLine($"Clef configuration simple : {clefConfigurationSimple}");
 
 // Avec hosting
 #if UTILISER_HOSTING
