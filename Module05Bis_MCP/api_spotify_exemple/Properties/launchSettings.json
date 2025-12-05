@@ -1,0 +1,10 @@
+﻿{
+  "profiles": {
+    "api_spotify_exemple": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

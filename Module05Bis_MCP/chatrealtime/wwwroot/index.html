@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat IA en Temps Réel</title>
+    
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Configuration Tailwind personnalisée -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'github-canvas': '#ffffff',
+                        'github-canvas-subtle': '#f6f8fa',
+                        'github-border': '#d0d7de',
+                        'github-text': '#24292f',
+                        'github-text-secondary': '#57606a',
+                        'github-accent': '#0969da',
+                        'github-success': '#1a7f37',
+                        'github-danger': '#cf222e',
+                        'github-btn-hover': '#f3f4f6',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-50 min-h-screen font-sans antialiased">
+    <div class="flex items-center justify-center min-h-screen p-4">
+        <div class="w-full max-w-5xl bg-white rounded-lg border border-gray-200 shadow-sm flex flex-col h-[90vh] max-h-[800px]">
+            
+            <!-- Header -->
+            <header class="border-b border-gray-200 px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h1 class="text-xl font-semibold text-gray-900">Chat IA en Temps Réel</h1>
+                        <p class="text-sm text-gray-600 mt-1">Discutez avec votre assistant vocal</p>
+                    </div>
+                    <div class="text-2xl">💬</div>
+                </div>
+            </header>
+
+            <!-- Controls Panel -->
+            <div class="border-b border-gray-200 bg-gray-50 px-6 py-4">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    
+                    <!-- Microphone Select -->
+                    <div class="space-y-2">
+                        <label for="microphone-select" class="flex items-center gap-2 text-sm font-medium text-gray-700">
+                            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+                                <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                                <line x1="12" y1="19" x2="12" y2="23"></line>
+                                <line x1="8" y1="23" x2="16" y2="23"></line>
+                            </svg>
+                            Microphone
+                        </label>
+                        <select id="microphone-select" 
+                                class="w-full px-3 py-2 text-sm border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            <option value="">Sélectionnez un microphone...</option>
+                        </select>
+                    </div>
+
+                    <!-- Audio Toggle & Playback Speed -->
+                    <div class="space-y-2">
+                        <label for="playback-speed" class="flex items-center gap-2 text-sm font-medium text-gray-700">
+                            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                            </svg>
+                            Vitesse: <span id="speed-value" class="text-blue-600 font-semibold">1.0x</span>
+                        </label>
+                        <input type="range" id="playback-speed" 
+                               class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-blue-600"
+                               min="0.5" max="2.0" step="0.1" value="1.0">
+                        <div class="flex justify-between text-xs text-gray-500">
+                            <span>0.5x</span>
+                            <span>1.0x</span>
+                            <span>1.5x</span>
+                            <span>2.0x</span>
+                        </div>
+                        
+                        <!-- Audio Toggle Button -->
+                        <button id="toggle-audio" 
+                                class="w-full mt-2 px-3 py-2 bg-green-600 text-white text-xs font-medium rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 transition-colors flex items-center justify-center gap-2">
+                            <span id="audio-icon">🔊</span>
+                            <span id="audio-status-text">Audio activé</span>
+                        </button>
+                    </div>
+
+                    <!-- Toggle Button & Status -->
+                    <div class="space-y-2">
+                        <button id="toggle-listening" disabled
+                                class="w-full px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2">
+                            <span class="btn-icon">🎤</span>
+                            <span class="btn-text">Démarrer l'écoute</span>
+                        </button>
+                        
+                        <div id="status" class="flex items-center gap-2 px-3 py-2 bg-white border border-gray-200 rounded-md">
+                            <span class="status-indicator w-2 h-2 rounded-full bg-gray-400"></span>
+                            <span class="status-text text-xs font-medium text-gray-600">Prêt</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Chat Container -->
+            <div class="flex-1 overflow-hidden flex flex-col">
+                <div id="messages" class="flex-1 overflow-y-auto px-6 py-4 space-y-3">
+                    
+                    <!-- Welcome Message -->
+                    <div class="welcome-message text-center py-16 px-4">
+                        <div class="text-5xl mb-4">👋</div>
+                        <h2 class="text-xl font-semibold text-gray-900 mb-2">Bienvenue !</h2>
+                        <p class="text-sm text-gray-600">Sélectionnez un microphone et commencez à parler avec l'IA.</p>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Text Input Area -->
+            <div class="border-t border-gray-200 bg-white px-6 py-4">
+                <div class="flex gap-3 items-end">
+                    <div class="flex-1">
+                        <textarea id="text-input" 
+                                  placeholder="Tapez votre message ici... (Entrée pour envoyer, Shift+Entrée pour une nouvelle ligne)"
+                                  rows="2"
+                                  class="w-full px-4 py-3 text-sm border border-gray-300 rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"></textarea>
+                    </div>
+                    <button id="send-text-button"
+                            class="px-6 py-3 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors flex items-center gap-2 whitespace-nowrap">
+                        <span>Envoyer</span>
+                        <span>📤</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="border-t border-gray-200 bg-gray-50 px-6 py-3">
+                <div class="flex items-center justify-center gap-3 text-xs text-gray-600">
+                    <span id="message-count">0 messages</span>
+                    <span class="text-gray-400">•</span>
+                    <span id="duration">00:00</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script type="module">
+        // Import SoundTouch as ES6 module
+        import { SoundTouch, SimpleFilter } from 'https://cdn.jsdelivr.net/npm/soundtouchjs@0.1.30/dist/soundtouch.min.js';
+        
+        // Make it globally available
+        window.SoundTouch = SoundTouch;
+        window.SimpleFilter = SimpleFilter;
+        
+        console.log('✅ SoundTouch chargé:', typeof SoundTouch);
+        console.log('✅ SimpleFilter chargé:', typeof SimpleFilter);
+    </script>
+    <script src="app.js"></script>
+</body>
+</html>

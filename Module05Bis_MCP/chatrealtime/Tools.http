@@ -1,0 +1,73 @@
+### Chat Realtime - Tools API Testing
+### Ces requêtes vous permettent de tester les endpoints HTTP des outils MCP
+
+@baseUrl = http://localhost:5166
+
+### 1. Liste de tous les outils disponibles
+GET {{baseUrl}}/api/tools
+Accept: application/json
+
+### 2. Météo à Paris (raccourci GET)
+GET {{baseUrl}}/api/tools/weather/Paris
+Accept: application/json
+
+### 3. Météo à Londres en Fahrenheit
+GET {{baseUrl}}/api/tools/weather/London?unit=fahrenheit
+Accept: application/json
+
+### 4. Météo à Tokyo (méthode POST générique)
+POST {{baseUrl}}/api/tools/get_weather
+Content-Type: application/json
+
+{
+  "location": "Tokyo",
+  "unit": "celsius"
+}
+
+### 5. Heure à Paris (raccourci GET)
+GET {{baseUrl}}/api/tools/time/Europe_Paris
+Accept: application/json
+
+### 6. Heure à New York (raccourci GET)
+GET {{baseUrl}}/api/tools/time/America_New_York
+Accept: application/json
+
+### 7. Heure à Tokyo (méthode POST générique)
+POST {{baseUrl}}/api/tools/get_time
+Content-Type: application/json
+
+{
+  "timezone": "Asia/Tokyo"
+}
+
+### 8. Calculatrice - Addition
+POST {{baseUrl}}/api/tools/calculate
+Content-Type: application/json
+
+{
+  "expression": "2 + 2"
+}
+
+### 9. Calculatrice - Expression complexe
+POST {{baseUrl}}/api/tools/calculate
+Content-Type: application/json
+
+{
+  "expression": "(10 + 5) * 3 - 8"
+}
+
+### 10. Erreur - Outil inexistant
+POST {{baseUrl}}/api/tools/non_existent_tool
+Content-Type: application/json
+
+{
+  "test": "value"
+}
+
+### 11. Erreur - Paramètre manquant
+POST {{baseUrl}}/api/tools/get_weather
+Content-Type: application/json
+
+{
+  "unit": "celsius"
+}

@@ -1,0 +1,117 @@
+/* Custom styles for chat application - Minimal CSS for Tailwind */
+
+/* Smooth scrollbar styling */
+.messages::-webkit-scrollbar {
+    width: 8px;
+}
+
+.messages::-webkit-scrollbar-track {
+    background: #f6f8fa;
+}
+
+.messages::-webkit-scrollbar-thumb {
+    background: #d0d7de;
+    border-radius: 4px;
+}
+
+.messages::-webkit-scrollbar-thumb:hover {
+    background: #57606a;
+}
+
+/* Status indicator states */
+.status.ready .status-indicator {
+    background-color: #1a7f37;
+}
+
+.status.listening .status-indicator {
+    background-color: #cf222e;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 50%, 100% { opacity: 1; }
+    25%, 75% { opacity: 0.3; }
+}
+
+/* Button listening state */
+.btn-toggle.listening {
+    background-color: #cf222e;
+}
+
+.btn-toggle.listening:hover {
+    background-color: #a40e26;
+}
+
+.btn-toggle.listening .btn-icon {
+    animation: microphone-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes microphone-pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+/* Message animations */
+.message {
+    animation: slideIn 0.2s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Typing indicator */
+.typing-indicator {
+    display: flex;
+    gap: 4px;
+    padding: 8px 0;
+}
+
+.typing-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #57606a;
+    animation: typing 1.4s infinite;
+}
+
+.typing-dot:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.typing-dot:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes typing {
+    0%, 60%, 100% {
+        opacity: 0.3;
+        transform: translateY(0);
+    }
+    30% {
+        opacity: 1;
+        transform: translateY(-6px);
+    }
+}
+
+/* Message transcribing state */
+.message.transcribing .message-text {
+    opacity: 0.6;
+    font-style: italic;
+}
+
+/* Hide welcome message when chat starts */
+.messages:has(.message) .welcome-message {
+    display: none;
+}
