@@ -54,16 +54,13 @@ Votre mission est de créer un MCP simple qui offre les fonctionnalités suivant
 - Une ressource qui contient les noms de vos joueurs sportifs préférés ou de vos chanteurs préférés
 - Répond aux pings du client MCP
 
-Pour réaliser cet exercice, vous devez créer la nouvelle solution "M05_MCP_Ex1" Visual Studio avec un projet de type "ASP.NET Core Web API".
+Pour réaliser cet exercice, vous utiliser la solution `mcpservertest01` et la modifier. Pour réaliser l'exercice, écrivez les outils un par un et testez-les avant de passer à l'outil suivant.
 
-Allez-y par étape, en vous inspirant de la solution de démonstration du cours `mcpservertest01` :
+Indications pour ajouter un outil en modifiant la classe `ToolsHandler` dans le fichier `ToolsHandler.cs` :
 
-- Réponse à la demande de connexion
-- Réponse aux pings
-- Création des outils un par un
-- Création de la ressource
-
-**Après chaque étape, testez votre MCP avec le client MCP Inspector.**
+- Modifiez la méthode `HandleToolsListAsync` pour déclarer un outil en suivant la déclaration de l'outil en exemple
+- Modifiez la méthode `HandleToolsCallAsync` pour implémenter la logique de l'outil en suivant l'implémentation de l'outil en exemple
+- Testez chaque outil avec le client MCP Inspector avant de passer à l'outil suivant
 
 ## Exercice 2 - Connectons nous à l'API de Spotify
 
@@ -74,7 +71,7 @@ Dans cet exercice, nous allons créer un MCP qui se connecte à l'API publique d
 - Allez sur le site de Spotify pour développeurs : [https://developer.spotify.com/dashboard/applications](https://developer.spotify.com/dashboard/applications)
 - Créez une nouvelle application
 - Récupérez votre Client ID et votre Client Secret
-- Reproduire les étapes de l'exemple de requêtes Spotify ci-dessous pour valider que vous pouvez bien récupérer un token d'accès et faire des requêtes à l'API de Spotify et que vous comprenez le fonctionnement de l'API REST de Spotify
+- Reproduire les étapes de l'exemple de requêtes Spotify ci-dessous pour valider que vous pouvez bien récupérer un token d'accès et faire des requêtes à l'API de Spotify et que vous comprenez le fonctionnement de l'API REST de Spotify. Si curl n'est pas installé sur votre machine, vous pouvez utiliser Postman ou un autre outil similaire.
 
 Exemple de séquence d'appels à l'API de Spotify pour récupérer un token d'accès et faire des requêtes :
 
@@ -86,6 +83,8 @@ pfleon@pflmb > ~ > curl -X POST "https://accounts.spotify.com/api/token" \
      -d "grant_type=client_credentials&client_id=fb58ee<...>d4c5aec&client_secret=cfd0b7<...>f00a79ef"
 {"access_token":"BQBSG5<...>YwCQ","token_type":"Bearer","expires_in":3600}                               
 ```
+
+(-d est l'abréviation de --data)
 
 `client_id` et `client_secret` sont à remplacer par vos propres valeurs qui se trouvent dans le tableau de bord de votre application Spotify (Ce ne sont pas non plus mes valeurs, elles sont remplacées par du aléatoire raccourci).
 
@@ -131,4 +130,11 @@ Votre mission est de créer un MCP qui offre les fonctionnalités suivantes :
 - Un outil qui permet de récupérer les noms des albums d'un artiste à partir de son identifiant Spotify
 - Un outil qui permet de récupérer les titres d'un album à partir de son identifiant Spotify
 
-Pour réaliser cet exercice, vous devez créer la nouvelle solution "M05_MCP_Ex2Spotify" Visual Studio avec un projet de type "ASP.NET Core Web API".
+Pour réaliser cet exercice, vous devez modifier la solution de l'exercice 1 `mcpservertest01` et la modifier. Pour réaliser l'exercice, écrivez les outils un par un et testez-les avant de passer à l'outil suivant.
+
+### Exercice 2.3 - Testez votre MCP Spotify dans un chatbot
+
+Dans cet exercice vous allez pouvoir tester votre MCP Spotify dans un chatbot vocal. Pour cela, vous devez télécharger le projet "chatrealtime" présent à la racine de ce répertoire. Ce projet est une application ASP.NET Core MVC écrit par Claude Sonnet 4.5 qui permet de créer un chatbot vocal en utilisant le service d'OpenAI et d'un connecter des MCPs.
+
+- Ouvrez le projet "chatrealtime" avec Visual Studio 2022 ou Visual Studio Code
+- Validez que votre serveur MCP est configuré dans le fichier `appsettings.json` pour ajouter la configuration de votre MCP Spotify.
