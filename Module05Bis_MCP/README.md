@@ -10,6 +10,8 @@ Pour chaque séance de cours, lancez l'outils client de test de MCPs d'Anthropic
 docker run --rm -p 6274:6274 -e HOST=0.0.0.0 -e ALLOWED_ORIGINS=http://127.0.0.1:6274,http://localhost:6274 -p 6277:6277 --network bridge ghcr.io/modelcontextprotocol/inspector:latest
 ```
 
+***Si vous avez l'erreur "docker: Error message from daemon: error from registry: denied", il faut vous authenfier sur le dépot d'images de GitHub en tapant la commande `docker login ghcr.io`. Comme nom d'utilisateur, fournissez votre nom de compte GibHub, comme mot de passe, allez créer un PAT (Personnel Access Token) dans votre compte GitHub.***
+
 Le conteneur Docker va démarrer et afficher des informations sur la console. Il écoute sur toutes ses interfaces (`0.0.0.0`) sur le port `6274`. Vous pouvez vous connecter avec votre navigateur web aux adresses `http://localhost:6274` ou `http://127.0.0.1:6274`. J'ai mis l'interface bridge : si vous voulez y accéder depuis une autre machine, vous devez utiliser l'adresse IP de votre machine hôte et surtout ajouter cette adresse IP dans la variable d'environnement `ALLOWED_ORIGINS`.
 
 Le site se protège avec un token d'authentification. Le token est affiché sur la console au démarrage du conteneur Docker. Pour vous connecter sur le client MCP, copiez l'adresse URL affichée sur la console, par exemple :
