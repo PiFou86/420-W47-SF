@@ -133,6 +133,56 @@ Reprenez le requête précédente et implémentez un client API Spotify en C# qu
 - Récupérer les noms des albums d'un artiste à partir de son identifiant Spotify
 - Récupérer les titres d'un album à partir de son identifiant Spotify
 
+```csharp
+// Extrait de code pour faire la requête d'authentification
+string authString = $"{_options.ClientId}:{_options.ClientSecret}";
+string base64Auth = Convert.ToBase64String(Encoding.UTF8.GetBytes(authString));
+
+using HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, _options.TokenUrl);
+request.Headers.Authorization = new AuthenticationHeaderValue("Basic", base64Auth);
+request.Content = new FormUrlEncodedContent(new[]
+{
+    new KeyValuePair<string, string>("grant_type", "client_credentials")
+});
+
+HttpResponseMessage response = await _httpClient.SendAsync(request);
+response.EnsureSuccessStatusCode();
+
+string content = await response.Content.ReadAsStringAsync();
+SpotifyToken tokenResponse = JsonSerializer.Deserialize<SpotifyToken>(content);
+
+// Extrait SpotifyToken
+public class SpotifyToken
+{
+    [JsonPropertyName("access_token")]
+    public string AccessToken { get; set; } = string.Empty;
+
+    [JsonPropertyName("token_type")]
+    public string TokenType { get; set; } = string.Empty;
+
+    [JsonPropertyName("expires_in")]
+    public int ExpiresIn { get; set; }
+}
+```
+
+```csharp
+// Extrait code pour une requête GET
+string token = await GetValidTokenAsync();
+
+using HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, endpoint);
+request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
+HttpResponseMessage response = await _httpClient.SendAsync(request);
+
+if (!response.IsSuccessStatusCode)
+{
+    // ...
+    return default;
+}
+
+string content = await response.Content.ReadAsStringAsync();
+```
+
 ***Si vous avez passé plus de 3h sur l'API de Spotify, utilisez le code source fourni dans le répertoire `api_spotify_exemple` pour continuer l'exercice.***
 
 ### Exercice 2.3 - Création d'un MCP pour Spotify
