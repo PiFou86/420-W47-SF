@@ -13,7 +13,6 @@ builder.Services.AddControllers();
 
 WebApplication app = builder.Build();
 
-// Mapper les contrôleurs (API Spotify)
 app.MapControllers();
 
 // Endpoint MCP principal
