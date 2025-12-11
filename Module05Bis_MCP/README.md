@@ -54,9 +54,10 @@ Votre mission est de créer un MCP simple qui offre les fonctionnalités suivant
   - Mettre en minuscule une chaîne de caractères
   - Compter le nombre de caractères dans une chaîne de caractères
 - Une ressource qui contient les noms de vos joueurs sportifs préférés ou de vos chanteurs préférés
-- Répond aux pings du client MCP
 
 Pour réaliser cet exercice, vous utiliser la solution `mcpservertest01` et la modifier. Pour réaliser l'exercice, écrivez les outils un par un et testez-les avant de passer à l'outil suivant.
+
+<img width="610" height="168" alt="image" src="https://github.com/user-attachments/assets/8d7ad7c3-2f8b-469c-836c-32520f9e4f99" />
 
 Indications pour ajouter un outil en modifiant la classe `ToolsHandler` dans le fichier `ToolsHandler.cs` :
 
@@ -128,10 +129,9 @@ Le résultat contient la liste des titres de l'album avec l'identifiant `4BVfh43
 Reprenez le requête précédente et implémentez un client API Spotify en C# qui offre les fonctionnalités suivantes :
 
 - Récupérer un token d'accès (Bearer Token) à partir du Client ID et du Client Secret
-- Rechercher un artiste par son nom
-- Récupérer les albums d'un artiste à partir de son identifiant Spotify
-- Récupérer les noms des albums d'un artiste à partir de son identifiant Spotify
-- Récupérer les titres d'un album à partir de son identifiant Spotify
+- Rechercher un artiste par son nom et renvoie son nom et son identifiant
+- Récupérer les albums (ids + noms) d'un artiste à partir de son identifiant Spotify
+- Récupérer les titres (ids + titres) d'un album à partir de son identifiant Spotify
 
 ```csharp
 // Extrait de code pour faire la requête d'authentification
@@ -191,14 +191,17 @@ Votre mission est de créer un MCP qui offre les fonctionnalités suivantes :
 
 - Un outil qui permet de recherche un artiste par son nom
 - Un outil qui permet de récupérer les albums d'un artiste à partir de son identifiant Spotify
-- Un outil qui permet de récupérer les noms des albums d'un artiste à partir de son identifiant Spotify
 - Un outil qui permet de récupérer les titres d'un album à partir de son identifiant Spotify
+
+<img width="737" height="163" alt="image" src="https://github.com/user-attachments/assets/6570c2d1-2293-4c38-8100-3219bdc3fc99" />
 
 Pour réaliser cet exercice, vous devez modifier la solution de l'exercice 1 `mcpservertest01` et la modifier. Pour réaliser l'exercice, écrivez les outils un par un et testez-les avant de passer à l'outil suivant.
 
 ### Exercice 2.4 - Testez votre MCP Spotify dans un chatbot
 
 Dans cet exercice vous allez pouvoir tester votre MCP Spotify dans un chatbot vocal. Pour cela, vous devez télécharger le projet "chatrealtime" présent à la racine de ce répertoire. Ce projet est une application ASP.NET Core MVC écrit par Claude Sonnet 4.5 qui permet de créer un chatbot vocal en utilisant le service d'OpenAI et d'un connecter des MCPs.
+
+<img width="754" height="128" alt="image" src="https://github.com/user-attachments/assets/b8c5ac0d-754a-42ff-a679-ff25dd6f83df" />
 
 - Ouvrez le projet "chatrealtime" avec Visual Studio 2022 ou Visual Studio Code
 - Validez que votre serveur MCP est configuré dans le fichier `appsettings.json` pour ajouter la configuration de votre MCP Spotify.
