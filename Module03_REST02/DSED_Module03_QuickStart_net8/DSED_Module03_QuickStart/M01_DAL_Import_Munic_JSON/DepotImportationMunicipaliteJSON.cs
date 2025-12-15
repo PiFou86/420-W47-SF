@@ -40,7 +40,7 @@ namespace M01_DAL_Import_Munic_JSON
         public IEnumerable<Municipalite> LireMunicipalites()
         {
             string json = LireContenuURI(this.m_nomFichierAImporter);
-            Rootobject? root = JsonSerializer.Deserialize<Rootobject>(json);
+            RootObject? root = JsonSerializer.Deserialize<RootObject>(json);
 
             return root!.result!.records!.Select(m =>
                 new Municipalite(
@@ -59,7 +59,7 @@ namespace M01_DAL_Import_Munic_JSON
             return File.ReadAllText(this.m_nomFichierAImporter);
         }
 
-        public class Rootobject
+        public class RootObject
         {
             public Result? result { get; set; }
         }
