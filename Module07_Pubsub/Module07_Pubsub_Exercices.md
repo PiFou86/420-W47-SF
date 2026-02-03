@@ -46,4 +46,4 @@ Tout au long de l'exercice, je vous conseille de prendre le schéma suivant et d
 - Créez une classe enveloppe qui a minimalement un Id de type Guid, une action, une entité et des données (ex : une Commande).
 - Modifiez les programmes précédents afin de tenir compte de cette nouvelle contrainte.
 - Implentez une signature (optionnel 2 : voir module 6).
-- Implémentez un type générique à la place de Commande.
+- Implémentez un type générique à la place de Commande dans l'enveloppe.
