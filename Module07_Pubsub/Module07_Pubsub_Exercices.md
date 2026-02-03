@@ -40,3 +40,9 @@ Tout au long de l'exercice, je vous conseille de prendre le schéma suivant et d
 - Créez le projet "DSED_M07_TraitementCommande_CourrielsPremium" de type "console"
 - Ce programme doit lier l'échange "m07-commandes" à la file de messages "m07-courriel-premium" et accepter tous les messages dont le sujet est  "commande.placee.premium"
 - À la réception d'un message, il affiche sur la console "Commande premium" suivi du numéro de référence de la commande.
+
+### Exercice 1.6 (Optionnel) - Ajout d'une enveloppe lors de la production du message
+
+- Créez une classe enveloppe qui a minimalement un Id de type Guid, une action, une entité et des données (ex : une Commande).
+- Modifiez les programmes précédents afin de tenir compte de cette novuelle contrainte.
+- Implentez une signature (optionnel 2 : voir module 6).
